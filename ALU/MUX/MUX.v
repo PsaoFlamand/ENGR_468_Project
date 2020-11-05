@@ -4,7 +4,7 @@ input [31:0] in1, in2, in3, in4, in5, in6, in7, in8, in9, in10, in11, in12, in13
 input [3:0] sel;
 output [31:0] out;
 
-reg [31:0] reg;
+reg [31:0] out;
 
 always @*
 begin
