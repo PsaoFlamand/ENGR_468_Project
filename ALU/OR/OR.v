@@ -1,8 +1,14 @@
-module OR(x, y, out);
+module OR(In1, In2, Result, Flag, S, New_Flag);
 
-input [31:0] x,y;
-output [31:0] out;
+input signed [31:0] In1,In2;
+input [3:0] Flag;
+input S;
+output signed [31:0] Result;
+output New_Flag;
+wire Carry;
 
-assign out = a | b;
+assign {Carry, Result} = In1 | In2;
+
+SET_FLAG set(In1, In2, Result, Flag, S, New_Flag, Carry);
 
 endmodule
