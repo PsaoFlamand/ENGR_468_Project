@@ -1,4 +1,4 @@
-module Test_RSR;	//[N, Z, C, V}]
+module Test_LSL;	//[N, Z, C, V}]
 reg [31:0] In1;
 reg signed [3:0] In2;
 reg S;
@@ -20,7 +20,7 @@ initial
 begin
 $monitor($time, " In1.=%b, In2.=%b, Result=%b, Flag=%b", In1, In2, Result, New_Flag);
 end
-RSR #(4) rsr(In1, In2, Result,Flag,S,New_Flag);
+LSL #(4) lsl(In1, In2, Result,Flag,S,New_Flag);
 
 endmodule
 
