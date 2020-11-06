@@ -10,23 +10,23 @@ always @*
 begin
     
     case(sel)
-        4b'0000: out = in1;
-        4b'0001: out = in2;
-        4b'0010: out = in3;
-        4b'0011: out = in4;
-        4b'0100: out = in5;
-        4b'0101: out = in6;
-        4b'0110: out = in7;
-        4b'0111: out = in8;
-        4b'1000: out = in9;
-        4b'1001: out = in10;
-        4b'1010: out = in11;
-        4b'1011: out = in12;
-        4b'1100: out = in13;
-        4b'1101: out = in14;
-        4b'1110: out = in15;
-        4b'1111: out = in16;
-        default: 32b'x;
+        4'b0000: out = in1;
+        4'b0001: out = in2;
+        4'b0010: out = in3;
+        4'b0011: out = in4;
+        4'b0100: out = in5;
+        4'b0101: out = in6;
+        4'b0110: out = in7;
+        4'b0111: out = in8;
+        4'b1000: out = in9;
+        4'b1001: out = in10;
+        4'b1010: out = in11;
+        4'b1011: out = in12;
+        4'b1100: out = in13;
+        4'b1101: out = in14;
+        4'b1110: out = in15;
+        4'b1111: out = in16;
+        default: out = 32'bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx;
     endcase
 
 end
