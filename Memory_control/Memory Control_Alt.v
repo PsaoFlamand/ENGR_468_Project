@@ -17,8 +17,8 @@ always @*
 				begin
 					LDR=1;
 					RW=1;
-					Address_bus ab(SR1, pc, LDR, STR, add_bus);
-					LDR_mux ld(LDR, data_reg, data_bus,alu_result);
+					Address_bus AB1(SR1, pc, LDR, STR, add_bus);
+					LDR_mux LD1(LDR, data_reg, data_bus,alu_result);
 				end
 			4'b1110:
 				begin
