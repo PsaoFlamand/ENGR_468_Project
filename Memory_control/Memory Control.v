@@ -15,10 +15,31 @@ always @*
 
 begin 
 if(op_code==4'b1101)   //LDR
-initial
+
 begin
 LDR=1;
 RW=1;
+//Address_bus AB1(SR1, pc, LDR, STR, add_bus);
+//LDR_mux LD1(LDR, data_reg, data_bus,alu_result);
+end
+
+else if (op_code==4'b1110)//STR
+
+begin
+
+STR=1;
+RW=0;
+data_bus=SR2;
+//Address_bus AD2 (SR1, pc, LDR, STR, add_bus);
+end 
+
+end 
+/////////////////////////////////////////////////////////////////////Calling Instances
+begin 
+if(op_code==4'b1101)   //LDR
+initial
+begin
+
 Address_bus AB1(SR1, pc, LDR, STR, add_bus);
 LDR_mux LD1(LDR, data_reg, data_bus,alu_result);
 end
@@ -27,14 +48,13 @@ else if (op_code==4'b1110)//STR
 initial
 begin
 
-STR=1;
-RW=0;
-data_bus=SR2;
+
 Address_bus AD2 (SR1, pc, LDR, STR, add_bus);
 end 
-
 else 
 PC_access PC1(Clk, Reset, pc);
 
 end 
 endmodule 
+
+
