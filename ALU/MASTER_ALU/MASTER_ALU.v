@@ -40,17 +40,17 @@ begin
         4'b0111: MOV mov(Reg1, Reg2);
         4'b1000: 
         begin
-            LSR lsr(Reg2, IV, Result, Flag, S, New_Flag);
+            LSR #(4) lsr(Reg2, IV, Result, Flag, S, New_Flag);
             MOV mov(Reg1, Result);
         end
         4'b1001: 
         begin
-            LSL lsl(Reg2, IV, Result, Flag, S, New_Flag);
+            LSL #(4) lsl(Reg2, IV, Result, Flag, S, New_Flag);
             MOV mov(Reg1, Result);
         end
         4'b1010: 
         begin
-            ROR lsl(Reg2, IV, Result, Flag, S, New_Flag);
+            ROR #(4) lsl(Reg2, IV, Result, Flag, S, New_Flag);
             MOV mov(Reg1, Result)
         end
         4'b1011: SET_FLAG set(Reg1, Reg2, Result, Flag, S, New_Flag);
