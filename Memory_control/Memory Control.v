@@ -15,6 +15,7 @@ always @*
 
 begin 
 if(op_code==4'b1101)   //LDR
+initial
 begin
 LDR=1;
 RW=1;
@@ -23,6 +24,7 @@ LDR_mux LD1(LDR, data_reg, data_bus,alu_result);
 end
 
 else if (op_code==4'b1110)//STR
+initial
 begin
 
 STR=1;
