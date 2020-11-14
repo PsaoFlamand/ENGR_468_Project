@@ -24,7 +24,7 @@ RW=0;
 Address_bus;
 
 else 
-PC_access
+PC_access;
 end 
 //LDR_mux(LDR, address,
 endmodule 
