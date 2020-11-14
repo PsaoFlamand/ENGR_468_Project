@@ -1,0 +1,12 @@
+// pc instruction access, part of memory control 
+//8 bit counter 
+
+module PC_access (Clk, Reset, Count);
+input Clk, Reset;
+output reg[7:0] Count;
+always @(posedge Clk)
+if (! Reset)
+Count=8'b00000000;
+else
+Count = Count+1;
+endmodule
