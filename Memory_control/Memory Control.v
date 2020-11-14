@@ -9,6 +9,7 @@ output reg [31:0] data_reg, add_bus, data_bus;
 
 
 always @*
+
 begin 
 if(op_code==4'b1101)   //LDR
 begin
@@ -19,9 +20,12 @@ LDR_mux;
 end
 
 else if (op_code==4'b1110)//STR
+begin
+
 STR=1;
 RW=0;
 Address_bus;
+end 
 
 else 
 PC_access;
