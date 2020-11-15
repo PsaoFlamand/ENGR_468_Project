@@ -8,26 +8,6 @@ input [7:0]pc;
 input Clk, Reset;
 output reg LDR,STR, RW;
 output reg [31:0] data_reg, add_bus, data_bus;
-integer op=op_code;
-
-generate
-
-		case(op_code)
-			4'b1101:
-				begin
-					Address_bus #(4'b1101) AB1(SR1, pc, LDR, STR, add_bus);
-					LDR_mux #(4'b1101) LD1(LDR, data_reg, data_bus,alu_result);
-
-				end
-			4'b1110:
-				begin
-					Address_bus #(4'b1110) AD2 (SR1, pc, LDR, STR, add_bus);
-
-				end
-			default: PC_access PC1(Clk, Reset, pc);
-		endcase
-
-endgenerate
 
 always @*
 
@@ -37,20 +17,22 @@ always @*
 				begin
 					LDR=1;
 					RW=1;
-					//Address_bus AB1(SR1, pc, LDR, STR, add_bus);
-					//LDR_mux LD1(LDR, data_reg, data_bus,alu_result);
+
 				end
 			4'b1110:
 				begin
 					STR=1;
 					RW=0;
 					data_bus=SR2;
-					//Address_bus AD2 (SR1, pc, LDR, STR, add_bus);
+
 				end
-			//default: PC_access PC1(Clk, Reset, pc);
+			//default: 
 		endcase
 	end
-control #(op) con(SR1, SR2, STR, LDR, RW, data_reg, add_bus, data_bus,pc,alu_result,Clk, Reset);
+//Address_bus AD2 (SR1, pc, LDR, STR, add_bus); // Maybe we don't need this one
+Address_bus AB1(SR1, pc, LDR, STR, add_bus);
+LDR_mux LD1(LDR, data_reg, data_bus,alu_result);
+PC_access PC1(Clk, Reset, pc);
 endmodule
 
 
