@@ -16,13 +16,13 @@
 `include "../CMP/CMP.v"
 
 module MASTER_ALU(Reg1, Reg2, IV, OpCode, Cond, S, Result, Flag, New_Flag);
-input [31:0] Reg1, Reg2;
+input signed [31:0] Reg1, Reg2;
 input [15:0] IV;
 input [3:0] OpCode;
 input [3:0] Cond;
 input S;
 input [3:0] Flag;
-output [31:0] Result;
+output signed [31:0] Result;
 output [3:0] New_Flag;
 
 //Wires for in1 and in2
@@ -40,7 +40,7 @@ in1_ROR, in2_ROR,
 in1_CMP, in2_CMP;
 
 //wires for Result
-wire [31:0] result_ADD, result_AND, result_CMP, result_LSL, 
+wire signed [31:0] result_ADD, result_AND, result_CMP, result_LSL, 
 result_LSR, result_MUL, result_OR, result_ROR, result_SUB, result_XOR;
 
 //wires for Flags
@@ -51,38 +51,14 @@ wire s_ADD, s_AND, s_CMP, s_LSL, s_LSR, s_MUL, s_OR, s_ROR, s_SUB, s_XOR;
 
 //wires for New_Flag
 wire [3:0] newflag_ADD, newflag_AND, newflag_CMP, newflag_LSL,
-newflag_LSR, newflag_MUL, newflag_OR, newflag_ROR, newflag_SUB, newflag_XOR
+newflag_LSR, newflag_MUL, newflag_OR, newflag_ROR, newflag_SUB, newflag_XOR;
 
-reg [31:0] Result;
-reg [3:0] Flag;
+wire [15:0] iv_LSL, iv_LSR, iv_ROR;
+
+
 
 //Instantiating modules depending on OpCodes
-ADD Add(in1_ADD, in2_ADD, result_ADD, flag_ADD, s_ADD, newflag_ADD);
 
-SUB Sub(in1_SUB, in2_SUB, result_SUB, flag_SUB, s_SUB, newflag_SUB);
-
-MUL Mul(in1_MUL, in2_MUL, result_MUL, flag_MUL, s_MUL, newflag_MUL);
-
-OR Orr(in1_OR, in2_OR, result_OR, flag_OR, s_OR, newflag_OR);
-
-AND And(in1_AND, in2_AND, result_AND, flag_AND, s_AND, newflag_AND);
-
-XOR Xor(in1_XOR, in2_XOR, result_XOR, flag_XOR, s_XOR, newflag_XOR);
-
-MOV mov(in1_MOVn, in2_MOVn);
-
-MOV mov(in1_MOV, in2_MOV);
-
-LSR #(4) lsr(in2_LSR, iv_LSR, result_LSR, flag_LSR, s_LSR, newflag_LSR);
-MOV mov(in1_LSR, result_LSR);
-
-LSL #(4) lsl(in2_LSL, iv_LSL, result_LSL, flag_LSL, s_LSL, newflag_LSL);
-MOV mov(in1_LSL, result_LSL);
-
-ROR #(4) ror(in2_ROR, iv_ROR, result_ROR, flag_ROR, s_ROR, newflag_ROR);
-MOV mov(in1_ROR, result_ROR)
-
-CMP cmp(in1_CMP, in1_CMP, result_CMP, flag_CMP, s_CMP, newflag_CMP);
 
 always @*
 begin
@@ -190,13 +166,27 @@ begin
             s_CMP = 1'b1;
             newflag_CMP = New_Flag;
         end
-        4'b1100: 
+        //4'b1100: 
         //4'b1101://Part of memory control LDR
         //4'b1110://Part of memory control STR
-        4'b1111:
-        default: 
+        //4'b1111:
+        //default:s_CMP=0;//lolol, not actually 
     endcase
     
 end
-
+ADD Add(in1_ADD, in2_ADD, result_ADD, flag_ADD, s_ADD, newflag_ADD);
+SUB Sub(in1_SUB, in2_SUB, result_SUB, flag_SUB, s_SUB, newflag_SUB);
+MUL Mul(in1_MUL, in2_MUL, result_MUL, flag_MUL, s_MUL, newflag_MUL);
+OR Orr(in1_OR, in2_OR, result_OR, flag_OR, s_OR, newflag_OR);
+AND And(in1_AND, in2_AND, result_AND, flag_AND, s_AND, newflag_AND);
+XOR Xor(in1_XOR, in2_XOR, result_XOR, flag_XOR, s_XOR, newflag_XOR);
+MOV mov(in1_MOVn, in2_MOVn);
+MOV mov1(in1_MOV, in2_MOV);
+LSR #(4) lsr(in2_LSR, iv_LSR, result_LSR, flag_LSR, s_LSR, newflag_LSR);
+MOV mov2(in1_LSR, result_LSR);
+LSL #(4) lsl(in2_LSL, iv_LSL, result_LSL, flag_LSL, s_LSL, newflag_LSL);
+MOV mov3(in1_LSL, result_LSL);
+ROR #(4) ror(in2_ROR, iv_ROR, result_ROR, flag_ROR, s_ROR, newflag_ROR);
+MOV mov4(in1_ROR, result_ROR);
+CMP cmp(in1_CMP, in2_CMP, flag_CMP, s_CMP, newflag_CMP);
 endmodule
