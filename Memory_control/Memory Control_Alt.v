@@ -13,13 +13,13 @@ always @*
 
 	begin 
 		case(op_code)
-			4'b1101:
+			4'b1101: //LDR
 				begin
 					LDR=1;
 					RW=1;
 
 				end
-			4'b1110:
+			4'b1110://STR
 				begin
 					STR=1;
 					RW=0;
@@ -33,10 +33,9 @@ always @*
 Address_bus AB1(SR1, pc, LDR, STR, add_bus);
 LDR_mux LD1(LDR, data_reg, data_bus,alu_result);
 PC_access PC1(Clk, Reset, pc);
+RAM ram(Enable,RW,Address,In,Out);
 endmodule
 
-
-/////////////////////////////////////////////////////////////////////Calling Instances
 
 
 
