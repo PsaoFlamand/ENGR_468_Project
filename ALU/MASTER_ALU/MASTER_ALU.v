@@ -174,14 +174,18 @@ begin
             s_CMP = 1'b1;
             New_Flag=newflag_CMP;
         end
-        //4'b1100: 
+        //4'b1100: //ADR
         //4'b1101://Part of memory control LDR
         //4'b1110://Part of memory control STR
         //4'b1111:
     else #0;
     
 end
-//CONDITIONAL con(COND,in1_CON, in2_CON,Execute_con);
+//initial
+//begin
+//$monitor($time, " Execute_con=%b ", Execute_con);
+//end
+CONDITIONAL con(in1_CON, in2_CON, COND, Flag, Execute_con);
 
 ADD Add(in1_ADD, in2_ADD, result_ADD, flag_ADD, s_ADD, newflag_ADD);
 SUB Sub(in1_SUB, in2_SUB, result_SUB, flag_SUB, s_SUB, newflag_SUB);
