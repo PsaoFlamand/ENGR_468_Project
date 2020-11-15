@@ -35,11 +35,12 @@ in1_MOV, in2_MOV,
 in1_LSL, in2_LSL,
 in1_LSR, in2_LSR,
 in1_ROR, in2_ROR,
-in1_CMP, in2_CMP;
+in1_CMP, in2_CMP,
+in1_CON, in2_CON;
 
 //wires for Result
 wire signed [31:0] result_ADD, result_AND, result_CMP, result_LSL, 
-result_LSR, result_MUL, result_OR, result_ROR, result_SUB, result_XOR;
+result_LSR, result_MUL, result_OR, result_ROR, result_SUB, result_XOR,out2_MOVn,out2_MOV;
 
 //wires for Flags
 reg [3:0] flag_ADD, flag_AND, flag_CMP, flag_LSL, flag_LSR, flag_MUL, flag_OR, flag_ROR, flag_SUB, flag_XOR;
@@ -53,6 +54,7 @@ newflag_LSR, newflag_MUL, newflag_OR, newflag_ROR, newflag_SUB, newflag_XOR;
 
 reg [15:0] iv_LSL, iv_LSR, iv_ROR;
 
+wire Execute_con=1'b0;
 
 
 //Instantiating modules depending on OpCodes
@@ -60,8 +62,7 @@ reg [15:0] iv_LSL, iv_LSR, iv_ROR;
 
 always @*
 begin
-    case (OpCode)
-        4'b0000: 
+	if (OpCode==4'b0000 && Execute_con==1'b1)
         begin
             in1_ADD = Reg1;
             in2_ADD = Reg2;
@@ -71,7 +72,7 @@ begin
 			Result=result_ADD;
             New_Flag=newflag_ADD;
         end
-        4'b0001: 
+		else if (OpCode==4'b0001 && Execute_con==1'b1)
         begin
             in1_SUB = Reg1;
             in2_SUB = Reg2;
@@ -81,7 +82,7 @@ begin
 			Result=result_SUB;
             New_Flag=newflag_SUB;
         end
-        4'b0010: 
+        else if (OpCode==4'b0010 && Execute_con==1'b1)
         begin
             in1_MUL = Reg1;
             in2_MUL = Reg2;
@@ -91,7 +92,7 @@ begin
 			Result=result_MUL;
             New_Flag=newflag_MUL;
         end
-        4'b0011: 
+        else if (OpCode==4'b0011 && Execute_con==1'b1) //OR
         begin
             in1_OR = Reg1;
             in2_OR = Reg2;
@@ -101,7 +102,7 @@ begin
 			Result=result_OR;
             New_Flag=newflag_OR;
         end
-        4'b0100: 
+        else if (OpCode==4'b0100 && Execute_con==1'b1) //AND
         begin
             in1_AND = Reg1;
             in2_AND = Reg2;
@@ -111,7 +112,7 @@ begin
 			Result=result_AND;
             New_Flag=newflag_AND;
         end
-        4'b0101: 
+        else if (OpCode==4'b0101 && Execute_con==1'b1) //XOR
         begin
             in1_XOR = Reg1;
             in2_XOR = Reg2;
@@ -121,17 +122,17 @@ begin
 			Result=result_XOR;
             New_Flag=newflag_XOR;
         end
-        4'b0110: 
+        else if (OpCode==4'b0110 && Execute_con==1'b1)  //MOVn
         begin
-            in1_MOVn = Reg1;
-            in2_MOVn = IV;
+            in1_MOV = Reg1;
+            in2_MOV = IV;
         end
-        4'b0111: 
+        else if (OpCode==4'b0111 && Execute_con==1'b1) //MOV
         begin
             in1_MOV = Reg1;
             in2_MOV = Reg2;
         end
-        4'b1000: 
+        else if (OpCode==4'b1000 && Execute_con==1'b1) //LSR
         begin
             in1_LSR = Reg1;
             in2_LSR = Reg2;
@@ -142,7 +143,7 @@ begin
 			Result=result_LSR;
             New_Flag=newflag_LSR;
         end
-        4'b1001: 
+        else if (OpCode==4'b1001 && Execute_con==1'b1) //LSL
         begin
             in1_LSL = Reg1;
             in2_LSL = Reg2;
@@ -153,7 +154,7 @@ begin
 			Result=result_LSL;
             New_Flag=newflag_LSL;
         end
-        4'b1010: 
+        else if (OpCode==4'b1010 && Execute_con==1'b1) //ROR
         begin
             in1_ROR = Reg1;
             in2_ROR = Reg2;
@@ -164,7 +165,7 @@ begin
 			Result=result_ROR;
             New_Flag=newflag_ROR;
         end
-        4'b1011: 
+        else if (OpCode==4'b1011 && Execute_con==1'b1) //CMP
         begin
             in1_CMP = Reg1;
             in2_CMP = Reg2;
@@ -177,23 +178,26 @@ begin
         //4'b1101://Part of memory control LDR
         //4'b1110://Part of memory control STR
         //4'b1111:
-        //default:s_CMP=0;//lolol, not actually 
-    endcase
+        else #0;
     
 end
+//CONDITIONAL con(COND,in1_CON, in2_CON,Execute_con);
+
 ADD Add(in1_ADD, in2_ADD, result_ADD, flag_ADD, s_ADD, newflag_ADD);
 SUB Sub(in1_SUB, in2_SUB, result_SUB, flag_SUB, s_SUB, newflag_SUB);
 MUL Mul(in1_MUL, in2_MUL, result_MUL, flag_MUL, s_MUL, newflag_MUL);
 OR Orr(in1_OR, in2_OR, result_OR, flag_OR, s_OR, newflag_OR);
 AND And(in1_AND, in2_AND, result_AND, flag_AND, s_AND, newflag_AND);
 XOR Xor(in1_XOR, in2_XOR, result_XOR, flag_XOR, s_XOR, newflag_XOR);
-//MOV mov(in1_MOVn, in2_MOVn);
-//MOV mov1(in1_MOV, in2_MOV);
 LSR #(5) lsr(in2_LSR, iv_LSR, result_LSR, flag_LSR, s_LSR, newflag_LSR);
-MOV mov2(in1_LSR, result_LSR);
 LSL #(5) lsl(in2_LSL, iv_LSL, result_LSL, flag_LSL, s_LSL, newflag_LSL);
-MOV mov3(in1_LSL, result_LSL);
+
 ROR #(5) ror(in2_ROR, iv_ROR, result_ROR, flag_ROR, s_ROR, newflag_ROR);
-MOV mov4(in1_ROR, result_ROR);
 CMP cmp(in1_CMP, in2_CMP, flag_CMP, s_CMP, newflag_CMP);
+MOV mov(in1_MOVn, out2_MOV);
+//MOV mov1(in1_MOV, out2_MOV);
+//MOV mov2(in1_LSR, result_LSR);
+//MOV mov3(in1_LSL, result_LSL);
+//MOV mov4(in1_ROR, result_ROR);
+//
 endmodule

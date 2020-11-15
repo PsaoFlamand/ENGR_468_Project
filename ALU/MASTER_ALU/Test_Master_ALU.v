@@ -16,11 +16,11 @@ Reg1=32'b01100000000000000000000000000000; Reg2=32'b0010000000000000000000000000
 #10 Reg1=5; Reg2=7; IV=0; OpCode=4'b0010; Cond=0; S=1;
 #10 Reg1=5; Reg2=7; IV=0; OpCode=4'b0011; Cond=0; S=1;
 #10 Reg1=5; Reg2=7; IV=0; OpCode=4'b0000; Cond=0; S=1;
-#10 Reg1=5; Reg2=7; IV=0; OpCode=4'b0000; Cond=0; S=1;
+#10 Reg1=5; Reg2=70; IV=0; OpCode=4'b0000; Cond=0; S=1;
 end
 initial
 begin
-$monitor($time, " In1.=%d, In2.=%d, Result=%d, Flag=%b", Reg1, Reg2, Result, New_Flag);
+$monitor($time, " In1.=%d, In2.=%d, Result=%d, Flag=%b, OpCode=%b ", Reg1, Reg2, Result, New_Flag,OpCode);
 end
 
 MASTER_ALU master(Reg1, Reg2, IV, OpCode, Cond, S, Result, Flag, New_Flag);
