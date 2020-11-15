@@ -43,5 +43,3 @@ LDR_mux LD1(LDR, mux_out,data_ram,alu_result); //mux_out is the output of this m
 RAM RAM1(Enable, RW, Address, In, Out);
 PC_access PC1(Clk, Reset, pc);
 endmodule
-
-
