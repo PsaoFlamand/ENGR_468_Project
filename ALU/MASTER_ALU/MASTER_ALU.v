@@ -189,11 +189,11 @@ AND And(in1_AND, in2_AND, result_AND, flag_AND, s_AND, newflag_AND);
 XOR Xor(in1_XOR, in2_XOR, result_XOR, flag_XOR, s_XOR, newflag_XOR);
 //MOV mov(in1_MOVn, in2_MOVn);
 //MOV mov1(in1_MOV, in2_MOV);
-LSR #(4) lsr(in2_LSR, iv_LSR, result_LSR, flag_LSR, s_LSR, newflag_LSR);
+LSR #(5) lsr(in2_LSR, iv_LSR, result_LSR, flag_LSR, s_LSR, newflag_LSR);
 MOV mov2(in1_LSR, result_LSR);
-LSL #(4) lsl(in2_LSL, iv_LSL, result_LSL, flag_LSL, s_LSL, newflag_LSL);
+LSL #(5) lsl(in2_LSL, iv_LSL, result_LSL, flag_LSL, s_LSL, newflag_LSL);
 MOV mov3(in1_LSL, result_LSL);
-ROR #(4) ror(in2_ROR, iv_ROR, result_ROR, flag_ROR, s_ROR, newflag_ROR);
+ROR #(5) ror(in2_ROR, iv_ROR, result_ROR, flag_ROR, s_ROR, newflag_ROR);
 MOV mov4(in1_ROR, result_ROR);
 CMP cmp(in1_CMP, in2_CMP, flag_CMP, s_CMP, newflag_CMP);
 endmodule
