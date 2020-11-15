@@ -1,17 +1,17 @@
-`include "../ADD/ADD.v"
-`include "../AND/AND.v"
-`include "../COUNTER/COUNTER.v"
-`include "../LSL/LSL.v"
-`include "../LSR/LSR.v"
-`include "../MOV/MOV.v"
-`include "../MUL/MUL.v"
-`include "../MUX/MUX.v"
-`include "../OR/OR.v"
-`include "../ROR/ROR.v"
-`include "../SET_FLAG/SET_FLAG.v"
-`include "../SUB/SUB.v"
-`include "../XOR/XOR.v"
-`include "../CMP/CMP.v"
+//`include "../ADD/ADD.v"
+//`include "../AND/AND.v"
+//`include "../COUNTER/COUNTER.v"
+//`include "../LSL/LSL.v"
+//`include "../LSR/LSR.v"
+//`include "../MOV/MOV.v"
+//`include "../MUL/MUL.v"
+//`include "../MUX/MUX.v"
+//`include "../OR/OR.v"
+//`include "../ROR/ROR.v"
+//`include "../SET_FLAG/SET_FLAG.v"
+//`include "../SUB/SUB.v"
+//`include "../XOR/XOR.v"
+//`include "../CMP/CMP.v"
 
 module MASTER_ALU(Reg1, Reg2, IV, OpCode, Cond, S, Result, Flag, New_Flag);
 input signed [31:0] Reg1, Reg2;
@@ -38,7 +38,7 @@ in1_ROR, in2_ROR,
 in1_CMP, in2_CMP;
 
 //wires for Result
-reg signed [31:0] result_ADD, result_AND, result_CMP, result_LSL, 
+wire signed [31:0] result_ADD, result_AND, result_CMP, result_LSL, 
 result_LSR, result_MUL, result_OR, result_ROR, result_SUB, result_XOR;
 
 //wires for Flags
@@ -48,7 +48,7 @@ reg [3:0] flag_ADD, flag_AND, flag_CMP, flag_LSL, flag_LSR, flag_MUL, flag_OR, f
 reg s_ADD, s_AND, s_CMP, s_LSL, s_LSR, s_MUL, s_OR, s_ROR, s_SUB, s_XOR;
 
 //wires for New_Flag
-reg [3:0] newflag_ADD, newflag_AND, newflag_CMP, newflag_LSL,
+wire [3:0] newflag_ADD, newflag_AND, newflag_CMP, newflag_LSL,
 newflag_LSR, newflag_MUL, newflag_OR, newflag_ROR, newflag_SUB, newflag_XOR;
 
 reg [15:0] iv_LSL, iv_LSR, iv_ROR;
@@ -56,8 +56,26 @@ reg [15:0] iv_LSL, iv_LSR, iv_ROR;
 
 
 //Instantiating modules depending on OpCodes
+assign result_ADD = Result;
+assign newflag_ADD = New_Flag;
+assign result_SUB = Result;
+assign newflag_SUB = New_Flag;
+assign result_MUL = Result;
+assign newflag_MUL = New_Flag;
+assign result_OR = Result;
+assign newflag_OR = New_Flag;
+assign result_AND = Result;
+assign newflag_AND = New_Flag;
+assign result_XOR = Result;
+assign newflag_XOR = New_Flag;
+assign result_LSR = Result;
+assign newflag_LSR = New_Flag;
+assign result_LSL = Result;
+assign newflag_LSL = New_Flag;
+assign result_ROR = Result;
+assign newflag_ROR = New_Flag;
 
-
+assign newflag_CMP = New_Flag;
 always @*
 begin
     case (OpCode)
@@ -65,55 +83,55 @@ begin
         begin
             in1_ADD = Reg1;
             in2_ADD = Reg2;
-            result_ADD = Result;
+            
             flag_ADD = Flag;
             s_ADD = S;
-            newflag_ADD = New_Flag;
+            
         end
         4'b0001: 
         begin
             in1_SUB = Reg1;
             in2_SUB = Reg2;
-            result_SUB = Result;
+            
             flag_SUB = Flag;
             s_SUB = S;
-            newflag_SUB = New_Flag;
+           
         end
         4'b0010: 
         begin
             in1_MUL = Reg1;
             in2_MUL = Reg2;
-            result_MUL = Result;
+            
             flag_MUL = Flag;
             s_MUL = S;
-            newflag_MUL = New_Flag;
+           
         end
         4'b0011: 
         begin
             in1_OR = Reg1;
             in2_OR = Reg2;
-            result_OR = Result;
+        
             flag_OR = Flag;
             s_OR = S;
-            newflag_OR = New_Flag;
+          
         end
         4'b0100: 
         begin
             in1_AND = Reg1;
             in2_AND = Reg2;
-            result_AND = Result;
+          
             flag_AND = Flag;
             s_AND = S;
-            newflag_AND = New_Flag;
+          
         end
         4'b0101: 
         begin
             in1_XOR = Reg1;
             in2_XOR = Reg2;
-            result_XOR = Result;
+         
             flag_XOR = Flag;
             s_XOR = S;
-            newflag_XOR = New_Flag;
+           
         end
         4'b0110: 
         begin
@@ -130,39 +148,39 @@ begin
             in1_LSR = Reg1;
             in2_LSR = Reg2;
             iv_LSR = IV;
-            result_LSR = Result;
+        
             flag_LSR = Flag;
             s_LSR = S;
-            newflag_LSR = New_Flag;
+     
         end
         4'b1001: 
         begin
             in1_LSL = Reg1;
             in2_LSL = Reg2;
             iv_LSL = IV;
-            result_LSL = Result;
+  
             flag_LSL = Flag;
             s_LSL = S;
-            newflag_LSL = New_Flag;
+  
         end
         4'b1010: 
         begin
             in1_ROR = Reg1;
             in2_ROR = Reg2;
             iv_ROR = IV;
-            result_ROR = Result;
+           
             flag_ROR = Flag;
             s_ROR = S;
-            newflag_ROR = New_Flag;
+           
         end
         4'b1011: 
         begin
             in1_CMP = Reg1;
             in2_CMP = Reg2;
-            result_CMP = Result;
+          
             flag_CMP = Flag;
             s_CMP = 1'b1;
-            newflag_CMP = New_Flag;
+           
         end
         //4'b1100: 
         //4'b1101://Part of memory control LDR
@@ -178,8 +196,8 @@ MUL Mul(in1_MUL, in2_MUL, result_MUL, flag_MUL, s_MUL, newflag_MUL);
 OR Orr(in1_OR, in2_OR, result_OR, flag_OR, s_OR, newflag_OR);
 AND And(in1_AND, in2_AND, result_AND, flag_AND, s_AND, newflag_AND);
 XOR Xor(in1_XOR, in2_XOR, result_XOR, flag_XOR, s_XOR, newflag_XOR);
-MOV mov(in1_MOVn, in2_MOVn);
-MOV mov1(in1_MOV, in2_MOV);
+//MOV mov(in1_MOVn, in2_MOVn);
+//MOV mov1(in1_MOV, in2_MOV);
 LSR #(4) lsr(in2_LSR, iv_LSR, result_LSR, flag_LSR, s_LSR, newflag_LSR);
 MOV mov2(in1_LSR, result_LSR);
 LSL #(4) lsl(in2_LSL, iv_LSL, result_LSL, flag_LSL, s_LSL, newflag_LSL);
