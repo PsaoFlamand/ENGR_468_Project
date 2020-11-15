@@ -191,8 +191,8 @@ begin
             newflag_CMP = New_Flag;
         end
         4'b1100: 
-        4'b1101:
-        4'b1110:
+        //4'b1101://Part of memory control LDR
+        //4'b1110://Part of memory control STR
         4'b1111:
         default: 
     endcase
