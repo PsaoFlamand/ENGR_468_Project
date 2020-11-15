@@ -6,8 +6,6 @@
 `include "../MOV/MOV.v"
 `include "../MUL/MUL.v"
 `include "../MUX/MUX.v"
-`include "../ADD/ADD.v"
-`include "../ADD/ADD.v"
 `include "../OR/OR.v"
 `include "../ROR/ROR.v"
 `include "../SET_FLAG/SET_FLAG.v"
@@ -26,7 +24,7 @@ output signed [31:0] Result;
 output [3:0] New_Flag;
 
 //Wires for in1 and in2
-wire [31:0] in1_ADD, in2_ADD, 
+reg [31:0] in1_ADD, in2_ADD, 
 in1_SUB, in2_SUB, 
 in1_MUL, in2_MUL, 
 in1_OR, in2_OR, 
@@ -40,20 +38,20 @@ in1_ROR, in2_ROR,
 in1_CMP, in2_CMP;
 
 //wires for Result
-wire signed [31:0] result_ADD, result_AND, result_CMP, result_LSL, 
+reg signed [31:0] result_ADD, result_AND, result_CMP, result_LSL, 
 result_LSR, result_MUL, result_OR, result_ROR, result_SUB, result_XOR;
 
 //wires for Flags
-wire [3:0] flag_ADD, flag_AND, flag_CMP, flag_LSL, flag_LSR, flag_MUL, flag_OR, flag_ROR, flag_SUB, flag_XOR;
+reg [3:0] flag_ADD, flag_AND, flag_CMP, flag_LSL, flag_LSR, flag_MUL, flag_OR, flag_ROR, flag_SUB, flag_XOR;
 
 //wires for S
-wire s_ADD, s_AND, s_CMP, s_LSL, s_LSR, s_MUL, s_OR, s_ROR, s_SUB, s_XOR;
+reg s_ADD, s_AND, s_CMP, s_LSL, s_LSR, s_MUL, s_OR, s_ROR, s_SUB, s_XOR;
 
 //wires for New_Flag
-wire [3:0] newflag_ADD, newflag_AND, newflag_CMP, newflag_LSL,
+reg [3:0] newflag_ADD, newflag_AND, newflag_CMP, newflag_LSL,
 newflag_LSR, newflag_MUL, newflag_OR, newflag_ROR, newflag_SUB, newflag_XOR;
 
-wire [15:0] iv_LSL, iv_LSR, iv_ROR;
+reg [15:0] iv_LSL, iv_LSR, iv_ROR;
 
 
 
