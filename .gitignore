@@ -2,3 +2,4 @@
 Memory_control/Controller.v
 Memory_control/Memory Control_Alt.v
 Memory_control/Memory Control_Alt.v
+ALU/MASTER_ALU/MASTER_ALU.v
