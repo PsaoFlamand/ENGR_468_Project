@@ -1,5 +1,4 @@
-
-module memory_control_4(SR1, SR2, op_code, RW, address_out, reg_data, LDR, STR ,LDR_out,STR_in,Counter, Reset,Clk,pc,alu_result);
+module memory_control(SR1, SR2, op_code, RW, address_out, reg_data, LDR, STR ,LDR_out,STR_in,Counter, Reset,Clk,pc,alu_result);
 input [31:0] SR1, SR2;
 input [3:0] op_code;
 input Reset, Clk;
@@ -13,9 +12,7 @@ wire mux_out, address_input;
 wire add_bus;
 output reg [7:0] pc;
 
-
 always @(posedge Clk) 
-//always @*
 
  case(op_code)
 	4'b1101: //LDR
@@ -23,9 +20,9 @@ always @(posedge Clk)
 		LDR=1;
 		STR=0;
 		RW=1;
-		address_out= SR1; //assign the output of address bus (mux) to address_out
+		address_out= SR1; 
 		reg_data=LDR_out;			
-	end
+	end 
 	4'b1110: //STR
 	begin
 		LDR=0;
@@ -35,7 +32,7 @@ always @(posedge Clk)
 		STR_in=SR2;
 		reg_data=alu_result;
 	end
-	default: 
+	default: //Instructions other than LDR or STR, PC instructions 
 	begin 
 	LDR=0;
 	STR=0;
