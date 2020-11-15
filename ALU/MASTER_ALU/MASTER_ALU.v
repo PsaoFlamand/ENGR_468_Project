@@ -1,16 +1,16 @@
-`include "../ADD-P\'sao/ADD.v"
-`include "../AND-P\'sao/AND.v"
+`include "../ADD/ADD.v"
+`include "../AND/AND.v"
 `include "../COUNTER/COUNTER.v"
 `include "../LSL/LSL.v"
-`include "../LSR-P\'sao/LSR.v"
+`include "../LSR/LSR.v"
 `include "../MOV/MOV.v"
-`include "../MUL-P\'sao/MUL.v"
+`include "../MUL/MUL.v"
 `include "../MUX/MUX.v"
-`include "../ADD-P\'sao/ADD.v"
-`include "../ADD-P\'sao/ADD.v"
+`include "../ADD/ADD.v"
+`include "../ADD/ADD.v"
 `include "../OR/OR.v"
-`include "../ROR-P\'sao/ROR.v"
-`include "../SET_FLAG-P\'sao/SET_FLAG.v"
+`include "../ROR/ROR.v"
+`include "../SET_FLAG/SET_FLAG.v"
 `include "../SUB/SUB.v"
 `include "../XOR/XOR.v"
 `include "../CMP/CMP.v"
@@ -187,7 +187,7 @@ begin
             in2_CMP = Reg2;
             result_CMP = Result;
             flag_CMP = Flag;
-            s_CMP = S;
+            s_CMP = 1'b1;
             newflag_CMP = New_Flag;
         end
         4'b1100: 
