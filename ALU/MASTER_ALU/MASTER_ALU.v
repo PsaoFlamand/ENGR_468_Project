@@ -72,7 +72,7 @@ begin
 			Result=result_ADD;
             New_Flag=newflag_ADD;
         end
-		else if (OpCode==4'b0001 && Execute_con==1'b1)
+	else if (OpCode==4'b0001 && Execute_con==1'b1)
         begin
             in1_SUB = Reg1;
             in2_SUB = Reg2;
@@ -82,7 +82,7 @@ begin
 			Result=result_SUB;
             New_Flag=newflag_SUB;
         end
-        else if (OpCode==4'b0010 && Execute_con==1'b1)
+    else if (OpCode==4'b0010 && Execute_con==1'b1)
         begin
             in1_MUL = Reg1;
             in2_MUL = Reg2;
@@ -92,7 +92,7 @@ begin
 			Result=result_MUL;
             New_Flag=newflag_MUL;
         end
-        else if (OpCode==4'b0011 && Execute_con==1'b1) //OR
+    else if (OpCode==4'b0011 && Execute_con==1'b1) //OR
         begin
             in1_OR = Reg1;
             in2_OR = Reg2;
@@ -102,7 +102,7 @@ begin
 			Result=result_OR;
             New_Flag=newflag_OR;
         end
-        else if (OpCode==4'b0100 && Execute_con==1'b1) //AND
+    else if (OpCode==4'b0100 && Execute_con==1'b1) //AND
         begin
             in1_AND = Reg1;
             in2_AND = Reg2;
@@ -112,7 +112,7 @@ begin
 			Result=result_AND;
             New_Flag=newflag_AND;
         end
-        else if (OpCode==4'b0101 && Execute_con==1'b1) //XOR
+    else if (OpCode==4'b0101 && Execute_con==1'b1) //XOR
         begin
             in1_XOR = Reg1;
             in2_XOR = Reg2;
@@ -122,17 +122,17 @@ begin
 			Result=result_XOR;
             New_Flag=newflag_XOR;
         end
-        else if (OpCode==4'b0110 && Execute_con==1'b1)  //MOVn
+    else if (OpCode==4'b0110 && Execute_con==1'b1)  //MOVn
         begin
             in1_MOV = Reg1;
             in2_MOV = IV;
         end
-        else if (OpCode==4'b0111 && Execute_con==1'b1) //MOV
+    else if (OpCode==4'b0111 && Execute_con==1'b1) //MOV
         begin
             in1_MOV = Reg1;
             in2_MOV = Reg2;
         end
-        else if (OpCode==4'b1000 && Execute_con==1'b1) //LSR
+    else if (OpCode==4'b1000 && Execute_con==1'b1) //LSR
         begin
             in1_LSR = Reg1;
             in2_LSR = Reg2;
@@ -143,7 +143,7 @@ begin
 			Result=result_LSR;
             New_Flag=newflag_LSR;
         end
-        else if (OpCode==4'b1001 && Execute_con==1'b1) //LSL
+    else if (OpCode==4'b1001 && Execute_con==1'b1) //LSL
         begin
             in1_LSL = Reg1;
             in2_LSL = Reg2;
@@ -154,7 +154,7 @@ begin
 			Result=result_LSL;
             New_Flag=newflag_LSL;
         end
-        else if (OpCode==4'b1010 && Execute_con==1'b1) //ROR
+    else if (OpCode==4'b1010 && Execute_con==1'b1) //ROR
         begin
             in1_ROR = Reg1;
             in2_ROR = Reg2;
@@ -165,7 +165,7 @@ begin
 			Result=result_ROR;
             New_Flag=newflag_ROR;
         end
-        else if (OpCode==4'b1011 && Execute_con==1'b1) //CMP
+    else if (OpCode==4'b1011 && Execute_con==1'b1) //CMP
         begin
             in1_CMP = Reg1;
             in2_CMP = Reg2;
@@ -178,7 +178,7 @@ begin
         //4'b1101://Part of memory control LDR
         //4'b1110://Part of memory control STR
         //4'b1111:
-        else #0;
+    else #0;
     
 end
 //CONDITIONAL con(COND,in1_CON, in2_CON,Execute_con);
