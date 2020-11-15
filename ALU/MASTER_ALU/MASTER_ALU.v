@@ -51,38 +51,38 @@ wire s_ADD, s_AND, s_CMP, s_LSL, s_LSR, s_MUL, s_OR, s_ROR, s_SUB, s_XOR;
 
 //wires for New_Flag
 wire [3:0] newflag_ADD, newflag_AND, newflag_CMP, newflag_LSL,
- newflag_LSR, newflag_MUL, newflag_OR, newflag_ROR, newflag_SUB, newflag_XOR
+newflag_LSR, newflag_MUL, newflag_OR, newflag_ROR, newflag_SUB, newflag_XOR
 
 reg [31:0] Result;
 reg [3:0] Flag;
 
 //Instantiating modules depending on OpCodes
-ADD Add(Reg1, Reg2, Result, Flag, S, New_Flag);
+ADD Add(in1_ADD, in2_ADD, result_ADD, flag_ADD, s_ADD, newflag_ADD);
 
-SUB Sub(Reg1, Reg2, Result, Flag, S, New_Flag);
+SUB Sub(in1_SUB, in2_SUB, result_SUB, flag_SUB, s_SUB, newflag_SUB);
 
-MUL Mul(Reg1, Reg2, Result, Flag, S, New_Flag);
+MUL Mul(in1_MUL, in2_MUL, result_MUL, flag_MUL, s_MUL, newflag_MUL);
 
-OR Orr(Reg1, Reg2, Result, Flag, S, New_Flag);
+OR Orr(in1_OR, in2_OR, result_OR, flag_OR, s_OR, newflag_OR);
 
-AND And(Reg1, Reg2, Result, Flag, S, New_Flag);
+AND And(in1_AND, in2_AND, result_AND, flag_AND, s_AND, newflag_AND);
 
-XOR Xor(Reg1, Reg2, Result, Flag, S, New_Flag);
+XOR Xor(in1_XOR, in2_XOR, result_XOR, flag_XOR, s_XOR, newflag_XOR);
 
-MOV mov(Reg1, IV);
+MOV mov(in1_MOVn, in2_MOVn);
 
-MOV mov(Reg1, Reg2);
+MOV mov(in1_MOV, in2_MOV);
 
-LSR #(4) lsr(Reg2, IV, Result, Flag, S, New_Flag);
-MOV mov(Reg1, Result);
+LSR #(4) lsr(in2_LSR, iv_LSR, result_LSR, flag_LSR, s_LSR, newflag_LSR);
+MOV mov(in1_LSR, result_LSR);
 
-LSL #(4) lsl(Reg2, IV, Result, Flag, S, New_Flag);
-MOV mov(Reg1, Result);
+LSL #(4) lsl(in2_LSL, iv_LSL, result_LSL, flag_LSL, s_LSL, newflag_LSL);
+MOV mov(in1_LSL, result_LSL);
 
-ROR #(4) ror(Reg2, IV, Result, Flag, S, New_Flag);
-MOV mov(Reg1, Result)
+ROR #(4) ror(in2_ROR, iv_ROR, result_ROR, flag_ROR, s_ROR, newflag_ROR);
+MOV mov(in1_ROR, result_ROR)
 
-CMP cmp(Reg1, Reg2, Result, Flag, S, New_Flag);
+CMP cmp(in1_CMP, in1_CMP, result_CMP, flag_CMP, s_CMP, newflag_CMP);
 
 always @*
 begin
@@ -155,6 +155,7 @@ begin
         begin
             in1_LSR = Reg1;
             in2_LSR = Reg2;
+            iv_LSR = IV;
             result_LSR = Result;
             flag_LSR = Flag;
             s_LSR = S;
@@ -164,6 +165,7 @@ begin
         begin
             in1_LSL = Reg1;
             in2_LSL = Reg2;
+            iv_LSL = IV;
             result_LSL = Result;
             flag_LSL = Flag;
             s_LSL = S;
@@ -173,6 +175,7 @@ begin
         begin
             in1_ROR = Reg1;
             in2_ROR = Reg2;
+            iv_ROR = IV;
             result_ROR = Result;
             flag_ROR = Flag;
             s_ROR = S;
