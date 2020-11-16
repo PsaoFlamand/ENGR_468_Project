@@ -10,7 +10,8 @@ wire [31:0] out;
 initial
 begin
 $display($time, "MUX Testbench");
-In1=1; In2=2; In3=3; In4=4; In5=5; In6=6; In7=7; In8=8; In9=9; In10=10; In11=11; In12=12; In13=13; In14=14; In15=15; In16=16; Sel=1;
+In1=1; In2=2; In3=3; In4=4; In5=5; In6=6; In7=7; In8=8; In9=9; In10=10; In11=11; In12=12; In13=13; In14=14; In15=15; In16=16; Sel=0;
+#10 In1=1; In2=2; In3=3; In4=4; In5=5; In6=6; In7=7; In8=8; In9=9; In10=10; In11=11; In12=12; In13=13; In14=14; In15=15; In16=16; Sel=1;
 #10 In1=1; In2=2; In3=3; In4=4; In5=5; In6=6; In7=7; In8=8; In9=9; In10=10; In11=11; In12=12; In13=13; In14=14; In15=15; In16=16; Sel=2; 
 #10 In1=1; In2=2; In3=3; In4=4; In5=5; In6=6; In7=7; In8=8; In9=9; In10=10; In11=11; In12=12; In13=13; In14=14; In15=15; In16=16; Sel=3;
 #10 In1=1; In2=2; In3=3; In4=4; In5=5; In6=6; In7=7; In8=8; In9=9; In10=10; In11=11; In12=12; In13=13; In14=14; In15=15; In16=16; Sel=5;

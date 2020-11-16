@@ -10,7 +10,7 @@ output [3:0] New_Flag;
 wire Carry;
 wire addsub=1'b1;
 assign Result = In1<<In2;
-assign Carry=Result[In2-1];
+assign Carry=In1[32-In2];
 
 //Flag assignments
 SET_FLAG set(In1, In2, Result,Flag,S,New_Flag,Carry,addsub);

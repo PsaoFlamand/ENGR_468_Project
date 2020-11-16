@@ -10,7 +10,7 @@ z2
 cModel Technology
 dD:/Documents/GitHub/ENGR_468_Project/ALU/MUX
 vCOUNTER
-Z0 !s110 1604622111
+Z0 !s110 1605560803
 !i10b 1
 !s100 DfUOzaV?Gh:Vj<7LFHH]20
 Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -20,13 +20,13 @@ Z3 dD:/Documents/GitHub/ENGR_468_Project/ALU/COUNTER
 w1604621841
 8D:/Documents/GitHub/ENGR_468_Project/ALU/COUNTER/COUNTER.v
 FD:/Documents/GitHub/ENGR_468_Project/ALU/COUNTER/COUNTER.v
-!i122 5
+!i122 7
 L0 1 14
 Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z5 !s108 1604622111.000000
+Z5 !s108 1605560803.000000
 !s107 D:/Documents/GitHub/ENGR_468_Project/ALU/COUNTER/COUNTER.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/Documents/GitHub/ENGR_468_Project/ALU/COUNTER/COUNTER.v|
 !i113 1
@@ -44,7 +44,7 @@ R3
 w1604622091
 8D:/Documents/GitHub/ENGR_468_Project/ALU/COUNTER/TEST_COUNTER.v
 FD:/Documents/GitHub/ENGR_468_Project/ALU/COUNTER/TEST_COUNTER.v
-!i122 4
+!i122 6
 L0 1 30
 R4
 r1

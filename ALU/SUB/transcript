@@ -2,36 +2,9 @@
 # Compile of OR.v was successful.
 # Compile of SET_FLAG.v was successful.
 # 3 compiles, 0 failed with no errors.
-# Compile of TEST_OR.v was successful.
-# Compile of OR.v was successful.
-# Compile of SET_FLAG.v was successful.
-# 3 compiles, 0 failed with no errors.
 vsim work.TEST_OR
 # vsim work.TEST_OR 
-# Start time: 15:47:49 on Nov 05,2020
-# Loading work.TEST_OR
-# Loading work.OR
-# Loading work.SET_FLAG
-# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'New_Flag'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/OR/OR.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /TEST_OR/or1 File: D:/Documents/GitHub/ENGR_468_Project/ALU/OR/TEST_OR.v Line: 22
-# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'New_Flag'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /TEST_OR/or1/set File: D:/Documents/GitHub/ENGR_468_Project/ALU/OR/OR.v Line: 12
-run -all
-#                    0 In1.=00000000000000000000000000000010, In2.=00000000000000000000000000000011, Result=00000000000000000000000000000011, Flag=zzz0
-#                   10 In1.=00000000000000000000000000000001, In2.=11111111111111111111111111111101, Result=11111111111111111111111111111101, Flag=zzz0
-#                   20 In1.=11111111111111111111111111111010, In2.=11111111111111111111111111111110, Result=11111111111111111111111111111110, Flag=zzz0
-#                   30 In1.=11111111111111111111111111111111, In2.=00000000000000000000000000001001, Result=11111111111111111111111111111111, Flag=zzz0
-#                   40 In1.=00000000000000000000000000001010, In2.=00000000000000000000000000001010, Result=00000000000000000000000000001010, Flag=zzz0
-#                   50 In1.=00000000000000000000000000000100, In2.=11111111111111111111111111111100, Result=11111111111111111111111111111100, Flag=zzz0
-# Compile of TEST_OR.v was successful.
-# Compile of OR.v was successful.
-# Compile of SET_FLAG.v was successful.
-# 3 compiles, 0 failed with no errors.
-vsim work.TEST_OR
-# End time: 15:50:25 on Nov 05,2020, Elapsed time: 0:02:36
-# Errors: 0, Warnings: 11
-# vsim work.TEST_OR 
-# Start time: 15:50:25 on Nov 05,2020
+# Start time: 11:13:06 on Nov 16,2020
 # Loading work.TEST_OR
 # Loading work.OR
 # Loading work.SET_FLAG
@@ -46,150 +19,420 @@ run -all
 #                   30 In1.=11111111111111111111111111111111, In2.=00000000000000000000000000001001, Result=11111111111111111111111111111111, Flag=zzz0
 #                   40 In1.=10101010101010101010101010101010, In2.=00000000111111111100000000000000, Result=10101010111111111110101010101010, Flag=zzz0
 #                   50 In1.=00000000000000000000000000101101, In2.=11111111111111111111111111010011, Result=11111111111111111111111111111111, Flag=zzz0
+# Compile of TEST_OR.v was successful.
+# Compile of OR.v was successful.
+# Compile of SET_FLAG.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim work.TEST_OR
+# End time: 11:15:39 on Nov 16,2020, Elapsed time: 0:02:33
+# Errors: 0, Warnings: 10
+# vsim work.TEST_OR 
+# Start time: 11:15:39 on Nov 16,2020
+# Loading work.TEST_OR
+# Loading work.OR
+# Loading work.SET_FLAG
+run -all
+#                    0 In1.=00000000000000000000000000000010, In2.=00000000000000000000000000000011, Result=00000000000000000000000000000011, Flag=0000
+#                   10 In1.=00000000000000000000000000000001, In2.=11111111111111111111111111111101, Result=11111111111111111111111111111101, Flag=1010
+#                   20 In1.=11111111111111111111111111111010, In2.=11111111111111111111111111111110, Result=11111111111111111111111111111110, Flag=1010
+#                   30 In1.=11111111111111111111111111111111, In2.=00000000000000000000000000001001, Result=11111111111111111111111111111111, Flag=1010
+#                   40 In1.=10101010101010101010101010101010, In2.=00000000111111111100000000000000, Result=10101010111111111110101010101010, Flag=1010
+#                   50 In1.=00000000000000000000000000101101, In2.=11111111111111111111111111010011, Result=11111111111111111111111111111111, Flag=1010
 quit -sim
-# End time: 15:51:06 on Nov 05,2020, Elapsed time: 0:00:41
-# Errors: 0, Warnings: 3
+# End time: 11:17:02 on Nov 16,2020, Elapsed time: 0:01:23
+# Errors: 0, Warnings: 1
 # reading C:/intelFPGA/20.1/modelsim_ase/win32aloem/../modelsim.ini
-# Loading project ALU_XOR
+# Loading project XOR
 # Compile of TEST_XOR.v was successful.
 # Compile of XOR.v was successful.
 # Compile of SET_FLAG.v was successful.
 # 3 compiles, 0 failed with no errors.
 vsim work.TEST_XOR
 # vsim work.TEST_XOR 
-# Start time: 15:52:16 on Nov 05,2020
+# Start time: 11:18:16 on Nov 16,2020
 # Loading work.TEST_XOR
 # Loading work.XOR
 # Loading work.SET_FLAG
-# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'New_Flag'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/XOR/XOR.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /TEST_XOR/xor1 File: D:/Documents/GitHub/ENGR_468_Project/ALU/XOR/TEST_XOR.v Line: 22
-# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'New_Flag'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /TEST_XOR/xor1/set File: D:/Documents/GitHub/ENGR_468_Project/ALU/XOR/XOR.v Line: 12
 run -all
-#                    0 In1.=          2, In2.=          3, Result=          1, Flag=zzz0
-#                   10 In1.=          1, In2.=         -3, Result=         -4, Flag=zzz0
-#                   20 In1.=         -6, In2.=         -2, Result=          4, Flag=zzz1
-#                   30 In1.=         -1, In2.=          9, Result=        -10, Flag=zzz0
-#                   40 In1.=         10, In2.=         10, Result=          0, Flag=zzz0
-#                   50 In1.=          4, In2.=         -4, Result=         -8, Flag=zzz0
-# Compile of TEST_XOR.v failed with 2 errors.
-# Compile of XOR.v was successful.
-# Compile of SET_FLAG.v was successful.
-# 3 compiles, 1 failed with 2 errors.
-# Compile of TEST_XOR.v failed with 2 errors.
-# Compile of XOR.v was successful.
-# Compile of SET_FLAG.v was successful.
-# 3 compiles, 1 failed with 2 errors.
-# Compile of TEST_XOR.v was successful.
-# Compile of XOR.v was successful.
-# Compile of SET_FLAG.v was successful.
-# 3 compiles, 0 failed with no errors.
-# Compile of TEST_XOR.v was successful.
-# Compile of XOR.v was successful.
-# Compile of SET_FLAG.v was successful.
-# 3 compiles, 0 failed with no errors.
-vsim work.TEST_XOR
-# End time: 15:57:48 on Nov 05,2020, Elapsed time: 0:05:32
-# Errors: 0, Warnings: 13
-# vsim work.TEST_XOR 
-# Start time: 15:57:48 on Nov 05,2020
-# Loading work.TEST_XOR
-# Loading work.XOR
-# Loading work.SET_FLAG
-# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (4) for port 'New_Flag'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/XOR/XOR.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /TEST_XOR/xor1 File: D:/Documents/GitHub/ENGR_468_Project/ALU/XOR/TEST_XOR.v Line: 22
-# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'New_Flag'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /TEST_XOR/xor1/set File: D:/Documents/GitHub/ENGR_468_Project/ALU/XOR/XOR.v Line: 12
-run -all
-#                    0 In1.=00000000000000000000000000000010, In2.=00000000000000000000000000000011, Result=00000000000000000000000000000001, Flag=zzz0
-#                   10 In1.=11110000111100001111000011110000, In2.=11111111000000001111111100000000, Result=00001111111100000000111111110000, Flag=zzz1
-#                   20 In1.=11111111111111111111111111111010, In2.=11111111111111111111111111111110, Result=00000000000000000000000000000100, Flag=zzz1
-#                   30 In1.=11111111111111111111111111111111, In2.=00000000000000000000000000001001, Result=11111111111111111111111111110110, Flag=zzz0
-#                   40 In1.=00000000000011110100001001000000, In2.=01111111111111111111111111111111, Result=01111111111100001011110110111111, Flag=zzz0
-#                   50 In1.=00000000000000000000000000000100, In2.=11111111111111111111111111111100, Result=11111111111111111111111111111000, Flag=zzz0
+#                    0 In1.=00000000000000000000000000000010, In2.=00000000000000000000000000000011, Result=00000000000000000000000000000001, Flag=0000
+#                   10 In1.=11110000111100001111000011110000, In2.=11111111000000001111111100000000, Result=00001111111100000000111111110000, Flag=0001
+#                   20 In1.=11111111111111111111111111111010, In2.=11111111111111111111111111111110, Result=00000000000000000000000000000100, Flag=0001
+#                   30 In1.=11111111111111111111111111111111, In2.=00000000000000000000000000001001, Result=11111111111111111111111111110110, Flag=1010
+#                   40 In1.=00000000000011110100001001000000, In2.=01111111111111111111111111111111, Result=01111111111100001011110110111111, Flag=0000
+#                   50 In1.=00000000000000000000000000000100, In2.=11111111111111111111111111111100, Result=11111111111111111111111111111000, Flag=1010
 quit -sim
-# End time: 15:58:55 on Nov 05,2020, Elapsed time: 0:01:07
-# Errors: 0, Warnings: 3
-quit -sim
+# End time: 11:18:55 on Nov 16,2020, Elapsed time: 0:00:39
+# Errors: 0, Warnings: 7
 # reading C:/intelFPGA/20.1/modelsim_ase/win32aloem/../modelsim.ini
-# Loading project ALU_MUX
-# Compile of TEST_MUX.v failed with 6 errors.
-# Compile of MUX.v failed with 1 errors.
-# 2 compiles, 2 failed with 7 errors.
-# Compile of TEST_MUX.v failed with 6 errors.
-# Compile of MUX.v failed with 1 errors.
-# 2 compiles, 2 failed with 7 errors.
-# Compile of TEST_MUX.v failed with 6 errors.
-# Compile of MUX.v failed with 1 errors.
-# 2 compiles, 2 failed with 7 errors.
-# Compile of TEST_MUX.v failed with 6 errors.
-# Compile of MUX.v was successful.
-# 2 compiles, 1 failed with 6 errors.
-# Compile of TEST_MUX.v was successful.
-# Compile of MUX.v was successful.
-# 2 compiles, 0 failed with no errors.
-vsim work.TEST_MUX
-# vsim work.TEST_MUX 
-# Start time: 16:09:41 on Nov 05,2020
-# Loading work.TEST_MUX
-# Loading work.MUX
-# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (32) for port 'sel'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/MUX/MUX.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /TEST_MUX/mux1 File: D:/Documents/GitHub/ENGR_468_Project/ALU/MUX/TEST_MUX.v Line: 24
-# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /TEST_MUX/mux1 File: D:/Documents/GitHub/ENGR_468_Project/ALU/MUX/TEST_MUX.v Line: 24
-# Error loading design
-# End time: 16:09:41 on Nov 05,2020, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 12
-# Compile of TEST_MUX.v was successful.
-# Compile of MUX.v was successful.
-# 2 compiles, 0 failed with no errors.
-vsim work.TEST_MUX
-# vsim work.TEST_MUX 
-# Start time: 16:11:37 on Nov 05,2020
-# Loading work.TEST_MUX
-# Loading work.MUX
-# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /TEST_MUX/mux1 File: D:/Documents/GitHub/ENGR_468_Project/ALU/MUX/TEST_MUX.v Line: 24
-# Error loading design
-# End time: 16:11:38 on Nov 05,2020, Elapsed time: 0:00:01
-# Errors: 1, Warnings: 2
-# Compile of TEST_MUX.v was successful.
-# Compile of MUX.v was successful.
-# 2 compiles, 0 failed with no errors.
-vsim work.TEST_MUX
-# vsim work.TEST_MUX 
-# Start time: 16:12:46 on Nov 05,2020
-# Loading work.TEST_MUX
-# Loading work.MUX
-# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'out'.
-#    Time: 0 ps  Iteration: 0  Instance: /TEST_MUX/mux1 File: D:/Documents/GitHub/ENGR_468_Project/ALU/MUX/TEST_MUX.v Line: 24
-# Error loading design
-# End time: 16:12:47 on Nov 05,2020, Elapsed time: 0:00:01
-# Errors: 1, Warnings: 2
-# Compile of TEST_MUX.v was successful.
-# Compile of MUX.v was successful.
-# 2 compiles, 0 failed with no errors.
-vsim work.TEST_MUX
-# vsim work.TEST_MUX 
-# Start time: 16:14:46 on Nov 05,2020
-# Loading work.TEST_MUX
-# Loading work.MUX
+# Loading project LSL
+# Compile of TEST_LSL.v was successful.
+# Compile of LSL.v was successful.
+# Compile of SET_FLAG.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim work.Test_LSL
+# vsim work.Test_LSL 
+# Start time: 11:28:32 on Nov 16,2020
+# Loading work.Test_LSL
+# Loading work.LSL
+# Loading work.SET_FLAG
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (4) for port 'In2'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /Test_LSL/lsl/set File: D:/Documents/GitHub/ENGR_468_Project/ALU/LSL/LSL.v Line: 16
 run -all
-#                    0MUX Testbench
-#                    0 In1.=         1, In2.=         2, In3.=         3, In4.=         4, In5.=         5, In6.=         6, In7.=         7, In8.=         8, In9.=         9, In10.=        10, In11.=        11, In12.=        12, In13.=        13, In14.=        14, In15.=        15, In16.=        16, Sel= 1, out.=         2
-#                   10 In1.=         1, In2.=         2, In3.=         3, In4.=         4, In5.=         5, In6.=         6, In7.=         7, In8.=         8, In9.=         9, In10.=        10, In11.=        11, In12.=        12, In13.=        13, In14.=        14, In15.=        15, In16.=        16, Sel= 2, out.=         3
-#                   20 In1.=         1, In2.=         2, In3.=         3, In4.=         4, In5.=         5, In6.=         6, In7.=         7, In8.=         8, In9.=         9, In10.=        10, In11.=        11, In12.=        12, In13.=        13, In14.=        14, In15.=        15, In16.=        16, Sel= 3, out.=         4
-#                   30 In1.=         1, In2.=         2, In3.=         3, In4.=         4, In5.=         5, In6.=         6, In7.=         7, In8.=         8, In9.=         9, In10.=        10, In11.=        11, In12.=        12, In13.=        13, In14.=        14, In15.=        15, In16.=        16, Sel= 5, out.=         6
-#                   40 In1.=         1, In2.=         2, In3.=         3, In4.=         4, In5.=         5, In6.=         6, In7.=         7, In8.=         8, In9.=         9, In10.=        10, In11.=        11, In12.=        12, In13.=        13, In14.=        14, In15.=        15, In16.=        16, Sel= 8, out.=         9
-#                   50 In1.=         1, In2.=         2, In3.=         3, In4.=         4, In5.=         5, In6.=         6, In7.=         7, In8.=         8, In9.=         9, In10.=        10, In11.=        11, In12.=        12, In13.=        13, In14.=        14, In15.=        15, In16.=        16, Sel=13, out.=        14
+#                    0 In1.=00000000000000000000000000000011, In2.=0001, Result=00000000000000000000000000000110, Flag=0000
+#                   10 In1.=00000000000000000000000000000001, In2.=0010, Result=00000000000000000000000000000100, Flag=0000
+#                   20 In1.=11111111111111111111111111111010, In2.=0100, Result=11111111111111111111111110100000, Flag=0000
+#                   30 In1.=11111111111111111111111111111111, In2.=1001, Result=11111111111111111111111000000000, Flag=1000
+#                   40 In1.=00000000000000000000000000001010, In2.=1010, Result=00000000000000000010100000000000, Flag=0000
+#                   50 In1.=00000000000000000000000000010000, In2.=0010, Result=00000000000000000000000001000000, Flag=0000
+# Compile of TEST_LSL.v was successful.
+# Compile of LSL.v was successful.
+# Compile of SET_FLAG.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim work.Test_LSL
+# End time: 11:43:42 on Nov 16,2020, Elapsed time: 0:15:10
+# Errors: 0, Warnings: 9
+# vsim work.Test_LSL 
+# Start time: 11:43:42 on Nov 16,2020
+# Loading work.Test_LSL
+# Loading work.LSL
+# Loading work.SET_FLAG
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (4) for port 'In2'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /Test_LSL/lsl/set File: D:/Documents/GitHub/ENGR_468_Project/ALU/LSL/LSL.v Line: 16
+run -all
+#                    0 In1.=00000000000000000000000000000011, In2.=0001, Result=00000000000000000000000000000110, Flag=0010
+#                   10 In1.=00000000000000000000000000000001, In2.=0010, Result=00000000000000000000000000000100, Flag=0000
+#                   20 In1.=11111111111111111111111111111010, In2.=0100, Result=11111111111111111111111110100000, Flag=0000
+#                   30 In1.=11111111111111111111111111111111, In2.=1001, Result=11111111111111111111111000000000, Flag=10x0
+#                   40 In1.=00000000000000000000000000001010, In2.=1010, Result=00000000000000000010100000000000, Flag=0000
+#                   50 In1.=00000000000000000000000000010000, In2.=0010, Result=00000000000000000000000001000000, Flag=0000
+# Compile of LSL.v was successful.
+# Compile of TEST_LSL.v was successful.
+# Compile of LSL.v was successful.
+# Compile of SET_FLAG.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim work.Test_LSL
+# End time: 12:00:11 on Nov 16,2020, Elapsed time: 0:16:29
+# Errors: 0, Warnings: 4
+# vsim work.Test_LSL 
+# Start time: 12:00:11 on Nov 16,2020
+# Loading work.Test_LSL
+# Loading work.LSL
+# Loading work.SET_FLAG
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (4) for port 'In2'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /Test_LSL/lsl/set File: D:/Documents/GitHub/ENGR_468_Project/ALU/LSL/LSL.v Line: 16
+run -all
+#                    0 In1.=00000000000000000000000000000011, In2.=0001, Result=00000000000000000000000000000110, Flag=0000
+#                   10 In1.=00000000000000000000000000000001, In2.=0010, Result=00000000000000000000000000000100, Flag=0000
+#                   20 In1.=11111111111111111111111111111010, In2.=0100, Result=11111111111111111111111110100000, Flag=0000
+#                   30 In1.=11111111111111111111111111111111, In2.=1001, Result=11111111111111111111111000000000, Flag=1010
+#                   40 In1.=00000000000000000000000000001010, In2.=1010, Result=00000000000000000010100000000000, Flag=0000
+#                   50 In1.=00000000000000000000000000010000, In2.=0010, Result=00000000000000000000000001000000, Flag=0000
+# Compile of TEST_LSL.v was successful.
+# Compile of LSL.v was successful.
+# Compile of SET_FLAG.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim work.Test_LSL
+# End time: 12:00:49 on Nov 16,2020, Elapsed time: 0:00:38
+# Errors: 0, Warnings: 3
+# vsim work.Test_LSL 
+# Start time: 12:00:49 on Nov 16,2020
+# Loading work.Test_LSL
+# Loading work.LSL
+# Loading work.SET_FLAG
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (4) for port 'In2'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /Test_LSL/lsl/set File: D:/Documents/GitHub/ENGR_468_Project/ALU/LSL/LSL.v Line: 16
+# Load canceled
+run -all
+#                    0 In1.=00000000000000000000000000000011, In2.=0001, Result=00000000000000000000000000000110, Flag=0000
+#                   10 In1.=00000000000000000000000000000001, In2.=0010, Result=00000000000000000000000000000100, Flag=0000
+#                   20 In1.=11111111111111111111111111111010, In2.=0100, Result=11111111111111111111111110100000, Flag=0000
+#                   30 In1.=11111111111111111111111111111111, In2.=1001, Result=11111111111111111111111000000000, Flag=1010
+#                   40 In1.=00000000000000000000000000001010, In2.=1010, Result=00000000000000000010100000000000, Flag=0000
+#                   50 In1.=00000000000000000000000000010000, In2.=0010, Result=00000000000000000000000001000000, Flag=0000
+# Compile of TEST_LSL.v was successful.
+# Compile of LSL.v was successful.
+# Compile of SET_FLAG.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim work.Test_LSL
+# End time: 12:01:36 on Nov 16,2020, Elapsed time: 0:00:47
+# Errors: 0, Warnings: 3
+# vsim work.Test_LSL 
+# Start time: 12:01:36 on Nov 16,2020
+# Loading work.Test_LSL
+# Loading work.LSL
+# Loading work.SET_FLAG
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (4) for port 'In2'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /Test_LSL/lsl/set File: D:/Documents/GitHub/ENGR_468_Project/ALU/LSL/LSL.v Line: 16
+run -all
+#                    0 In1.=00000000000000000000000000000011, In2.=0001, Result=00000000000000000000000000000110, Flag=0000
+#                   10 In1.=00000000000000000000000000000001, In2.=0010, Result=00000000000000000000000000000100, Flag=0000
+#                   20 In1.=11111111111111111111111111111010, In2.=0100, Result=11111111111111111111111110100000, Flag=0000
+#                   30 In1.=11111111111111111111111111111111, In2.=1001, Result=11111111111111111111111000000000, Flag=1010
+#                   40 In1.=00000000000000000000000000001010, In2.=1010, Result=00000000000000000010100000000000, Flag=0000
+#                   50 In1.=00000000000000000000000000010000, In2.=0010, Result=00000000000000000000000001000000, Flag=0000
+# Compile of TEST_LSL.v was successful.
+# Compile of LSL.v was successful.
+# Compile of SET_FLAG.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim work.Test_LSL
+# End time: 12:09:36 on Nov 16,2020, Elapsed time: 0:08:00
+# Errors: 0, Warnings: 3
+# vsim work.Test_LSL 
+# Start time: 12:09:36 on Nov 16,2020
+# Loading work.Test_LSL
+# Loading work.LSL
+# Loading work.SET_FLAG
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (4) for port 'In2'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /Test_LSL/lsl/set File: D:/Documents/GitHub/ENGR_468_Project/ALU/LSL/LSL.v Line: 16
+run -all
+#                    0 In1.=00000000000000000000000000000011, In2.=0001, Result=00000000000000000000000000000110, Flag=0000
+#                   10 In1.=00000000000000000000000000000001, In2.=0010, Result=00000000000000000000000000000100, Flag=0000
+#                   20 In1.=11111111111111111111111111111010, In2.=0100, Result=11111111111111111111111110100000, Flag=0000
+#                   30 In1.=11111111111111111111111111111111, In2.=1001, Result=11111111111111111111111000000000, Flag=10x0
+#                   40 In1.=00000000000000000000000000001010, In2.=1010, Result=00000000000000000010100000000000, Flag=0000
+#                   50 In1.=00000000000000000000000000010000, In2.=0010, Result=00000000000000000000000001000000, Flag=0000
+# Compile of TEST_LSL.v was successful.
+# Compile of LSL.v was successful.
+# Compile of SET_FLAG.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim work.Test_LSL
+# End time: 12:09:55 on Nov 16,2020, Elapsed time: 0:00:19
+# Errors: 0, Warnings: 3
+# vsim work.Test_LSL 
+# Start time: 12:09:55 on Nov 16,2020
+# Loading work.Test_LSL
+# Loading work.LSL
+# Loading work.SET_FLAG
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (4) for port 'In2'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /Test_LSL/lsl/set File: D:/Documents/GitHub/ENGR_468_Project/ALU/LSL/LSL.v Line: 16
+run -all
+#                    0 In1.=00000000000000000000000000000011, In2.=0001, Result=00000000000000000000000000000110, Flag=0000
+#                   10 In1.=00000000000000000000000000000001, In2.=0010, Result=00000000000000000000000000000100, Flag=0010
+#                   20 In1.=11111111111111111111111111111010, In2.=0100, Result=11111111111111111111111110100000, Flag=0000
+#                   30 In1.=11111111111111111111111111111111, In2.=1001, Result=11111111111111111111111000000000, Flag=1000
+#                   40 In1.=00000000000000000000000000001010, In2.=1010, Result=00000000000000000010100000000000, Flag=0010
+#                   50 In1.=00000000000000000000000000010000, In2.=0010, Result=00000000000000000000000001000000, Flag=0000
+# Compile of TEST_LSL.v was successful.
+# Compile of LSL.v was successful.
+# Compile of SET_FLAG.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim work.Test_LSL
+# End time: 12:16:29 on Nov 16,2020, Elapsed time: 0:06:34
+# Errors: 0, Warnings: 3
+# vsim work.Test_LSL 
+# Start time: 12:16:29 on Nov 16,2020
+# Loading work.Test_LSL
+# Loading work.LSL
+# Loading work.SET_FLAG
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (4) for port 'In2'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /Test_LSL/lsl/set File: D:/Documents/GitHub/ENGR_468_Project/ALU/LSL/LSL.v Line: 16
+run -all
+#                    0 In1.=00000000000000000000000000000011, In2.=0001, Result=00000000000000000000000000000110, Flag=00x0
+#                   10 In1.=00000000000000000000000000000001, In2.=0010, Result=00000000000000000000000000000100, Flag=00x0
+#                   20 In1.=11111111111111111111111111111010, In2.=0100, Result=11111111111111111111111110100000, Flag=0000
+#                   30 In1.=11111111111111111111111111111111, In2.=1001, Result=11111111111111111111111000000000, Flag=10x0
+#                   40 In1.=00000000000000000000000000001010, In2.=1010, Result=00000000000000000010100000000000, Flag=00x0
+#                   50 In1.=00000000000000000000000000010000, In2.=0010, Result=00000000000000000000000001000000, Flag=00x0
+# Compile of TEST_LSL.v was successful.
+# Compile of LSL.v was successful.
+# Compile of SET_FLAG.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim work.Test_LSL
+# End time: 12:17:25 on Nov 16,2020, Elapsed time: 0:00:56
+# Errors: 0, Warnings: 3
+# vsim work.Test_LSL 
+# Start time: 12:17:25 on Nov 16,2020
+# Loading work.Test_LSL
+# Loading work.LSL
+# Loading work.SET_FLAG
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (4) for port 'In2'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /Test_LSL/lsl/set File: D:/Documents/GitHub/ENGR_468_Project/ALU/LSL/LSL.v Line: 16
+run -all
+#                    0 In1.=00000000000000000000000000000011, In2.=0001, Result=00000000000000000000000000000110, Flag=00x0
+#                   10 In1.=00000000000000000000000000000001, In2.=0010, Result=00000000000000000000000000000100, Flag=00x0
+#                   20 In1.=11111111111111111111111111111010, In2.=0100, Result=11111111111111111111111110100000, Flag=0000
+#                   30 In1.=11111111111111111111111111111111, In2.=1001, Result=11111111111111111111111000000000, Flag=10x0
+#                   40 In1.=00000000000000000000000000001010, In2.=1010, Result=00000000000000000010100000000000, Flag=00x0
+#                   50 In1.=00000000000000000000000000010000, In2.=0010, Result=00000000000000000000000001000000, Flag=00x0
+# Compile of TEST_LSL.v was successful.
+# Compile of LSL.v was successful.
+# Compile of SET_FLAG.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim work.Test_LSL
+# End time: 12:18:18 on Nov 16,2020, Elapsed time: 0:00:53
+# Errors: 0, Warnings: 3
+# vsim work.Test_LSL 
+# Start time: 12:18:18 on Nov 16,2020
+# Loading work.Test_LSL
+# Loading work.LSL
+# Loading work.SET_FLAG
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (4) for port 'In2'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /Test_LSL/lsl/set File: D:/Documents/GitHub/ENGR_468_Project/ALU/LSL/LSL.v Line: 16
+run -all
+#                    0 In1.=00000000000000000000000000000011, In2.=0001, Result=00000000000000000000000000000110, Flag=00x0
+#                   10 In1.=00000000000000000000000000000001, In2.=0010, Result=00000000000000000000000000000100, Flag=00x0
+#                   20 In1.=11111111111111111111111111111010, In2.=0100, Result=11111111111111111111111110100000, Flag=0000
+#                   30 In1.=11111111111111111111111111111111, In2.=1001, Result=11111111111111111111111000000000, Flag=10x0
+#                   40 In1.=00000000000000000000000000001010, In2.=1010, Result=00000000000000000010100000000000, Flag=00x0
+#                   50 In1.=00000000000000000000000000010000, In2.=0010, Result=00000000000000000000000001000000, Flag=00x0
+# Compile of TEST_LSL.v was successful.
+# Compile of LSL.v was successful.
+# Compile of SET_FLAG.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim work.Test_LSL
+# End time: 12:19:30 on Nov 16,2020, Elapsed time: 0:01:12
+# Errors: 0, Warnings: 3
+# vsim work.Test_LSL 
+# Start time: 12:19:30 on Nov 16,2020
+# Loading work.Test_LSL
+# Loading work.LSL
+# Loading work.SET_FLAG
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (4) for port 'In2'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /Test_LSL/lsl/set File: D:/Documents/GitHub/ENGR_468_Project/ALU/LSL/LSL.v Line: 16
+run -all
+#                    0 In1.=00000000000000000000000000000011, In2.=0001, Result=00000000000000000000000000000110, Flag=0000
+#                   10 In1.=00000000000000000000000000000001, In2.=0010, Result=00000000000000000000000000000100, Flag=0000
+#                   20 In1.=11111111111111111111111111111010, In2.=0100, Result=11111111111111111111111110100000, Flag=0000
+#                   30 In1.=11111111111111111111111111111111, In2.=1001, Result=11111111111111111111111000000000, Flag=1010
+#                   40 In1.=00000000000000000000000000001010, In2.=1010, Result=00000000000000000010100000000000, Flag=0000
+#                   50 In1.=00000000000000000000000000010000, In2.=0010, Result=00000000000000000000000001000000, Flag=0000
+# Compile of TEST_LSL.v was successful.
+# Compile of LSL.v was successful.
+# Compile of SET_FLAG.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim work.Test_LSL
+# End time: 12:27:55 on Nov 16,2020, Elapsed time: 0:08:25
+# Errors: 0, Warnings: 3
+# vsim work.Test_LSL 
+# Start time: 12:27:55 on Nov 16,2020
+# Loading work.Test_LSL
+# Loading work.LSL
+# Loading work.SET_FLAG
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (4) for port 'In2'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /Test_LSL/lsl/set File: D:/Documents/GitHub/ENGR_468_Project/ALU/LSL/LSL.v Line: 16
+run -all
+#                    0 In1.=00000000000000000000000000000011, In2.=0001, Result=00000000000000000000000000000110, Flag=0000
+#                   10 In1.=00000000000000000000000000000001, In2.=0010, Result=00000000000000000000000000000100, Flag=0000
+#                   20 In1.=11111111111111111111111111111010, In2.=0100, Result=11111111111111111111111110100000, Flag=0000
+#                   30 In1.=11111111111111111111111111111111, In2.=1001, Result=11111111111111111111111000000000, Flag=1010
+#                   40 In1.=00000000000000000000000000001010, In2.=1010, Result=00000000000000000010100000000000, Flag=0000
+#                   50 In1.=00000000000000000000000000010000, In2.=0010, Result=00000000000000000000000001000000, Flag=0000
+# Compile of TEST_LSL.v was successful.
+# Compile of LSL.v was successful.
+# Compile of SET_FLAG.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim work.Test_LSL
+# End time: 12:33:56 on Nov 16,2020, Elapsed time: 0:06:01
+# Errors: 0, Warnings: 3
+# vsim work.Test_LSL 
+# Start time: 12:33:56 on Nov 16,2020
+# Loading work.Test_LSL
+# Loading work.LSL
+# Loading work.SET_FLAG
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (4) for port 'In2'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /Test_LSL/lsl/set File: D:/Documents/GitHub/ENGR_468_Project/ALU/LSL/LSL.v Line: 16
+run -all
+#                    0 In1.=00000000000000000000000000000011, In2.=0001, Result=00000000000000000000000000000110, Flag=0000
+#                   10 In1.=00000000000000000000000000000001, In2.=0010, Result=00000000000000000000000000000100, Flag=0000
+#                   20 In1.=11111111111111111111111111111010, In2.=0100, Result=11111111111111111111111110100000, Flag=1010
+#                   30 In1.=11111111111111111111111111111111, In2.=1001, Result=11111111111111111111111000000000, Flag=1010
+#                   40 In1.=00000000000000000000000000001010, In2.=1010, Result=00000000000000000010100000000000, Flag=0000
+#                   50 In1.=00000000000000000000000000010000, In2.=0010, Result=00000000000000000000000001000000, Flag=0000
+# Compile of TEST_LSL.v was successful.
+# Compile of LSL.v was successful.
+# Compile of SET_FLAG.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim work.Test_LSL
+# End time: 12:38:10 on Nov 16,2020, Elapsed time: 0:04:14
+# Errors: 0, Warnings: 3
+# vsim work.Test_LSL 
+# Start time: 12:38:10 on Nov 16,2020
+# Loading work.Test_LSL
+# Loading work.LSL
+# Loading work.SET_FLAG
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (4) for port 'In2'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /Test_LSL/lsl/set File: D:/Documents/GitHub/ENGR_468_Project/ALU/LSL/LSL.v Line: 16
+run -all
+#                    0 In1.=00000000000000000000000000000011, In2.=0001, Result=00000000000000000000000000000110, Flag=0000, S=1
+#                   10 In1.=10000000000000000000000000000000, In2.=0001, Result=00000000000000000000000000000000, Flag=011x, S=1
+#                   20 In1.=11111111111111111111111111111010, In2.=0100, Result=11111111111111111111111110100000, Flag=1010, S=1
+#                   30 In1.=11111111111111111111111111111111, In2.=1001, Result=11111111111111111111111000000000, Flag=1010, S=1
+#                   40 In1.=00000000000000000000000000001010, In2.=0010, Result=00000000000000000000000000101000, Flag=0000, S=1
+#                   50 In1.=00000000000000000000000000010000, In2.=0010, Result=00000000000000000000000001000000, Flag=0000, S=1
+# Compile of TEST_LSL.v was successful.
+# Compile of LSL.v was successful.
+# Compile of SET_FLAG.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim work.Test_LSL
+# End time: 12:40:32 on Nov 16,2020, Elapsed time: 0:02:22
+# Errors: 0, Warnings: 3
+# vsim work.Test_LSL 
+# Start time: 12:40:32 on Nov 16,2020
+# Loading work.Test_LSL
+# Loading work.LSL
+# Loading work.SET_FLAG
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (4) for port 'In2'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /Test_LSL/lsl/set File: D:/Documents/GitHub/ENGR_468_Project/ALU/LSL/LSL.v Line: 16
+run -all
+#                    0 In1.=00000000000000000000000000000011, In2.=0001, Result=00000000000000000000000000000110, Flag=0000, S=1
+#                   10 In1.=10000000000000000000000000000000, In2.=0001, Result=00000000000000000000000000000000, Flag=011x, S=1
+#                   20 In1.=11111111111111111111111111111010, In2.=0100, Result=11111111111111111111111110100000, Flag=1010, S=1
+#                   30 In1.=11111111111111111111111111111111, In2.=1001, Result=11111111111111111111111000000000, Flag=1010, S=1
+#                   40 In1.=00000000000000000000000000001010, In2.=1101, Result=00000000000000010100000000000000, Flag=0000, S=1
+#                   50 In1.=00000000000000000000000000010000, In2.=0010, Result=00000000000000000000000001000000, Flag=0000, S=1
+# Compile of TEST_LSL.v was successful.
+# Compile of LSL.v was successful.
+# Compile of SET_FLAG.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim work.Test_LSL
+# End time: 12:41:47 on Nov 16,2020, Elapsed time: 0:01:15
+# Errors: 0, Warnings: 3
+# vsim work.Test_LSL 
+# Start time: 12:41:47 on Nov 16,2020
+# Loading work.Test_LSL
+# Loading work.LSL
+# Loading work.SET_FLAG
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (4) for port 'In2'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /Test_LSL/lsl/set File: D:/Documents/GitHub/ENGR_468_Project/ALU/LSL/LSL.v Line: 16
+run -all
+#                    0 In1.=00000000000000000000000000000011, In2.=0001, Result=00000000000000000000000000000110, Flag=0000, S=1
+#                   10 In1.=10000000000000000000000000000000, In2.=0001, Result=00000000000000000000000000000000, Flag=011x, S=1
+#                   20 In1.=11111111111111111111111111111010, In2.=0100, Result=11111111111111111111111110100000, Flag=0000, S=0
+#                   30 In1.=11111111111111111111111111111111, In2.=1001, Result=11111111111111111111111000000000, Flag=1010, S=1
+#                   40 In1.=00000000000000000000000000001010, In2.=1101, Result=00000000000000010100000000000000, Flag=0000, S=1
+#                   50 In1.=00000000000000000000000000010000, In2.=0010, Result=00000000000000000000000001000000, Flag=0000, S=1
+# Compile of TEST_LSL.v was successful.
+# Compile of LSL.v was successful.
+# Compile of SET_FLAG.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim work.Test_LSL
+# End time: 12:54:21 on Nov 16,2020, Elapsed time: 0:12:34
+# Errors: 0, Warnings: 3
+# vsim work.Test_LSL 
+# Start time: 12:54:21 on Nov 16,2020
+# Loading work.Test_LSL
+# Loading work.LSL
+# Loading work.SET_FLAG
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (4) for port 'In2'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /Test_LSL/lsl/set File: D:/Documents/GitHub/ENGR_468_Project/ALU/LSL/LSL.v Line: 16
+run -all
+#                    0 In1.=00000000000000000000000000000011, In2.=0001, Result=00000000000000000000000000000110, Flag=0000, S=1
+#                   10 In1.=10000000000000000000000000000000, In2.=0001, Result=00000000000000000000000000000000, Flag=011x, S=1
+#                   20 In1.=11111111111111111111111111111010, In2.=0100, Result=11111111111111111111111110100000, Flag=0000, S=0
+#                   30 In1.=11111111111111111111111111111111, In2.=1001, Result=11111111111111111111111000000000, Flag=1010, S=1
+#                   40 In1.=00000000000000000000000000001010, In2.=1101, Result=00000000000000010100000000000000, Flag=0000, S=1
+#                   50 In1.=01101111111111010111100011111111, In2.=0010, Result=10111111111101011110001111111100, Flag=101x, S=1
+quit -sim
+# End time: 12:57:08 on Nov 16,2020, Elapsed time: 0:02:47
+# Errors: 0, Warnings: 2
+# reading C:/intelFPGA/20.1/modelsim_ase/win32aloem/../modelsim.ini
+# Loading project MUX
 # Compile of TEST_MUX.v was successful.
 # Compile of MUX.v was successful.
 # 2 compiles, 0 failed with no errors.
 vsim work.TEST_MUX
-# End time: 16:16:02 on Nov 05,2020, Elapsed time: 0:01:16
-# Errors: 0, Warnings: 3
 # vsim work.TEST_MUX 
-# Start time: 16:16:02 on Nov 05,2020
+# Start time: 13:01:19 on Nov 16,2020
 # Loading work.TEST_MUX
 # Loading work.MUX
 run -all
@@ -201,194 +444,37 @@ run -all
 #                   40 In1.=         1, In2.=         2, In3.=         3, In4.=         4, In5.=         5, In6.=         6, In7.=         7, In8.=         8, In9.=         9, In10.=        10, In11.=        11, In12.=        12, In13.=        13, In14.=        14, In15.=        15, In16.=        16, Sel= 8, out.=         9
 #                   50 In1.=         1, In2.=         2, In3.=         3, In4.=         4, In5.=         5, In6.=         6, In7.=         7, In8.=         8, In9.=         9, In10.=        10, In11.=        11, In12.=        12, In13.=        13, In14.=        14, In15.=        15, In16.=        16, Sel=13, out.=        14
 #                   60 In1.=         1, In2.=         2, In3.=         3, In4.=         4, In5.=         5, In6.=         6, In7.=         7, In8.=         8, In9.=         9, In10.=        10, In11.=        11, In12.=        12, In13.=        13, In14.=        14, In15.=        15, In16.=        16, Sel= 0, out.=         1
+# Compile of TEST_MUX.v was successful.
+# Compile of MUX.v was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.TEST_MUX
+# End time: 13:02:46 on Nov 16,2020, Elapsed time: 0:01:27
+# Errors: 0, Warnings: 7
+# vsim work.TEST_MUX 
+# Start time: 13:02:46 on Nov 16,2020
+# Loading work.TEST_MUX
+# Loading work.MUX
+run -all
+#                    0MUX Testbench
+#                    0 In1.=         1, In2.=         2, In3.=         3, In4.=         4, In5.=         5, In6.=         6, In7.=         7, In8.=         8, In9.=         9, In10.=        10, In11.=        11, In12.=        12, In13.=        13, In14.=        14, In15.=        15, In16.=        16, Sel= 0, out.=         1
+#                   10 In1.=         1, In2.=         2, In3.=         3, In4.=         4, In5.=         5, In6.=         6, In7.=         7, In8.=         8, In9.=         9, In10.=        10, In11.=        11, In12.=        12, In13.=        13, In14.=        14, In15.=        15, In16.=        16, Sel= 1, out.=         2
+#                   20 In1.=         1, In2.=         2, In3.=         3, In4.=         4, In5.=         5, In6.=         6, In7.=         7, In8.=         8, In9.=         9, In10.=        10, In11.=        11, In12.=        12, In13.=        13, In14.=        14, In15.=        15, In16.=        16, Sel= 2, out.=         3
+#                   30 In1.=         1, In2.=         2, In3.=         3, In4.=         4, In5.=         5, In6.=         6, In7.=         7, In8.=         8, In9.=         9, In10.=        10, In11.=        11, In12.=        12, In13.=        13, In14.=        14, In15.=        15, In16.=        16, Sel= 3, out.=         4
+#                   40 In1.=         1, In2.=         2, In3.=         3, In4.=         4, In5.=         5, In6.=         6, In7.=         7, In8.=         8, In9.=         9, In10.=        10, In11.=        11, In12.=        12, In13.=        13, In14.=        14, In15.=        15, In16.=        16, Sel= 5, out.=         6
+#                   50 In1.=         1, In2.=         2, In3.=         3, In4.=         4, In5.=         5, In6.=         6, In7.=         7, In8.=         8, In9.=         9, In10.=        10, In11.=        11, In12.=        12, In13.=        13, In14.=        14, In15.=        15, In16.=        16, Sel= 8, out.=         9
+#                   60 In1.=         1, In2.=         2, In3.=         3, In4.=         4, In5.=         5, In6.=         6, In7.=         7, In8.=         8, In9.=         9, In10.=        10, In11.=        11, In12.=        12, In13.=        13, In14.=        14, In15.=        15, In16.=        16, Sel=13, out.=        14
+#                   70 In1.=         1, In2.=         2, In3.=         3, In4.=         4, In5.=         5, In6.=         6, In7.=         7, In8.=         8, In9.=         9, In10.=        10, In11.=        11, In12.=        12, In13.=        13, In14.=        14, In15.=        15, In16.=        16, Sel= 0, out.=         1
 quit -sim
-# End time: 16:16:31 on Nov 05,2020, Elapsed time: 0:00:29
+# End time: 13:04:00 on Nov 16,2020, Elapsed time: 0:01:14
 # Errors: 0, Warnings: 1
 # reading C:/intelFPGA/20.1/modelsim_ase/win32aloem/../modelsim.ini
-# Loading project ALU_COUNTER
-# Compile of TEST_COUNTER.v failed with 1 errors.
-# Compile of COUNTER.v failed with 1 errors.
-# 2 compiles, 2 failed with 2 errors.
+# Loading project counter
 # Compile of TEST_COUNTER.v was successful.
 # Compile of COUNTER.v was successful.
 # 2 compiles, 0 failed with no errors.
 vsim work.TEST_COUNTER
 # vsim work.TEST_COUNTER 
-# Start time: 16:18:51 on Nov 05,2020
-# Loading work.TEST_COUNTER
-# Loading work.COUNTER
-run -all
-#                    0 Program Counter
-#                    0 clk.=0, reset.=1, count=  x
-#                    5 clk.=1, reset.=1, count=  x
-#                   10 clk.=0, reset.=1, count=  x
-#                   15 clk.=1, reset.=0, count=  0
-#                   20 clk.=0, reset.=0, count=  0
-#                   25 clk.=1, reset.=0, count=  0
-#                   30 clk.=0, reset.=1, count=  0
-#                   35 clk.=1, reset.=1, count=  4
-#                   40 clk.=0, reset.=1, count=  4
-#                   45 clk.=1, reset.=0, count=  0
-#                   50 clk.=0, reset.=0, count=  0
-#                   55 clk.=1, reset.=0, count=  0
-#                   60 clk.=0, reset.=0, count=  0
-#                   65 clk.=1, reset.=0, count=  0
-#                   70 clk.=0, reset.=0, count=  0
-#                   75 clk.=1, reset.=0, count=  0
-#                   80 clk.=0, reset.=0, count=  0
-#                   85 clk.=1, reset.=0, count=  0
-#                   90 clk.=0, reset.=0, count=  0
-#                   95 clk.=1, reset.=0, count=  0
-#                  100 clk.=0, reset.=0, count=  0
-#                  105 clk.=1, reset.=0, count=  0
-#                  110 clk.=0, reset.=0, count=  0
-#                  115 clk.=1, reset.=0, count=  0
-#                  120 clk.=0, reset.=0, count=  0
-#                  125 clk.=1, reset.=0, count=  0
-#                  130 clk.=0, reset.=0, count=  0
-#                  135 clk.=1, reset.=0, count=  0
-#                  140 clk.=0, reset.=0, count=  0
-#                  145 clk.=1, reset.=0, count=  0
-#                  150 clk.=0, reset.=0, count=  0
-#                  155 clk.=1, reset.=0, count=  0
-#                  160 clk.=0, reset.=0, count=  0
-#                  165 clk.=1, reset.=0, count=  0
-#                  170 clk.=0, reset.=0, count=  0
-#                  175 clk.=1, reset.=0, count=  0
-#                  180 clk.=0, reset.=0, count=  0
-#                  185 clk.=1, reset.=0, count=  0
-#                  190 clk.=0, reset.=0, count=  0
-# ** Note: $finish    : D:/Documents/GitHub/ENGR_468_Project/ALU/COUNTER/TEST_COUNTER.v(22)
-#    Time: 195 ps  Iteration: 0  Instance: /TEST_COUNTER
-# 1
-# Break in Module TEST_COUNTER at D:/Documents/GitHub/ENGR_468_Project/ALU/COUNTER/TEST_COUNTER.v line 22
-# Compile of TEST_COUNTER.v was successful.
-# Compile of COUNTER.v was successful.
-# 2 compiles, 0 failed with no errors.
-vsim work.TEST_COUNTER
-# End time: 16:20:22 on Nov 05,2020, Elapsed time: 0:01:31
-# Errors: 0, Warnings: 8
-# vsim work.TEST_COUNTER 
-# Start time: 16:20:22 on Nov 05,2020
-# Loading work.TEST_COUNTER
-# Loading work.COUNTER
-clear
-# invalid command name "clear"
-# Load canceled
-run -all
-#                    0 Program Counter
-#                    0 clk.=0, reset.=1, count=  x
-#                    2 clk.=1, reset.=1, count=  x
-#                    4 clk.=0, reset.=1, count=  x
-#                    6 clk.=1, reset.=1, count=  x
-#                    8 clk.=0, reset.=1, count=  x
-#                   10 clk.=1, reset.=1, count=  x
-#                   12 clk.=0, reset.=1, count=  x
-#                   14 clk.=1, reset.=1, count=  x
-#                   15 clk.=1, reset.=0, count=  x
-#                   16 clk.=0, reset.=0, count=  x
-#                   18 clk.=1, reset.=0, count=  0
-#                   20 clk.=0, reset.=0, count=  0
-#                   22 clk.=1, reset.=0, count=  0
-#                   24 clk.=0, reset.=0, count=  0
-#                   26 clk.=1, reset.=0, count=  0
-#                   28 clk.=0, reset.=0, count=  0
-#                   30 clk.=1, reset.=1, count=  4
-#                   32 clk.=0, reset.=1, count=  4
-#                   34 clk.=1, reset.=1, count=  8
-#                   36 clk.=0, reset.=1, count=  8
-#                   38 clk.=1, reset.=1, count= 12
-#                   40 clk.=0, reset.=1, count= 12
-#                   42 clk.=1, reset.=1, count= 16
-#                   44 clk.=0, reset.=1, count= 16
-#                   45 clk.=0, reset.=0, count= 16
-#                   46 clk.=1, reset.=0, count=  0
-#                   48 clk.=0, reset.=0, count=  0
-#                   50 clk.=1, reset.=0, count=  0
-#                   52 clk.=0, reset.=0, count=  0
-#                   54 clk.=1, reset.=0, count=  0
-#                   56 clk.=0, reset.=0, count=  0
-#                   58 clk.=1, reset.=0, count=  0
-#                   60 clk.=0, reset.=0, count=  0
-#                   62 clk.=1, reset.=0, count=  0
-#                   64 clk.=0, reset.=0, count=  0
-#                   66 clk.=1, reset.=0, count=  0
-#                   68 clk.=0, reset.=0, count=  0
-#                   70 clk.=1, reset.=0, count=  0
-#                   72 clk.=0, reset.=0, count=  0
-#                   74 clk.=1, reset.=0, count=  0
-#                   76 clk.=0, reset.=0, count=  0
-#                   78 clk.=1, reset.=0, count=  0
-#                   80 clk.=0, reset.=0, count=  0
-#                   82 clk.=1, reset.=0, count=  0
-#                   84 clk.=0, reset.=0, count=  0
-#                   86 clk.=1, reset.=0, count=  0
-#                   88 clk.=0, reset.=0, count=  0
-#                   90 clk.=1, reset.=0, count=  0
-#                   92 clk.=0, reset.=0, count=  0
-#                   94 clk.=1, reset.=0, count=  0
-#                   96 clk.=0, reset.=0, count=  0
-#                   98 clk.=1, reset.=0, count=  0
-#                  100 clk.=0, reset.=0, count=  0
-#                  102 clk.=1, reset.=0, count=  0
-#                  104 clk.=0, reset.=0, count=  0
-#                  106 clk.=1, reset.=0, count=  0
-#                  108 clk.=0, reset.=0, count=  0
-#                  110 clk.=1, reset.=0, count=  0
-#                  112 clk.=0, reset.=0, count=  0
-#                  114 clk.=1, reset.=0, count=  0
-#                  116 clk.=0, reset.=0, count=  0
-#                  118 clk.=1, reset.=0, count=  0
-#                  120 clk.=0, reset.=0, count=  0
-#                  122 clk.=1, reset.=0, count=  0
-#                  124 clk.=0, reset.=0, count=  0
-#                  126 clk.=1, reset.=0, count=  0
-#                  128 clk.=0, reset.=0, count=  0
-#                  130 clk.=1, reset.=0, count=  0
-#                  132 clk.=0, reset.=0, count=  0
-#                  134 clk.=1, reset.=0, count=  0
-#                  136 clk.=0, reset.=0, count=  0
-#                  138 clk.=1, reset.=0, count=  0
-#                  140 clk.=0, reset.=0, count=  0
-#                  142 clk.=1, reset.=0, count=  0
-#                  144 clk.=0, reset.=0, count=  0
-#                  146 clk.=1, reset.=0, count=  0
-#                  148 clk.=0, reset.=0, count=  0
-#                  150 clk.=1, reset.=0, count=  0
-#                  152 clk.=0, reset.=0, count=  0
-#                  154 clk.=1, reset.=0, count=  0
-#                  156 clk.=0, reset.=0, count=  0
-#                  158 clk.=1, reset.=0, count=  0
-#                  160 clk.=0, reset.=0, count=  0
-#                  162 clk.=1, reset.=0, count=  0
-#                  164 clk.=0, reset.=0, count=  0
-#                  166 clk.=1, reset.=0, count=  0
-#                  168 clk.=0, reset.=0, count=  0
-#                  170 clk.=1, reset.=0, count=  0
-#                  172 clk.=0, reset.=0, count=  0
-#                  174 clk.=1, reset.=0, count=  0
-#                  176 clk.=0, reset.=0, count=  0
-#                  178 clk.=1, reset.=0, count=  0
-#                  180 clk.=0, reset.=0, count=  0
-#                  182 clk.=1, reset.=0, count=  0
-#                  184 clk.=0, reset.=0, count=  0
-#                  186 clk.=1, reset.=0, count=  0
-#                  188 clk.=0, reset.=0, count=  0
-#                  190 clk.=1, reset.=0, count=  0
-#                  192 clk.=0, reset.=0, count=  0
-#                  194 clk.=1, reset.=0, count=  0
-# ** Note: $finish    : D:/Documents/GitHub/ENGR_468_Project/ALU/COUNTER/TEST_COUNTER.v(22)
-#    Time: 195 ps  Iteration: 0  Instance: /TEST_COUNTER
-# 1
-# Break in Module TEST_COUNTER at D:/Documents/GitHub/ENGR_468_Project/ALU/COUNTER/TEST_COUNTER.v line 22
-# Compile of TEST_COUNTER.v was successful.
-# Compile of COUNTER.v was successful.
-# 2 compiles, 0 failed with no errors.
-vsim work.TEST_COUNTER
-# End time: 16:21:57 on Nov 05,2020, Elapsed time: 0:01:35
-# Errors: 0, Warnings: 2
-# vsim work.TEST_COUNTER 
-# Start time: 16:21:57 on Nov 05,2020
+# Start time: 13:06:49 on Nov 16,2020
 # Loading work.TEST_COUNTER
 # Loading work.COUNTER
 run -all
@@ -493,90 +579,24 @@ run -all
 # 1
 # Break in Module TEST_COUNTER at D:/Documents/GitHub/ENGR_468_Project/ALU/COUNTER/TEST_COUNTER.v line 23
 quit -sim
-# End time: 16:22:31 on Nov 05,2020, Elapsed time: 0:00:34
-# Errors: 0, Warnings: 1
+# End time: 13:16:13 on Nov 16,2020, Elapsed time: 0:09:24
+# Errors: 0, Warnings: 8
 # reading C:/intelFPGA/20.1/modelsim_ase/win32aloem/../modelsim.ini
-# Loading project ALU_RSR
-# Compile of TEST_RSR.v was successful.
-# Compile of RSR.v was successful.
+# Loading project SUB
+# Compile of TEST_SUB.v was successful.
+# Compile of SUB.v was successful.
 # Compile of SET_FLAG.v was successful.
 # 3 compiles, 0 failed with no errors.
-vsim work.Test_RSR
-# vsim work.Test_RSR 
-# Start time: 16:32:29 on Nov 05,2020
-# Loading work.Test_RSR
-# Loading work.RSR
+vsim work.Test_SUB
+# vsim work.Test_SUB 
+# Start time: 13:18:04 on Nov 16,2020
+# Loading work.Test_SUB
+# Loading work.SUB
 # Loading work.SET_FLAG
-# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (4) for port 'In2'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /Test_RSR/rsr/set File: D:/Documents/GitHub/ENGR_468_Project/ALU/RSR/RSR.v Line: 15
 run -all
-#                    0 In1.=00000000000000000000000000000011, In2.=0001, Result=00000000000000000000000000000001, Flag=0010
-#                   10 In1.=00000000000000000000000000000001, In2.=0010, Result=00000000000000000000000000000000, Flag=0100
-#                   20 In1.=11111111111111111111111111111010, In2.=0100, Result=00001111111111111111111111111111, Flag=0000
-#                   30 In1.=11111111111111111111111111111111, In2.=1001, Result=00000000011111111111111111111111, Flag=001x
-#                   40 In1.=00000000000000000000000000001010, In2.=1010, Result=00000000000000000000000000000000, Flag=0100
-#                   50 In1.=00000000000000000000000000000000, In2.=0000, Result=00000000000000000000000000000000, Flag=01x0
-# Compile of TEST_RSR.v was successful.
-# Compile of RSR.v was successful.
-# Compile of SET_FLAG.v was successful.
-# 3 compiles, 0 failed with no errors.
-vsim work.Test_RSR
-# End time: 16:33:47 on Nov 05,2020, Elapsed time: 0:01:18
-# Errors: 0, Warnings: 9
-# vsim work.Test_RSR 
-# Start time: 16:33:47 on Nov 05,2020
-# Loading work.Test_RSR
-# Loading work.RSR
-# Loading work.SET_FLAG
-# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (4) for port 'In2'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /Test_RSR/rsr/set File: D:/Documents/GitHub/ENGR_468_Project/ALU/RSR/RSR.v Line: 15
-run -all
-#                    0 In1.=00000000000000000000000000000011, In2.=0001, Result=00000000000000000000000000000001, Flag=0010
-#                   10 In1.=00000000000000000000000000000001, In2.=0010, Result=00000000000000000000000000000000, Flag=0100
-#                   20 In1.=11111111111111111111111111111010, In2.=0100, Result=00001111111111111111111111111111, Flag=0000
-#                   30 In1.=11111111111111111111111111111111, In2.=1001, Result=00000000011111111111111111111111, Flag=001x
-#                   40 In1.=00000000000000000000000000001010, In2.=1010, Result=00000000000000000000000000000000, Flag=0100
-#                   50 In1.=00000000000000000000000000010000, In2.=0010, Result=00000000000000000000000000000100, Flag=0000
-quit -m
-# unknown switch: -m
-quit -sim
-# End time: 16:59:19 on Nov 05,2020, Elapsed time: 0:25:32
-# Errors: 0, Warnings: 3
-# reading C:/intelFPGA/20.1/modelsim_ase/win32aloem/../modelsim.ini
-# Loading project ALU_LSL
-# Compile of TEST_LSL.v was successful.
-# Compile of LSL.v was successful.
-# 2 compiles, 0 failed with no errors.
-vsim work.Test_LSL
-# vsim work.Test_LSL 
-# Start time: 17:06:58 on Nov 05,2020
-# Loading work.Test_LSL
-# Loading work.LSL
-# ** Error: (vsim-3033) Instantiation of 'SET_FLAG' failed. The design unit was not found.
-#    Time: 0 ps  Iteration: 0  Instance: /Test_LSL/lsl File: D:/Documents/GitHub/ENGR_468_Project/ALU/LSL/LSL.v Line: 15
-#         Searched libraries:
-#             D:/Documents/GitHub/ENGR_468_Project/ALU/LSL/work
-# Error loading design
-# End time: 17:06:59 on Nov 05,2020, Elapsed time: 0:00:01
-# Errors: 1, Warnings: 6
-# Compile of TEST_LSL.v was successful.
-# Compile of LSL.v was successful.
-# Compile of SET_FLAG.v was successful.
-# 3 compiles, 0 failed with no errors.
-vsim work.Test_LSL
-# vsim work.Test_LSL 
-# Start time: 17:17:49 on Nov 05,2020
-# Loading work.Test_LSL
-# Loading work.LSL
-# Loading work.SET_FLAG
-# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (4) for port 'In2'. The port definition is at: D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /Test_LSL/lsl/set File: D:/Documents/GitHub/ENGR_468_Project/ALU/LSL/LSL.v Line: 15
-run -all
-#                    0 In1.=00000000000000000000000000000011, In2.=0001, Result=00000000000000000000000000000110, Flag=0000
-#                   10 In1.=00000000000000000000000000000001, In2.=0010, Result=00000000000000000000000000000100, Flag=0000
-#                   20 In1.=11111111111111111111111111111010, In2.=0100, Result=11111111111111111111111110100000, Flag=0000
-#                   30 In1.=11111111111111111111111111111111, In2.=1001, Result=11111111111111111111111000000000, Flag=1000
-#                   40 In1.=00000000000000000000000000001010, In2.=1010, Result=00000000000000000010100000000000, Flag=0000
-#                   50 In1.=00000000000000000000000000010000, In2.=0010, Result=00000000000000000000000001000000, Flag=0000
-# End time: 17:51:23 on Nov 05,2020, Elapsed time: 0:33:34
-# Errors: 0, Warnings: 4
+#                    0 In1.=-1610612737, In2.=  805306369, Result= 1879048190, Flag=0011
+#                   10 In1.=          1, In2.=          3, Result=         -2, Flag=1010
+#                   20 In1.=         -6, In2.=          8, Result=        -14, Flag=1010
+#                   30 In1.=         -1, In2.=         -1, Result=          0, Flag=0100
+#                   40 In1.=          9, In2.=         10, Result=         -1, Flag=1010
+#                   50 In1.=          4, In2.=         -4, Result=          8, Flag=0000

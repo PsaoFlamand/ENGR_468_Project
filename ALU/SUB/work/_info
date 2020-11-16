@@ -10,74 +10,74 @@ z2
 cModel Technology
 dD:/UBC/ENGR 468/ModelSimProjects/ENGR468_Quiz3
 vSET_FLAG
-!s110 1604619832
+Z0 !s110 1605561479
 !i10b 1
-!s100 XPf=UZZEAPHjf6[akQhXA0
-Z0 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IVNWH>KDdz:7ad86kgNh<Z3
-Z1 VDg1SIo80bB@j0V0VzS_@n1
-Z2 dD:/Documents/GitHub/ENGR_468_Project/ALU/SUB
-w1604609536
+!s100 GzZQn^T6eMN@:QMS86=I`2
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+Ic4SW_fMI1PU<IT=6fk8]02
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dD:/Documents/GitHub/ENGR_468_Project/ALU/SUB
+Z4 w1605405275
 8D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v
 FD:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v
-!i122 4
-L0 1 15
-Z3 OV;L;2020.1;71
+!i122 12
+Z5 L0 1 16
+Z6 OV;L;2020.1;71
 r1
 !s85 0
 31
-!s108 1604619832.000000
+!s108 1605561479.000000
 !s107 D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v|
 !i113 1
-Z4 o-work work
-Z5 tCvgOpt 0
+Z7 o-work work
+Z8 tCvgOpt 0
 n@s@e@t_@f@l@a@g
 vSUB
-Z6 !s110 1604619831
-!i10b 1
-!s100 OD>0PRj7T1H<DEehCVCdD0
 R0
-IUn0[06LHj9Jj2YMUz2?8o3
+!i10b 1
+!s100 bnNKnOkegOF5[[T08TYcJ3
 R1
+I7:?[m?2U0K:Dmh7dmd1S81
 R2
-w1604544508
+R3
+R4
 8D:/Documents/GitHub/ENGR_468_Project/ALU/SUB/SUB.v
 FD:/Documents/GitHub/ENGR_468_Project/ALU/SUB/SUB.v
-!i122 3
-L0 1 16
-R3
+!i122 11
+R5
+R6
 r1
 !s85 0
 31
-Z7 !s108 1604619831.000000
+Z9 !s108 1605561478.000000
 !s107 D:/Documents/GitHub/ENGR_468_Project/ALU/SUB/SUB.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/Documents/GitHub/ENGR_468_Project/ALU/SUB/SUB.v|
 !i113 1
-R4
-R5
+R7
+R8
 n@s@u@b
 vTest_SUB
-R6
+!s110 1605561478
 !i10b 1
-!s100 cm;B3nigGabegCS@<LAio2
-R0
-I]Wm?I^n8XUHK^XdhS13Rf2
+!s100 okl?b?z7WL4bib2lS[fPh0
 R1
+IRn^moiQgfWM`kE9i=?T@?3
 R2
-w1604546442
+R3
+w1605561470
 8D:/Documents/GitHub/ENGR_468_Project/ALU/SUB/TEST_SUB.v
 FD:/Documents/GitHub/ENGR_468_Project/ALU/SUB/TEST_SUB.v
-!i122 2
+!i122 10
 L0 1 24
-R3
+R6
 r1
 !s85 0
 31
-R7
+R9
 !s107 D:/Documents/GitHub/ENGR_468_Project/ALU/SUB/TEST_SUB.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/Documents/GitHub/ENGR_468_Project/ALU/SUB/TEST_SUB.v|
 !i113 1
-R4
-R5
+R7
+R8
 n@test_@s@u@b
