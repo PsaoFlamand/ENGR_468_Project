@@ -68,6 +68,10 @@ begin
 	in2_CON=Reg2;
 	COND_con=Cond;
 	Flag_con=Flag;
+end
+always @*
+begin
+
 	if (OpCode==4'b0000 && Execute_con==1'b1) //0000 ADD
         begin
             in1_ADD = Reg1;
