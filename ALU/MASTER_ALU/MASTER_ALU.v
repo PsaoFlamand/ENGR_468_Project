@@ -43,7 +43,7 @@ wire signed [31:0] result_ADD, result_AND, result_CMP, result_LSL,
 result_LSR, result_MUL, result_OR, result_ROR, result_SUB, result_XOR,out2_MOVn,out2_MOV;
 
 //wires for Flags
-reg [3:0] flag_ADD, flag_AND, flag_CMP, flag_LSL, flag_LSR, flag_MUL, flag_OR, flag_ROR, flag_SUB, flag_XOR;
+reg [3:0] flag_ADD, flag_AND, flag_CMP, flag_LSL, flag_LSR, flag_MUL, flag_OR, flag_ROR, flag_SUB, flag_XOR,Flag_con;
 
 //wires for S
 reg s_ADD, s_AND, s_CMP, s_LSL, s_LSR, s_MUL, s_OR, s_ROR, s_SUB, s_XOR;
@@ -54,6 +54,8 @@ newflag_LSR, newflag_MUL, newflag_OR, newflag_ROR, newflag_SUB, newflag_XOR;
 
 reg [15:0] iv_LSL, iv_LSR, iv_ROR;
 
+reg [3:0] COND_con;
+
 wire Execute_con=1'b1;
 
 
@@ -62,6 +64,10 @@ wire Execute_con=1'b1;
 
 always @*
 begin
+	in1_CON=Reg1;
+	in2_CON=Reg2;
+	COND_con=Cond;
+	Flag_con=Flag;
 	if (OpCode==4'b0000 && Execute_con==1'b1) //0000 ADD
         begin
             in1_ADD = Reg1;
@@ -185,7 +191,7 @@ end
 //begin
 //$monitor($time, " Execute_con=%b ", Execute_con);
 //end
-CONDITIONAL con(in1_CON, in2_CON, COND, Flag, Execute_con);
+CONDITIONAL con(in1_CON, in2_CON, COND_con, Flag_con, Execute_con);
 
 ADD Add(in1_ADD, in2_ADD, result_ADD, flag_ADD, s_ADD, newflag_ADD);
 SUB Sub(in1_SUB, in2_SUB, result_SUB, flag_SUB, s_SUB, newflag_SUB);
