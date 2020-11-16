@@ -27,7 +27,7 @@ always @*
 			end
 			4'b0010: //GT - Greater than
 			begin
-				if(New_Flag[2]==0 && (New_Flag[3]==New_Flag[2]))
+				if(New_Flag[2]==0 && (New_Flag[3]==New_Flag[0]))
 					Execute = 1;
 				else 
 					Execute = 0;
