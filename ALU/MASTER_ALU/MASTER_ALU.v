@@ -62,16 +62,13 @@ wire Execute_con=1'b1;
 //Instantiating modules depending on OpCodes
 
 
+
 always @*
 begin
 	in1_CON=Reg1;
 	in2_CON=Reg2;
 	COND_con=Cond;
 	Flag_con=Flag;
-end
-always @*
-begin
-
 	if (OpCode==4'b0000 && Execute_con==1'b1) //0000 ADD
         begin
             in1_ADD = Reg1;
@@ -192,7 +189,7 @@ begin
     
 end
 
-CONDITIONAL con(in1_CON, in2_CON, COND_con, Flag_con, Execute_con);
+//CONDITIONAL con(in1_CON, in2_CON, COND_con, Flag_con, Execute_con);
 
 ADD Add(in1_ADD, in2_ADD, result_ADD, flag_ADD, s_ADD, newflag_ADD);
 SUB Sub(in1_SUB, in2_SUB, result_SUB, flag_SUB, s_SUB, newflag_SUB);
