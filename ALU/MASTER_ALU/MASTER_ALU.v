@@ -40,7 +40,7 @@ in1_CON, in2_CON;
 
 //wires for Result
 wire signed [31:0] result_ADD, result_AND, result_CMP, result_LSL, 
-result_LSR, result_MUL, result_OR, result_ROR, result_SUB, result_XOR,out2_MOVn,out2_MOV;
+result_LSR, result_MUL, result_OR, result_ROR, result_SUB, result_XOR,out1_MOVn,out1_MOV;
 
 //wires for Flags
 reg [3:0] flag_ADD, flag_AND, flag_CMP, flag_LSL, flag_LSR, flag_MUL, flag_OR, flag_ROR, flag_SUB, flag_XOR,Flag_con;
@@ -134,13 +134,13 @@ begin
         end
     else if (OpCode==4'b0110 && Execute_con==1'b1)  //0110 MOVn
         begin
-            in1_MOV = Reg1;
-            in2_MOV = IV;
+            Result=out1_MOV;
+            in1_MOV = IV;
         end
     else if (OpCode==4'b0111 && Execute_con==1'b1) //0111 MOV
         begin
-            in1_MOV = Reg1;
-            in2_MOV = Reg2;
+            Result=out1_MOV;
+            in1_MOV = Reg2;
         end
     else if (OpCode==4'b1000 && Execute_con==1'b1) //1000 LSR
         begin
@@ -184,17 +184,14 @@ begin
             s_CMP = 1'b1;
             New_Flag=newflag_CMP;
         end
-        //4'b1100: //ADR
-        //4'b1101://Part of memory control LDR
-        //4'b1110://Part of memory control STR
+        //4'b1100:		//Part of memory control ADR
+        //4'b1101:		//Part of memory control LDR
+        //4'b1110:		//Part of memory control STR
         //4'b1111:
     else #0;
     
 end
-//initial
-//begin
-//$monitor($time, " Execute_con=%b ", Execute_con);
-//end
+
 CONDITIONAL con(in1_CON, in2_CON, COND_con, Flag_con, Execute_con);
 
 ADD Add(in1_ADD, in2_ADD, result_ADD, flag_ADD, s_ADD, newflag_ADD);
@@ -208,10 +205,6 @@ LSL #(5) lsl(in2_LSL, iv_LSL, result_LSL, flag_LSL, s_LSL, newflag_LSL);
 
 ROR #(5) ror(in2_ROR, iv_ROR, result_ROR, flag_ROR, s_ROR, newflag_ROR);
 CMP cmp(in1_CMP, in2_CMP, flag_CMP, s_CMP, newflag_CMP);
-MOV mov(in1_MOVn, out2_MOV);
-//MOV mov1(in1_MOV, out2_MOV);
-//MOV mov2(in1_LSR, result_LSR);
-//MOV mov3(in1_LSL, result_LSL);
-//MOV mov4(in1_ROR, result_ROR);
-//
+MOV mov(in1_MOV, out1_MOV);
+
 endmodule
