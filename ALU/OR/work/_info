@@ -10,23 +10,23 @@ z2
 cModel Technology
 dD:/Documents/GitHub/ENGR_468_Project/ALU/SUB
 vOR
-Z0 !s110 1604620218
+Z0 !s110 1605554134
 !i10b 1
-!s100 UlFT5aZ5H;:BSCP133TIW2
+!s100 @RVl2MSkMDPPHaV4JP8B_1
 Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IlO^ie7QM?a0[]HTL?@a5W3
+IFS58BF_nLAYWR3?]F]=cW3
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 Z3 dD:/Documents/GitHub/ENGR_468_Project/ALU/OR
-w1604544520
+w1605554128
 8D:/Documents/GitHub/ENGR_468_Project/ALU/OR/OR.v
 FD:/Documents/GitHub/ENGR_468_Project/ALU/OR/OR.v
-!i122 7
+!i122 13
 L0 1 14
 Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z5 !s108 1604620218.000000
+Z5 !s108 1605554134.000000
 !s107 D:/Documents/GitHub/ENGR_468_Project/ALU/OR/OR.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/Documents/GitHub/ENGR_468_Project/ALU/OR/OR.v|
 !i113 1
@@ -34,23 +34,23 @@ Z6 o-work work
 Z7 tCvgOpt 0
 n@o@r
 vSET_FLAG
-!s110 1604620219
+!s110 1605554135
 !i10b 1
-!s100 XPf=UZZEAPHjf6[akQhXA0
+!s100 GzZQn^T6eMN@:QMS86=I`2
 R1
-IVNWH>KDdz:7ad86kgNh<Z3
+Ic4SW_fMI1PU<IT=6fk8]02
 R2
 R3
-w1604609536
+w1605405275
 8D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v
 FD:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v
-!i122 8
-L0 1 15
+!i122 14
+L0 1 16
 R4
 r1
 !s85 0
 31
-R5
+!s108 1605554135.000000
 !s107 D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v|
 !i113 1
@@ -68,7 +68,7 @@ R3
 w1604620212
 8D:/Documents/GitHub/ENGR_468_Project/ALU/OR/TEST_OR.v
 FD:/Documents/GitHub/ENGR_468_Project/ALU/OR/TEST_OR.v
-!i122 6
+!i122 12
 L0 1 24
 R4
 r1
