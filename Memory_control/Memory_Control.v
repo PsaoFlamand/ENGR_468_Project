@@ -35,11 +35,11 @@ always @(posedge Clk)
 	4'b1100: //ADR
 	begin	
 		LDR=0;
-		STR=1;
+		STR=0;
 		RW=0;
 		reg_data=SR1;
 	end
-	default: //Instructions other than LDR or STR, PC instructions 
+	default: //Instructions other than LDR, STR or ADR, PC instructions 
 	begin 
 	LDR=0;
 	STR=0;
@@ -47,11 +47,13 @@ always @(posedge Clk)
 		begin 
 			pc=8'b00000000;
 			address_out=pc;
+			reg_data=alu_result;
 		end
 		else
 		begin
 			pc = pc+1;
 			address_out=pc;
+			reg_data=alu_result;
 		end
 	end
   endcase
