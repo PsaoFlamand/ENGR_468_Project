@@ -5,7 +5,7 @@ input [15:0] enable;
 input [31:0] ldr_data;
 output reg [31:0] r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15;
 
-always@*
+	always@(enable)
 begin
 	case (enable)
 	16'b0000000000000001 : r0=ldr_data;
