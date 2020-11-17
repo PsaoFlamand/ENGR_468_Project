@@ -13,16 +13,14 @@ wire add_bus;
 output reg [7:0] pc;
 
 always @(posedge Clk) 
-
  case(op_code)
-	4'b1101: //LDR
-	begin
-		LDR=1;
+	4'b1100: //ADR
+	begin	
+		LDR=0;
 		STR=0;
-		RW=1;
-		address_out= SR1; 
-		reg_data=LDR_out;			
-	end 
+		RW=0;
+		reg_data=SR1;
+	end	
 	4'b1110: //STR
 	begin
 		LDR=0;
@@ -32,29 +30,31 @@ always @(posedge Clk)
 		STR_in=SR2;
 		reg_data=alu_result;
 	end
-	4'b1100: //ADR
-	begin	
-		LDR=0;
+	4'b1101: //LDR
+	begin
+		LDR=1;
 		STR=0;
-		RW=0;
-		reg_data=SR1;
-	end
+		RW=1;
+		address_out= SR1; 
+		reg_data=LDR_out;			
+	end 
 	default: //Instructions other than LDR, STR or ADR, PC instructions 
 	begin 
-	LDR=0;
-	STR=0;
+	
 		if (! Reset)
-		begin 
+			begin 
+			LDR=0; STR=0;RW=1;
 			pc=8'b00000000;
 			address_out=pc;
 			reg_data=alu_result;
-		end
+			end
 		else
-		begin
+			begin
+			LDR=0; STR=0;RW=1;
 			pc = pc+1;
 			address_out=pc;
 			reg_data=alu_result;
+			end
 		end
-	end
   endcase
 endmodule
