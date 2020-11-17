@@ -30,14 +30,14 @@ Clk=0;
 op_code=1100; // ADR
 #10 op_code=4'b1100; //ADR
 #10 op_code=4'b1101; //LDR
-#10 op_code=4'b1101; SR1=32'b00000000000000000000000000100000; //LDR
-#10 op_code=4'b1101; SR1=32'b00000000000000000000000000000001; //LDR
+#10 op_code=4'b1101; SR1=32'b00000000000000000000000000000010; alu_result=32'b00000000000000000000000000010000;//LDR
+#10 op_code=4'b1101; SR1=32'b00000000000000000000000000000100; //LDR
 #10 op_code=4'b1110; //STR
 #10 op_code=4'b1110; //STR
-#10 op_code=4'b1110; SR1=32'b00000000000000000000000000110000; SR2=32'b00000000000000000000000000001111;//STR
+#10 op_code=4'b1110; SR1=32'b00000000000000000000000000001000; SR2=32'b00000000000000000000000000100000;alu_result=32'b00000000000000000000000000100000;//STR
 #10 op_code=4'b1111; Reset=0; //Other insturctions, PC
-#10 op_code=4'b1111; Reset=1; //Other insturctions, PC
-#10 op_code=4'b1100; //Other insturctions, PC
+#10 op_code=4'b1111; Reset=0; alu_result=32'b00000000000000000000000001000000;//Other insturctions, PC
+#10 op_code=4'b1100; Reset=1;//Other insturctions, PC
 #10 op_code=4'b1010; //Other insturctions, PC
 #10 op_code=4'b1001; //Other insturctions, PC
 #10 op_code=4'b1111; //Other insturctions, PC
