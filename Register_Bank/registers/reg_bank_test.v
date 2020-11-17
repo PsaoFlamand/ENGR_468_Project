@@ -13,14 +13,21 @@ end
 
 initial
 begin
-$monitor($time, " Clock=%b, Enable=%d, Data from ALU=%d, Register=%d  ", Clock, Enable, ALU_Result, r0);
+$monitor($time, " Clock=%b, Enable=%d, Data from ALU=%d, Register0=%d,  Register1=%d, Register2=%d, Register3=%d, ", Clock, Enable, ALU_Result, r0, r1, r2, r3);
 end
 
 initial
 begin
  Clock=0;
+ALU_Result=32'b00000000000000000000000000000000;
 Enable=16'b0000000000000001;
 #10 ALU_Result=32'b10101010101010101010101010101010;
+Enable=16'b0000000000000010;
+#10 ALU_Result=32'b00000000000000000000000000000010;
+Enable=16'b0000000000000100;
+#10 ALU_Result=32'b00000000000000000000000000001010;
+Enable=16'b0000000000001000;
+
 /*
 #10 Address=4'b0101;
 #10 Address=4'b0011;
