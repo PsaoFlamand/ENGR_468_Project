@@ -17,6 +17,15 @@ begin
 #5 Enable =1;   RW=0;	Address=16'h0005;	In =32'hAAAA00EE;
 #5 Enable =1;   RW=0;	Address=16'h0006;	In =32'hBBBB00FF;
 #5 Enable =1;   RW=0;	Address=16'h0007;	In =32'hCCCCFFFF;
+#5 Enable =1;   RW=0;	Address=16'h0008;	In =32'hAAAAAAAA;
+#5 Enable =1;   RW=0;	Address=16'h0009;	In =32'haBBBAAAA;
+#5 Enable =1;   RW=0;	Address=16'h000A;	In =32'hCCCC00AA;
+#5 Enable =1;   RW=0;	Address=16'h000B;	In =32'hDDDD00BB;
+#5 Enable =1;   RW=0;	Address=16'h000C;	In =32'hEEEE00CC;
+#5 Enable =1;   RW=0;	Address=16'h000D;	In =32'hFFFF00DD;
+#5 Enable =1;   RW=0;	Address=16'h000E;	In =32'hAAAA00EE;
+#5 Enable =1;   RW=0;	Address=16'h000F;	In =32'hBBBB00FF;
+#5 Enable =1;   RW=0;	Address=16'h0010;	In =32'hCCCCFFFF;
 #10
 
   $writememh("data_h.txt", ram.Mem);

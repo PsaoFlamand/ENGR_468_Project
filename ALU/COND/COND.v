@@ -11,6 +11,18 @@ output reg Execute;
 CMP cmp(In1, In2, Flag, 1'b1, New_Flag);
 
 //assign Execute = (Cond = 4'b0000) ? 1 : (Cond = 4'b0001 && New_Flag[2] == 1)) 1 : (Cond = 4'b0010 && New_Flag[2]);
+
+assign Execute = ( (Cond == 4'b0000) ) ? 1 : 0;
+assign Execute = ( (Cond == 4'b0001)&&(New_Flag[2]) ) ? 1 : 0;
+assign Execute = ( (Cond == 4'b0010)&&(New_Flag[2]==0)&&(New_Flag[3]==New_Flag[0]) ) ? 1 : 0;
+assign Execute = ( (Cond == 4'b0011)&&(New_Flag[3]!=New_Flag[0]) )  ? 1 : 0;
+assign Execute = ( (Cond == 4'b0100)&&(New_Flag[3]==New_Flag[0]) ) ? 1 : 0;
+assign Execute = ( (Cond == 4'b0101)&&( (New_Flag[2] || (New_Flag[3]!=New_Flag[0]) ) ? 1 : 0;
+assign Execute = ( (Cond == 4'b0110)&&(New_Flag[1])&&(New_Flag[2]==0) ) ? 1 : 0;
+assign Execute = ( (Cond == 4'b0111)&&(New_Flag[1]==0) ) ? 1 : 0;
+assign Execute = ( (Cond == 4'b1000)&&(New_Flag[1]) ) ? 1 : 0;
+endmodule
+/*
 always @*
 	begin
 		case(Cond)
@@ -79,3 +91,4 @@ always @*
 	end
 
 endmodule
+/*

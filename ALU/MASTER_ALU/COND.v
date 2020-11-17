@@ -11,6 +11,8 @@ output reg Execute;
 CMP cmp(In1, In2, Flag, 1'b1, New_Flag);
 
 //assign Execute = (Cond = 4'b0000) ? 1 : (Cond = 4'b0001 && New_Flag[2] == 1)) 1 : (Cond = 4'b0010 && New_Flag[2]);
+
+
 always @*
 	begin
 		case(Cond)
@@ -27,7 +29,7 @@ always @*
 			end
 			4'b0010: //GT - Greater than
 			begin
-				if(New_Flag[2]==0 && (New_Flag[3]==New_Flag[2]))
+				if(New_Flag[2]==0 && (New_Flag[3]==New_Flag[0]))
 					Execute = 1;
 				else 
 					Execute = 0;
@@ -79,3 +81,4 @@ always @*
 	end
 
 endmodule
+
