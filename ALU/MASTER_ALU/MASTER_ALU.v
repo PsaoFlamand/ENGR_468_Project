@@ -56,19 +56,43 @@ reg [15:0] iv_LSL, iv_LSR, iv_ROR;
 
 reg [3:0] COND_con;
 
-wire Execute_con=1'b1;
+reg Execute_con=1'b1;
 
 
 //Instantiating modules depending on OpCodes
 
 
 
+	
 always @*
+
 begin
-	in1_CON=Reg1;
-	in2_CON=Reg2;
-	COND_con=Cond;
-	Flag_con=Flag;
+
+	Execute_con = ( (Cond == 4'b0000) ) || ( (Cond == 4'b0001) && (New_Flag[2]) ) || ( (Cond == 4'b0010)&&(New_Flag[2]==0)&&(New_Flag[3] == New_Flag[0]) )
+	|| ( (Cond == 4'b0011)&&(New_Flag[3]!=New_Flag[0]) ) || ( (Cond == 4'b0100)&&(New_Flag[3]==New_Flag[0]) )
+	|| ( (Cond == 4'b0101)&&(New_Flag[2] || (New_Flag[3]!=New_Flag[0])) )|| ( (Cond == 4'b0110)&&(New_Flag[1])&&(New_Flag[2]==0) )
+	|| ( (Cond == 4'b0111)&&(New_Flag[1]==0) )|| ( (Cond == 4'b1000)&&(New_Flag[1]) ) ?  1'b1 : 0;
+	
+	
+	
+	
+	/*
+	Execute_con = ( (Cond == 4'b0001) && (New_Flag[2]) ) ? 1'b1 : 0;
+	
+	Execute_con = ( (Cond == 4'b0010)&&(New_Flag[2]==0)&&(New_Flag[3] == New_Flag[0]) ) ? 1'b1 : 0;
+	Execute_con = ( (Cond == 4'b0011)&&(New_Flag[3]!=New_Flag[0]) ) ? 1'b1 : 0;
+	Execute_con = ( (Cond == 4'b0100)&&(New_Flag[3]==New_Flag[0]) )  ? 1'b1 : 0;
+	Execute_con = ( (Cond == 4'b0101)&&(New_Flag[2] || (New_Flag[3]!=New_Flag[0])) ) ? 1'b1 : 0;
+	Execute_con = ( (Cond == 4'b0110)&&(New_Flag[1])&&(New_Flag[2]==0) ) ? 1'b1 : 0;
+	Execute_con = ( (Cond == 4'b0111)&&(New_Flag[1]==0) ) ? 1'b1 : 0;
+	Execute_con = ( (Cond == 4'b1000)&&(New_Flag[1]) ) ? 1'b1 : 0;
+	*/
+	
+	//in1_CON=Reg1;
+	//in2_CON=Reg2;
+	//COND_con=Cond;
+	//Flag_con=Flag;
+	//Execute_con=1'b1;
 	if (OpCode==4'b0000 && Execute_con==1'b1) //0000 ADD
         begin
             in1_ADD = Reg1;
@@ -189,7 +213,7 @@ begin
     
 end
 
-CONDITIONAL con(in1_CON, in2_CON, COND_con, Flag_con, Execute_con);
+//CONDITIONAL con(in1_CON, in2_CON, COND_con, Flag_con, Execute_con);
 
 ADD Add(in1_ADD, in2_ADD, result_ADD, flag_ADD, s_ADD, newflag_ADD);
 SUB Sub(in1_SUB, in2_SUB, result_SUB, flag_SUB, s_SUB, newflag_SUB);
