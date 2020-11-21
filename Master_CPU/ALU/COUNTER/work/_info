@@ -1,0 +1,59 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dD:/Documents/GitHub/ENGR_468_Project/ALU/MUX
+vCOUNTER
+Z0 !s110 1605560803
+!i10b 1
+!s100 DfUOzaV?Gh:Vj<7LFHH]20
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I]KR7N1h>m:>:blnM`_9kM2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dD:/Documents/GitHub/ENGR_468_Project/ALU/COUNTER
+w1604621841
+8D:/Documents/GitHub/ENGR_468_Project/ALU/COUNTER/COUNTER.v
+FD:/Documents/GitHub/ENGR_468_Project/ALU/COUNTER/COUNTER.v
+!i122 7
+L0 1 14
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1605560803.000000
+!s107 D:/Documents/GitHub/ENGR_468_Project/ALU/COUNTER/COUNTER.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Documents/GitHub/ENGR_468_Project/ALU/COUNTER/COUNTER.v|
+!i113 1
+Z6 o-work work
+Z7 tCvgOpt 0
+n@c@o@u@n@t@e@r
+vTEST_COUNTER
+R0
+!i10b 1
+!s100 d6a[1WNcjaz5LTd5E6:L21
+R1
+IPXVG?z@6FnC62Uz^W:8@i3
+R2
+R3
+w1604622091
+8D:/Documents/GitHub/ENGR_468_Project/ALU/COUNTER/TEST_COUNTER.v
+FD:/Documents/GitHub/ENGR_468_Project/ALU/COUNTER/TEST_COUNTER.v
+!i122 6
+L0 1 30
+R4
+r1
+!s85 0
+31
+R5
+!s107 D:/Documents/GitHub/ENGR_468_Project/ALU/COUNTER/TEST_COUNTER.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Documents/GitHub/ENGR_468_Project/ALU/COUNTER/TEST_COUNTER.v|
+!i113 1
+R6
+R7
+n@t@e@s@t_@c@o@u@n@t@e@r

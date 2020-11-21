@@ -1,0 +1,22 @@
+D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v {1 {vlog -work work -stats=none D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module SET_FLAG
+
+Top level modules:
+	SET_FLAG
+
+} {} {}} D:/Documents/GitHub/ENGR_468_Project/ALU/SUB/TEST_SUB.v {1 {vlog -work work -stats=none D:/Documents/GitHub/ENGR_468_Project/ALU/SUB/TEST_SUB.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Test_SUB
+
+Top level modules:
+	Test_SUB
+
+} {} {}} D:/Documents/GitHub/ENGR_468_Project/ALU/SUB/SUB.v {1 {vlog -work work -stats=none D:/Documents/GitHub/ENGR_468_Project/ALU/SUB/SUB.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module SUB
+
+Top level modules:
+	SUB
+
+} {} {}}

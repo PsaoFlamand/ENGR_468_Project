@@ -1,0 +1,83 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dD:/Documents/GitHub/ENGR_468_Project/ALU/OR
+vSET_FLAG
+Z0 !s110 1605554289
+!i10b 1
+!s100 GzZQn^T6eMN@:QMS86=I`2
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+Ic4SW_fMI1PU<IT=6fk8]02
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dD:/Documents/GitHub/ENGR_468_Project/ALU/XOR
+w1605405275
+8D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v
+FD:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v
+!i122 15
+L0 1 16
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1605554289.000000
+!s107 D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Documents/GitHub/ENGR_468_Project/ALU/SET_FLAG/SET_FLAG.v|
+!i113 1
+Z6 o-work work
+Z7 tCvgOpt 0
+n@s@e@t_@f@l@a@g
+vTEST_XOR
+R0
+!i10b 1
+!s100 :@[l40JI6^oFm[ASPU69;2
+R1
+IFz6GSTBO?F@R^XdLJTYAH2
+R2
+R3
+w1604620651
+8D:/Documents/GitHub/ENGR_468_Project/ALU/XOR/TEST_XOR.v
+FD:/Documents/GitHub/ENGR_468_Project/ALU/XOR/TEST_XOR.v
+!i122 13
+L0 1 24
+R4
+r1
+!s85 0
+31
+!s108 1605554288.000000
+!s107 D:/Documents/GitHub/ENGR_468_Project/ALU/XOR/TEST_XOR.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Documents/GitHub/ENGR_468_Project/ALU/XOR/TEST_XOR.v|
+!i113 1
+R6
+R7
+n@t@e@s@t_@x@o@r
+vXOR
+R0
+!i10b 1
+!s100 Ta@H]EGaW98B19Bf2N[]A3
+R1
+I`h^R8kaA>V=n7S_4ghIV^1
+R2
+R3
+w1605554284
+8D:/Documents/GitHub/ENGR_468_Project/ALU/XOR/XOR.v
+FD:/Documents/GitHub/ENGR_468_Project/ALU/XOR/XOR.v
+!i122 14
+L0 1 14
+R4
+r1
+!s85 0
+31
+R5
+!s107 D:/Documents/GitHub/ENGR_468_Project/ALU/XOR/XOR.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Documents/GitHub/ENGR_468_Project/ALU/XOR/XOR.v|
+!i113 1
+R6
+R7
+n@x@o@r
