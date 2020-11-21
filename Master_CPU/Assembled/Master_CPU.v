@@ -17,7 +17,8 @@ reg [31:0] reg_data;// mem
 
 
 
-reg  Enable,RW; //RAM STUFF
+reg  Enable; //RAM STUFF
+wire RW;
 reg [15:0] Address; //Ram Address
 wire [31:0] Out;  //Ram output
 
