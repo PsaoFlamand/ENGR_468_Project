@@ -50,24 +50,16 @@ source_2 = instruction[18:15];
 source_1 = instruction[14:11];
 IV = instruction[10:6];
 
-Enable =1;   RW_ram=0;    Address_in=16'h0000;       instruction =32'hAAAAAAAA;
-#5 Enable =1;   RW_ram=0;    Address_in=16'h0000;    instruction =32'haBBBAAAA;
-#5 Enable =1;   RW_ram=0;    Address_in=16'h0001;    instruction =32'hCCCC00AA;
-#5 Enable =1;   RW_ram=0;    Address_in=16'h0002;    instruction =32'hDDDD00BB;
-#5 Enable =1;   RW_ram=0;    Address_in=16'h0003;    instruction =32'hEEEE00CC;
-#5 Enable =1;   RW_ram=0;    Address_in=16'h0004;    instruction =32'hFFFF00DD;
-#5 Enable =1;   RW_ram=0;    Address_in=16'h0005;    instruction =32'hAAAA00EE;
-#5 Enable =1;   RW_ram=0;    Address_in=16'h0006;    instruction =32'hBBBB00FF;
-#5 Enable =1;   RW_ram=0;    Address_in=16'h0007;    instruction =32'hCCCCFFFF;
-#5 Enable =1;   RW_ram=0;    Address_in=16'h0008;    instruction =32'hAAAAAAAA;
-#5 Enable =1;   RW_ram=0;    Address_in=16'h0009;    instruction =32'haBBBAAAA;
-#5 Enable =1;   RW_ram=0;    Address_in=16'h000A;    instruction =32'hCCCC00AA;
-#5 Enable =1;   RW_ram=0;    Address_in=16'h000B;    instruction =32'hDDDD00BB;
-#5 Enable =1;   RW_ram=0;    Address_in=16'h000C;    instruction =32'hEEEE00CC;
-#5 Enable =1;   RW_ram=0;    Address_in=16'h000D;    instruction =32'hFFFF00DD;
-#5 Enable =1;   RW_ram=0;    Address_in=16'h000E;    instruction =32'hAAAA00EE;
-#5 Enable =1;   RW_ram=0;    Address_in=16'h000F;    instruction =32'hBBBB00FF;
-#5 Enable =1;   RW_ram=0;    Address_in=16'h0010;    instruction =32'hCCCCFFFF;
+Enable =1;   RW_ram=0;		 Address_in=16'h0000;    instruction =32'b00000110001010000000000001100000;
+#5 Enable =1;   RW_ram=0;    Address_in=16'h0000;    instruction =32'b00000110000010000000000000100000;
+#5 Enable =1;   RW_ram=0;    Address_in=16'h0001;    instruction =32'b00000110001000000000000001000000;
+#5 Enable =1;   RW_ram=0;    Address_in=16'h0002;    instruction =32'b00000110000100000000000000110000;
+#5 Enable =1;   RW_ram=0;    Address_in=16'h0003;    instruction =32'b00000000000110010000100000000000;
+#5 Enable =1;   RW_ram=0;    Address_in=16'h0004;    instruction =32'b00001001001000010000000010000000;
+#5 Enable =1;   RW_ram=0;    Address_in=16'h0005;    instruction =32'b00000010001010010000100000000000;
+#5 Enable =1;   RW_ram=0;    Address_in=16'h0006;    instruction =32'b00000001101110100010100000000000;
+#5 Enable =1;   RW_ram=0;    Address_in=16'h0007;    instruction =32'b00001011000000011010000000000000;
+#5 Enable =1;   RW_ram=0;    Address_in=16'h0008;    instruction =32'b00010110000110000000001111111000;
 #10
 
 $writememh("data_h.txt", ram.Mem);
