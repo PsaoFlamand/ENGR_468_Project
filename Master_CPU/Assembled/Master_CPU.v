@@ -32,8 +32,8 @@ wire [31:0] Result_1,  Result_2; //Memory
 
 
 RAM ram(Enable,RW,Address,In,Out);
-Register_bank(destination, source_1, source_2, LDR_out, Clk, Result_1, Result_2);
-Memory_Control(Result_1, Result_2, OpCode, RW, Address, reg_data, LDR, STR ,LDR_out, STR_in, Counter, Reset, Clk, pc, Result );
+Register_bank regbank(destination, source_1, source_2, LDR_out, Clk, Result_1, Result_2);
+memory_control memcontrol(Result_1, Result_2, OpCode, RW, Address, reg_data, LDR, STR ,LDR_out, STR_in, Counter, Reset, Clk, pc, Result );
 MASTER_ALU master(Reg1, Reg2, IV, OpCode, Cond, S, Result, Flag, New_Flag);
 
 always @(posedge Clk)
