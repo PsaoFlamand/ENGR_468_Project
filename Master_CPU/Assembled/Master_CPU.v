@@ -17,7 +17,7 @@ wire [31:0] reg_data;// mem
 
 
 
-reg  Enable; //RAM STUFF
+reg Enable; //RAM STUFF
 reg RW_ram;
 wire RW_mem;
 reg [15:0] Address_in; //Ram Address
@@ -42,6 +42,22 @@ MASTER_ALU master(Reg1, Reg2, IV, OpCode, Cond, S, Result, Flag, New_Flag);
 always @(posedge Clk)
 
 begin
+
+
+Enable =1;   RW_ram=0;		 Address_in=16'h0000;    instruction =32'b00000110001010000000000001100000;
+#5 Enable =1;   RW_ram=0;    Address_in=16'h0001;    instruction =32'b00000110000010000000000000100000;
+#5 Enable =1;   RW_ram=0;    Address_in=16'h0002;    instruction =32'b00000110001000000000000001000000;
+#5 Enable =1;   RW_ram=0;    Address_in=16'h0003;    instruction =32'b00000110000100000000000000110000;
+#5 Enable =1;   RW_ram=0;    Address_in=16'h0004;    instruction =32'b00000000000110010000100000000000;
+#5 Enable =1;   RW_ram=0;    Address_in=16'h0005;    instruction =32'b00001001001000010000000010000000;
+#5 Enable =1;   RW_ram=0;    Address_in=16'h0006;    instruction =32'b00000010001010010000100000000000;
+#5 Enable =1;   RW_ram=0;    Address_in=16'h0007;    instruction =32'b00000001101110100010100000000000;
+#5 Enable =1;   RW_ram=0;    Address_in=16'h0008;    instruction =32'b00001011000000011010000000000000;
+#5 Enable =1;   RW_ram=0;    Address_in=16'h0009;    instruction =32'b00010110000110000000001111111000;
+#10
+
+$writememh("data_h.txt", ram.Mem);
+
 Cond = instruction[31:28]; 
 OpCode =  instruction[27:24];
 S =  instruction[23];
@@ -49,20 +65,6 @@ destination = instruction[22:19];
 source_2 = instruction[18:15];
 source_1 = instruction[14:11];
 IV = instruction[10:6];
-
-Enable =1;   RW_ram=0;		 Address_in=16'h0000;    instruction =32'b00000110001010000000000001100000;
-#5 Enable =1;   RW_ram=0;    Address_in=16'h0000;    instruction =32'b00000110000010000000000000100000;
-#5 Enable =1;   RW_ram=0;    Address_in=16'h0001;    instruction =32'b00000110001000000000000001000000;
-#5 Enable =1;   RW_ram=0;    Address_in=16'h0002;    instruction =32'b00000110000100000000000000110000;
-#5 Enable =1;   RW_ram=0;    Address_in=16'h0003;    instruction =32'b00000000000110010000100000000000;
-#5 Enable =1;   RW_ram=0;    Address_in=16'h0004;    instruction =32'b00001001001000010000000010000000;
-#5 Enable =1;   RW_ram=0;    Address_in=16'h0005;    instruction =32'b00000010001010010000100000000000;
-#5 Enable =1;   RW_ram=0;    Address_in=16'h0006;    instruction =32'b00000001101110100010100000000000;
-#5 Enable =1;   RW_ram=0;    Address_in=16'h0007;    instruction =32'b00001011000000011010000000000000;
-#5 Enable =1;   RW_ram=0;    Address_in=16'h0008;    instruction =32'b00010110000110000000001111111000;
-#10
-
-$writememh("data_h.txt", ram.Mem);
 end
 endmodule
  
