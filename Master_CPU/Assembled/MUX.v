@@ -5,7 +5,6 @@ input [3:0] sel;
 input [31:0] r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15;
 output reg [31:0] out_mux;
 
-always @*
 begin 
 	case(sel)
 	4'b0000 : out_mux= r0;
