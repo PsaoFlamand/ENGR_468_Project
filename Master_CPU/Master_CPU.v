@@ -1,84 +1,73 @@
-module MASTER_CPU(instruction, Clk);
+module TEST_MASTER_CPU;
 
-input reg [31:0] instruction;
-input Clk;
+reg [31:0] instruction;
+reg Clk;
 
-reg signed [31:0] Reg1, Reg2;
-reg S;
-reg [4:0] IV_ShftRor;
-reg [2:0] IV_Bits;
-reg [3:0] Source1,Source_2;
-reg [3:0] OpCode;
-reg [3:0] Flag;
-reg [3:0] Cond;
-reg  Enable,RW;
+reg [3:0] Cond; //ALU
+reg [3:0] OpCode; //Memory, ALU
+reg S; //ALU
+reg [3:0] destination; //Register Bank
+reg [3:0] source_1, source_2; //Register Bank
+reg [4:0] IV; //ALU
+reg signed [31:0] Reg1, Reg2; //ALU
+reg [3:0] Flag; //ALU
 
-reg [15:0] Address;
+reg [7:0] pc; // mem
+reg [31:0] reg_data;// mem
+
+
+
+reg  Enable,RW; //RAM STUFF
+reg [15:0] Address; //Ram Address
 wire [31:0] Out;  //Ram output
 
+wire signed [31:0] Result; // ALU wires
+wire [3:0] New_Flag; //ALU Wires
 
-wire signed [31:0] Result;
-wire [3:0] New_Flag;
+//Register bank part 
+wire [31:0] LDR_out; //Register Bank
+wire [31:0] Result_1,  Result_2; //Memory
 
-//Register bank part and split the instruction part
-wire de
+//split the instruction part
 
-assign Cond = instruction[31:28];
-assign OpCode =  instruction[27:24];
-assign s =  instruction[23];
-assign destination = instruction[22:19];
-assign source_2 = instruction[18:15];
-assign source_1 = instruction[14:11];
-assign immediate_value =  instruction[18:3];
 
 RAM ram(Enable,RW,Address,In,Out);
 Register_bank(destination, source_1, source_2, LDR_out, Clk, Result_1, Result_2);
-Memory_Control();
+Memory_Control(Result_1, Result_2, OpCode, RW, Address, reg_data, LDR, STR ,LDR_out, STR_in, Counter, Reset, Clk, pc, Result );
 MASTER_ALU master(Reg1, Reg2, IV, OpCode, Cond, S, Result, Flag, New_Flag);
 
 always @(posedge Clk)
-    begin
- 
- 
-  Begin
-Enable =1;   RW=0;    Address=16'h0000;    In =32'hAAAAAAAA;
-#5 Enable =1;   RW=0;    Address=16'h0000;    In =32'haBBBAAAA;
-#5 Enable =1;   RW=0;    Address=16'h0001;    In =32'hCCCC00AA;
-#5 Enable =1;   RW=0;    Address=16'h0002;    In =32'hDDDD00BB;
-#5 Enable =1;   RW=0;    Address=16'h0003;    In =32'hEEEE00CC;
-#5 Enable =1;   RW=0;    Address=16'h0004;    In =32'hFFFF00DD;
-#5 Enable =1;   RW=0;    Address=16'h0005;    In =32'hAAAA00EE;
-#5 Enable =1;   RW=0;    Address=16'h0006;    In =32'hBBBB00FF;
-#5 Enable =1;   RW=0;    Address=16'h0007;    In =32'hCCCCFFFF;
-#5 Enable =1;   RW=0;    Address=16'h0008;    In =32'hAAAAAAAA;
-#5 Enable =1;   RW=0;    Address=16'h0009;    In =32'haBBBAAAA;
-#5 Enable =1;   RW=0;    Address=16'h000A;    In =32'hCCCC00AA;
-#5 Enable =1;   RW=0;    Address=16'h000B;    In =32'hDDDD00BB;
-#5 Enable =1;   RW=0;    Address=16'h000C;    In =32'hEEEE00CC;
-#5 Enable =1;   RW=0;    Address=16'h000D;    In =32'hFFFF00DD;
-#5 Enable =1;   RW=0;    Address=16'h000E;    In =32'hAAAA00EE;
-#5 Enable =1;   RW=0;    Address=16'h000F;    In =32'hBBBB00FF;
-#5 Enable =1;   RW=0;    Address=16'h0010;    In =32'hCCCCFFFF;
+
+begin
+Cond = instruction[31:28]; 
+OpCode =  instruction[27:24];
+S =  instruction[23];
+destination = instruction[22:19];
+source_2 = instruction[18:15];
+source_1 = instruction[14:11];
+IV = instruction[10:6];
+
+Enable =1;   RW=0;    Address=16'h0000;       instruction =32'hAAAAAAAA;
+#5 Enable =1;   RW=0;    Address=16'h0000;    instruction =32'haBBBAAAA;
+#5 Enable =1;   RW=0;    Address=16'h0001;    instruction =32'hCCCC00AA;
+#5 Enable =1;   RW=0;    Address=16'h0002;    instruction =32'hDDDD00BB;
+#5 Enable =1;   RW=0;    Address=16'h0003;    instruction =32'hEEEE00CC;
+#5 Enable =1;   RW=0;    Address=16'h0004;    instruction =32'hFFFF00DD;
+#5 Enable =1;   RW=0;    Address=16'h0005;    instruction =32'hAAAA00EE;
+#5 Enable =1;   RW=0;    Address=16'h0006;    instruction =32'hBBBB00FF;
+#5 Enable =1;   RW=0;    Address=16'h0007;    instruction =32'hCCCCFFFF;
+#5 Enable =1;   RW=0;    Address=16'h0008;    instruction =32'hAAAAAAAA;
+#5 Enable =1;   RW=0;    Address=16'h0009;    instruction =32'haBBBAAAA;
+#5 Enable =1;   RW=0;    Address=16'h000A;    instruction =32'hCCCC00AA;
+#5 Enable =1;   RW=0;    Address=16'h000B;    instruction =32'hDDDD00BB;
+#5 Enable =1;   RW=0;    Address=16'h000C;    instruction =32'hEEEE00CC;
+#5 Enable =1;   RW=0;    Address=16'h000D;    instruction =32'hFFFF00DD;
+#5 Enable =1;   RW=0;    Address=16'h000E;    instruction =32'hAAAA00EE;
+#5 Enable =1;   RW=0;    Address=16'h000F;    instruction =32'hBBBB00FF;
+#5 Enable =1;   RW=0;    Address=16'h0010;    instruction =32'hCCCCFFFF;
 #10
 
-  $writememh("data_h.txt", ram.Mem);
+$writememh("data_h.txt", ram.Mem);
 end
 endmodule
  
- 
- 
- 
-  end
- 
-
-
-
-
-endmodule
-
-
-
-
-
-
-
