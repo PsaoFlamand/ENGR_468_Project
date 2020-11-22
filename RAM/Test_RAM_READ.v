@@ -34,6 +34,6 @@ end
 
 initial
 begin
-$monitor($time, "data at address %d is %h", Address, Out);
+$monitor($time, "data at address %b is %b", Address, Out);
 end
 endmodule

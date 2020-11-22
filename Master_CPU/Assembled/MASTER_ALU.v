@@ -13,9 +13,10 @@
 //`include "../XOR/XOR.v"
 //`include "../CMP/CMP.v"
 
-module MASTER_ALU(Reg1, Reg2, IV, OpCode, Cond, S, Result, Flag, New_Flag);
+module MASTER_ALU(Reg1, Reg2, IV_ShftRor,IV_Mov, OpCode, Cond, S, Result, Flag, New_Flag);
 input signed [31:0] Reg1, Reg2;
-input [15:0] IV;
+input [15:0] IV_Mov;
+input [4:0] IV_ShftRor;
 input [3:0] OpCode;
 input [3:0] Cond;
 input S;
@@ -58,7 +59,8 @@ reg [3:0] COND_con;
 
 reg Execute_con=1'b1;
 
-
+//Register Display
+wire [31:0] r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15;
 //Instantiating modules depending on OpCodes
 
 
@@ -156,7 +158,7 @@ begin
     else if (OpCode==4'b0110 && Execute_con==1'b1)  //0110 MOVn
         begin
             Result=out1_MOV;
-            in1_MOV = IV;
+            in1_MOV = IV_Mov;
         end
     else if (OpCode==4'b0111 && Execute_con==1'b1) //0111 MOV
         begin
@@ -167,7 +169,7 @@ begin
         begin
             in1_LSR = Reg1;
             in2_LSR = Reg2;
-            iv_LSR = IV;
+            iv_LSR = IV_ShftRor;
             
             flag_LSR = Flag;
             s_LSR = S;
@@ -178,7 +180,7 @@ begin
         begin
             in1_LSL = Reg1;
             in2_LSL = Reg2;
-            iv_LSL = IV;
+            iv_LSL = IV_ShftRor;
             
             flag_LSL = Flag;
             s_LSL = S;
@@ -189,7 +191,7 @@ begin
         begin
             in1_ROR = Reg1;
             in2_ROR = Reg2;
-            iv_ROR = IV;
+            iv_ROR = IV_ShftRor;
             
             flag_ROR = Flag;
             s_ROR = S;

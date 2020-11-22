@@ -8,24 +8,17 @@ RAM ram(Enable,RW,Address,In,Out);
 
 initial  
 begin
-   Enable =1;   RW=0;	Address=16'h0000;	In =32'hAAAAAAAA;
-#5 Enable =1;   RW=0;	Address=16'h0000;	In =32'haBBBAAAA;
-#5 Enable =1;   RW=0;	Address=16'h0001;	In =32'hCCCC00AA;
-#5 Enable =1;   RW=0;	Address=16'h0002;	In =32'hDDDD00BB;
-#5 Enable =1;   RW=0;	Address=16'h0003;	In =32'hEEEE00CC;
-#5 Enable =1;   RW=0;	Address=16'h0004;	In =32'hFFFF00DD;
-#5 Enable =1;   RW=0;	Address=16'h0005;	In =32'hAAAA00EE;
-#5 Enable =1;   RW=0;	Address=16'h0006;	In =32'hBBBB00FF;
-#5 Enable =1;   RW=0;	Address=16'h0007;	In =32'hCCCCFFFF;
-#5 Enable =1;   RW=0;	Address=16'h0008;	In =32'hAAAAAAAA;
-#5 Enable =1;   RW=0;	Address=16'h0009;	In =32'haBBBAAAA;
-#5 Enable =1;   RW=0;	Address=16'h000A;	In =32'hCCCC00AA;
-#5 Enable =1;   RW=0;	Address=16'h000B;	In =32'hDDDD00BB;
-#5 Enable =1;   RW=0;	Address=16'h000C;	In =32'hEEEE00CC;
-#5 Enable =1;   RW=0;	Address=16'h000D;	In =32'hFFFF00DD;
-#5 Enable =1;   RW=0;	Address=16'h000E;	In =32'hAAAA00EE;
-#5 Enable =1;   RW=0;	Address=16'h000F;	In =32'hBBBB00FF;
-#5 Enable =1;   RW=0;	Address=16'h0010;	In =32'hCCCCFFFF;
+   Enable =1;   RW=0;	Address=16'b0000;	In =32'b00000110001010000000000001100000;
+#5 Enable =1;   RW=0;	Address=16'b0001;	In =32'b00000110000010000000000000100000;
+#5 Enable =1;   RW=0;	Address=16'b0010;	In =32'b0000110001000000000000001000000;
+#5 Enable =1;   RW=0;	Address=16'b0011;	In =32'b00000110000100000000000000110000;
+#5 Enable =1;   RW=0;	Address=16'b0100;	In =32'b00000000000110010000100000000000;
+#5 Enable =1;   RW=0;	Address=16'b0101;	In =32'b00001001001000010000000010000000;
+#5 Enable =1;   RW=0;	Address=16'b0110;	In =32'b00000010001010010000100000000000;
+#5 Enable =1;   RW=0;	Address=16'b0111;	In =32'b00000001101110100010100000000000;
+#5 Enable =1;   RW=0;	Address=16'b1000;	In =32'b00001011000000011010000000000000;
+#5 Enable =1;   RW=0;	Address=16'b1001;	In =32'b00010110000110000000001111111000;
+
 #10
 
   $writememh("data_h.txt", ram.Mem);
