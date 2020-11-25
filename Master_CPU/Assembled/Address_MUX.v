@@ -9,14 +9,11 @@ always @*
 begin 
 
 if (sel)
-begin	
-pc=0;
-out =in1;
-end 
-/*else if (! Reset)
-	begin 
-	out=8'b00000000;
-	end*/
+	begin	
+	pc=0;
+	out =in1;
+	end 
+
 else
 	begin
 	pc=pc+1'b1;
@@ -26,3 +23,4 @@ else
 end 
 
 endmodule 
+
