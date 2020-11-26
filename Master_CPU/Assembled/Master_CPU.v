@@ -22,7 +22,7 @@ wire [31:0] reg_data;
 
 /*RAM ports*/ 
 reg Enable; //RAM STUFF
-wire RW_ram;
+reg RW_ram;
 reg [15:0] Address_in; //Address input from mem to ram 
 wire [31:0] Out;  //Output from ram to mem
 
@@ -57,7 +57,6 @@ assign IV_Mov=instruction[18:3];
 initial
 begin  
 Clk=1;
-Reset=1;
 Reg1=10;
 Reg2=10;
 
