@@ -167,7 +167,7 @@ begin
         end
     else if (OpCode==4'b1000 && Execute_con==1'b1) //1000 LSR
         begin
-            in1_LSR = Reg1;
+            //in1_LSR = Reg1;
             in2_LSR = Reg2;
             iv_LSR = IV_ShftRor;
             
@@ -178,7 +178,7 @@ begin
         end
     else if (OpCode==4'b1001 && Execute_con==1'b1) //1001 LSL
         begin
-            in1_LSL = Reg1;
+            //in1_LSL = Reg1;
             in2_LSL = Reg2;
             iv_LSL = IV_ShftRor;
             
