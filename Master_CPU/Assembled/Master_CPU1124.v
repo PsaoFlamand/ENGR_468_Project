@@ -1,12 +1,8 @@
 module TEST_MASTER_CPU;
 
- /*ALU ports*/
-wire signed [31:0] Result,Result_mem; // ALU wires
-wire [3:0] New_Flag; //ALU Wires
+wire [31:0] instruction;
 reg Clk;
 
-/* instruction ports */
-wire [31:0] instruction;
 wire [3:0] Cond; //ALU
 wire [3:0] OpCode; //Memory, ALU
 wire S; //ALU
@@ -17,30 +13,37 @@ reg signed [31:0] Reg1, Reg2; //ALU
 reg [3:0] Flag; //ALU
 wire [15:0] IV_Mov;
 
-/* Memory ports*/
-wire [31:0] reg_data;
+wire [7:0] pc; // mem
+reg [31:0] reg_data_reg;// mem
+wire [31:0] reg_data_mem;
 
-/*RAM ports*/ 
 reg Enable; //RAM STUFF
 reg RW_ram;
-reg [15:0] Address_in; //Address input from mem to ram 
-wire [31:0] Out;  //Output from ram to mem
+wire RW_mem;
+reg [15:0] Address_in; //Ram Address
+wire [15:0] Address_out; //mem Address
+wire [31:0] Out;  //Ram output
 
-/*Register bank ports*/
-wire [31:0] Result_1,  Result_2; //Results from reg muxes into ALU and Mem
+wire signed [31:0] Result,Result_mem; // ALU wires
+wire [3:0] New_Flag; //ALU Wires
+
+//Register bank part 
+wire [31:0] LDR_out; //Register Bank
+wire [31:0] Result_1,  Result_2; //Memory
+
 wire [31:0] r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15;
+//split the instruction part
 
-/*initiate modules*/
+reg Reset;
 RAM ram(Enable,RW_ram,Address_in,In,Out);
-Register_bank regbank(destination, source_1, source_2, reg_data, Clk, Result_1, Result_2);
-memory_control memcontrol(Result_1, Result_2, OpCode, Address_in, Result, reg_data, RW_ram, In, Out);
+Register_bank regbank(destination, source_1, source_2, reg_data_reg, Clk, Result_1, Result_2);
+memory_control memcontrol(Result_1, Result_2, OpCode, RW_mem, Address_out, reg_data_mem, LDR, STR ,LDR_out, STR_in, Counter, Reset, Clk, pc, Result_mem);
 MASTER_ALU master(Result_1, Result_2, IV_Shiftror, IV_Mov, OpCode, Cond, S, Result, Flag, New_Flag);
 
 //always @(posedge Clk)
 //assign LDR_out=Result;
 //assign Result_mem=10;
 
-/*split the instruction*/
 assign instruction=Out;
 assign Cond = instruction[31:28]; 
 assign OpCode =  instruction[27:24];
@@ -57,10 +60,11 @@ assign IV_Mov=instruction[18:3];
 initial
 begin  
 Clk=1;
+Reset=1;
 Reg1=10;
 Reg2=10;
 
-
+reg_data_reg=reg_data_mem;
 $readmemh("data_h.txt", ram.Mem);
    Enable =0;   RW_ram=1;	Address_in=32'd0;	
 #5 Enable =1;   RW_ram=1;	Address_in=32'd0;	
