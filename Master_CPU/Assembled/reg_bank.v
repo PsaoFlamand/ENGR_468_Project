@@ -6,7 +6,7 @@ output reg [31:0] r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r1
 
 
 
-	always@(*)
+always @*
 begin
 	case (enable)
 	16'b0000000000000001 : r0=ldr_data;
