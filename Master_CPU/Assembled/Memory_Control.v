@@ -11,8 +11,8 @@ wire [31:0]out_add, out_LDR;
 reg sel_add, sel_LDR;
 reg Reset;
 
-always @(posedge Clk)
-//always @*
+//always @(posedge Clk)
+always @*
 	case (op_code)
  	4'b1100: //ADR
 	begin
@@ -60,6 +60,12 @@ always @(posedge Clk)
 	end 
 endcase
 
+//initial
+//begin
+
+//$monitor($time, "reg_data:%d ", reg_data);
+
+//end 
 Address_bus addbus(out_add, SR1, sel_add,Reset);
 LDR_MUX LDRMux(out_LDR, ALU_result, RAM_out, sel_LDR);
 endmodule 
