@@ -1,11 +1,10 @@
 // destination 4 bits to 16 enable decoder module decoder(clk, dest, enable);
-module decoder(clk, dest, enable);
-input clk;
+module decoder(dest, enable);
 input [3:0]dest; 
 output enable;
 reg [15:0]enable;
 
-always@*
+always@(dest)
 begin 
 	case(dest)
 	4'b0000: enable=16'b0000000000000001;
