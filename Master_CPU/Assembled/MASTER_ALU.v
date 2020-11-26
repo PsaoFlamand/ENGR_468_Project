@@ -60,7 +60,7 @@ reg [3:0] COND_con;
 reg Execute_con=1'b1;
 
 //Register Display
-wire [31:0] r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15;
+//wire [31:0] r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15;
 //Instantiating modules depending on OpCodes
 
 

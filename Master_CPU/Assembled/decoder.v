@@ -4,7 +4,7 @@ input [3:0]dest;
 output enable;
 reg [15:0]enable;
 
-always@(dest)
+always@(*)
 begin 
 	case(dest)
 	4'b0000: enable=16'b0000000000000001;
