@@ -1,5 +1,6 @@
 module TEST_MASTER_CPU;
 
+ /*declare ports*/
 wire [31:0] instruction;
 reg Clk;
 
@@ -34,16 +35,17 @@ wire [31:0] Result_1,  Result_2; //Memory
 wire [31:0] r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15;
 //split the instruction part
 
-reg Reset;
+/*initiate modules*/
 RAM ram(Enable,RW_ram,Address_in,In,Out);
 Register_bank regbank(destination, source_1, source_2, reg_data_reg, Clk, Result_1, Result_2);
-memory_control memcontrol(Result_1, Result_2, OpCode, RW_mem, Address_out, reg_data_mem, LDR, STR ,LDR_out, STR_in, Counter, Reset, Clk, pc, Result_mem);
+memory_control memcontrol(Result_1, Result_2, OpCode, Address_in, Result, reg_data, RW_ram, In, Out);
 MASTER_ALU master(Result_1, Result_2, IV_Shiftror, IV_Mov, OpCode, Cond, S, Result, Flag, New_Flag);
 
 //always @(posedge Clk)
 //assign LDR_out=Result;
 //assign Result_mem=10;
 
+/*split the instruction*/
 assign instruction=Out;
 assign Cond = instruction[31:28]; 
 assign OpCode =  instruction[27:24];
@@ -64,7 +66,7 @@ Reset=1;
 Reg1=10;
 Reg2=10;
 
-reg_data_reg=reg_data_mem;
+
 $readmemh("data_h.txt", ram.Mem);
    Enable =0;   RW_ram=1;	Address_in=32'd0;	
 #5 Enable =1;   RW_ram=1;	Address_in=32'd0;	
