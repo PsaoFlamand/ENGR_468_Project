@@ -42,15 +42,16 @@ reg Reset;
 
 RAM ram(Enable,RW_ram,Address_in,In,Out);
 Register_bank regbank(destination, source_1, source_2, reg_data, Result_1, Result_2, r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15);
-memory_control memcontrol(Result_1, Result_2, OpCode, Address_out, Result, reg_data, RW_mem, In, Out,Clk);
+memory_control memcontrol(Result_1, Result_2, OpCode, Address_in, Result, reg_data, RW_mem, In, Out,Clk);
 MASTER_ALU master(Result_1, Result_2, IV_Shiftror, IV_Mov, OpCode, Cond, S, Result, Flag, New_Flag);
+
 //always @(posedge Clk)
 //assign LDR_out=Result;
 //assign Result_mem=10;
 
 assign instruction = Out;
 assign Cond = instruction[31:28]; 
-assign OpCode =  instruction[27:24];
+assign OpCode = instruction[27:24];
 assign S =  instruction[23];
 assign destination = instruction[22:19];
 //
@@ -60,19 +61,11 @@ assign IV_ShiftRor = instruction[10:6];
 //
 assign IV_Mov=instruction[18:3];
 
-//assign Result_1=10;
-//assign Result_2=10;
 
-assign reg_data_reg=reg_data;
 initial
 begin  
 Clk=1;
 Reset=1; //
-
-
-Address_in=Address_out;
-//Flag=4'b0000;
-
 
 $readmemh("C:\\Users\\psaof\\Documents\\GitHub\\ENGR_468_Project\\Master_CPU\\Assembled\\instructions.txt", ram.Mem);
    Enable =0;   RW_ram=1;	Address_in=32'd0;	
