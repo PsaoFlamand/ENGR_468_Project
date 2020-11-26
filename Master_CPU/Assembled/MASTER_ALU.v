@@ -53,7 +53,7 @@ reg s_ADD, s_AND, s_CMP, s_LSL, s_LSR, s_MUL, s_OR, s_ROR, s_SUB, s_XOR;
 wire [3:0] newflag_ADD, newflag_AND, newflag_CMP, newflag_LSL,
 newflag_LSR, newflag_MUL, newflag_OR, newflag_ROR, newflag_SUB, newflag_XOR;
 
-reg [15:0] iv_LSL, iv_LSR, iv_ROR;
+reg [4:0] iv_LSL, iv_LSR, iv_ROR;
 
 reg [3:0] COND_con;
 
@@ -65,11 +65,14 @@ reg Execute_con=1'b1;
 
 
 
+
+
+
 	
 always @*
 
 begin
-
+	
 	Execute_con = ( (Cond == 4'b0000) ) || ( (Cond == 4'b0001) && (New_Flag[2]) ) || ( (Cond == 4'b0010)&&(New_Flag[2]==0)&&(New_Flag[3] == New_Flag[0]) )
 	|| ( (Cond == 4'b0011)&&(New_Flag[3]!=New_Flag[0]) ) || ( (Cond == 4'b0100)&&(New_Flag[3]==New_Flag[0]) )
 	|| ( (Cond == 4'b0101)&&(New_Flag[2] || (New_Flag[3]!=New_Flag[0])) )|| ( (Cond == 4'b0110)&&(New_Flag[1])&&(New_Flag[2]==0) )
@@ -159,6 +162,7 @@ begin
         begin
             Result=out1_MOV;
             in1_MOV = IV_Mov;
+			
         end
     else if (OpCode==4'b0111 && Execute_con==1'b1) //0111 MOV
         begin
@@ -167,9 +171,9 @@ begin
         end
     else if (OpCode==4'b1000 && Execute_con==1'b1) //1000 LSR
         begin
-            //in1_LSR = Reg1;
-            in2_LSR = Reg2;
-            iv_LSR = IV_ShftRor;
+            in1_LSR = Reg2;
+            in2_LSR = IV_ShftRor;
+            
             
             flag_LSR = Flag;
             s_LSR = S;
@@ -178,10 +182,10 @@ begin
         end
     else if (OpCode==4'b1001 && Execute_con==1'b1) //1001 LSL
         begin
-            //in1_LSL = Reg1;
-            in2_LSL = Reg2;
-            iv_LSL = IV_ShftRor;
+            in1_LSL = Reg2;
+            in2_LSL = IV_ShftRor;//Must be IV
             
+            //$monitor($time, "IV:%b ", IV_ShftRor);
             flag_LSL = Flag;
             s_LSL = S;
 			Result=result_LSL;
@@ -189,9 +193,9 @@ begin
         end
     else if (OpCode==4'b1010 && Execute_con==1'b1) //1010 ROR
         begin
-            in1_ROR = Reg1;
-            in2_ROR = Reg2;
-            iv_ROR = IV_ShftRor;
+            in1_ROR = Reg2;
+            in2_ROR = IV_ShftRor;
+            
             
             flag_ROR = Flag;
             s_ROR = S;
@@ -223,8 +227,8 @@ MUL Mul(in1_MUL, in2_MUL, result_MUL, flag_MUL, s_MUL, newflag_MUL);
 OR Orr(in1_OR, in2_OR, result_OR, flag_OR, s_OR, newflag_OR);
 AND And(in1_AND, in2_AND, result_AND, flag_AND, s_AND, newflag_AND);
 XOR Xor(in1_XOR, in2_XOR, result_XOR, flag_XOR, s_XOR, newflag_XOR);
-LSR #(5) lsr(in2_LSR, iv_LSR, result_LSR, flag_LSR, s_LSR, newflag_LSR);
-LSL #(5) lsl(in2_LSL, iv_LSL, result_LSL, flag_LSL, s_LSL, newflag_LSL);
+LSR #(5) lsr(in1_LSR, in2_LSR, result_LSR, flag_LSR, s_LSR, newflag_LSR); //I changed the second inputs
+LSL #(5) lsl(in1_LSL, in2_LSL, result_LSL, flag_LSL, s_LSL, newflag_LSL);
 
 ROR #(5) ror(in2_ROR, iv_ROR, result_ROR, flag_ROR, s_ROR, newflag_ROR);
 CMP cmp(in1_CMP, in2_CMP, flag_CMP, s_CMP, newflag_CMP);

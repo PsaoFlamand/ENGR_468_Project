@@ -8,7 +8,7 @@ wire [3:0] OpCode; //Memory, ALU
 wire S; //ALU
 wire [3:0] destination; //Register Bank
 wire [3:0] source_1, source_2; //Register Bank
-wire [4:0] IV_ShiftRor; //ALU
+wire [4:0] IV_ShftRor; //ALU
 reg signed [31:0] Reg1, Reg2; //ALU
 reg [3:0] Flag; //ALU
 wire [15:0] IV_Mov;
@@ -43,7 +43,7 @@ reg Reset;
 RAM ram(Enable,RW_ram,Address_in,In,Out);
 Register_bank regbank(destination, source_1, source_2, reg_data, Result_1, Result_2, r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15);
 memory_control memcontrol(Result_1, Result_2, OpCode, Address_out, Result, reg_data, RW_mem, In, Out,Clk);
-MASTER_ALU master(Result_1, Result_2, IV_Shiftror, IV_Mov, OpCode, Cond, S, Result, Flag, New_Flag);
+MASTER_ALU master(Result_1, Result_2, IV_ShftRor, IV_Mov, OpCode, Cond, S, Result, Flag, New_Flag);
 //always @(posedge Clk)
 //assign LDR_out=Result;
 //assign Result_mem=10;
@@ -56,7 +56,7 @@ assign destination = instruction[22:19];
 //
 assign source_2 = instruction[18:15];
 assign source_1 = instruction[14:11];
-assign IV_ShiftRor = instruction[10:6];
+assign IV_ShftRor = instruction[10:6];
 //
 assign IV_Mov=instruction[18:3];
 
@@ -66,6 +66,7 @@ assign IV_Mov=instruction[18:3];
 assign reg_data_reg=reg_data;
 initial
 begin  
+//$monitor($time, "IV:%b ", IV_ShftRor);
 Clk=1;
 Reset=1; //
 
@@ -75,7 +76,7 @@ Address_in=Address_out;
 
 
 $readmemh("C:\\Users\\psaof\\Documents\\GitHub\\ENGR_468_Project\\Master_CPU\\Assembled\\instructions.txt", ram.Mem);
-   Enable =0;   RW_ram=1;	Address_in=32'd0;	
+   Enable =0;   RW_ram=1;	Address_in=32'd0;	//addresses must be fixed
 #5 Enable =1;   RW_ram=1;	Address_in=32'd0;	
 #5 Enable =1;   RW_ram=1;	Address_in=32'd1;	
 #5 Enable =1;   RW_ram=1;	Address_in=32'd2;	
@@ -94,7 +95,7 @@ begin
 
 $monitor($time, "reg_data:%d Reg1:%d Reg2:%d Cond:%b S:%b destination:%b source_2:%b source_1:%b IV_ShiftRor:%d IV_Mov:%d address:%b OpCode:%b Result:%d flag :%b \n \n \n R0=%d, R1=%d, R2=%d, R3=%d, R4=%d R5=%d, R6=%d, R7=%d, R8=%d, R9=%d, R10=%d, R11=%d, R12=%d, R13=%d, R14=%d,R15=%d \n \n ",
 
- reg_data, Result_1, Result_2,Cond,S,destination,source_2, source_1, IV_ShiftRor, IV_Mov,Address_in, OpCode, Result,New_Flag, r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15);
+ reg_data, Result_1, Result_2,Cond,S,destination,source_2, source_1, IV_ShftRor, IV_Mov,Address_in, OpCode, Result,New_Flag, r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15);
 
 
 
