@@ -9,6 +9,7 @@ wire signed [31:0] Result;
 wire Carry;
 wire addsub=1'b0;
 assign {Carry, Result} = In1 - In2;
+assign S=1'b1;
 //assign Result = (In1[31]) ? ~In1 + 1b'1 + In2 : (In2[31]) ? In1 + ~In2 + 1b'1 : 0;
 //assign Result = (In1[31]) ? ~In1 + 1b'1 : (In2[31]) ? ~In2 + 1b'1;
 
