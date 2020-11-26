@@ -36,7 +36,7 @@ wire [31:0] r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15
 
 reg Reset;
 RAM ram(Enable,RW_ram,Address_in,In,Out);
-Register_bank regbank(destination, source_1, source_2, reg_data_reg, Clk, Result_1, Result_2);
+Register_bank regbank(destination, source_1, source_2, reg_data_reg, Result_1, Result_2);
 memory_control memcontrol(Result_1, Result_2, OpCode, RW_mem, Address_out, reg_data_mem, LDR, STR ,LDR_out, STR_in, Counter, Reset, Clk, pc, alu_result); //Result_mem is input?
 MASTER_ALU master(Reg1, Reg2, IV_Shiftror, IV_Mov, OpCode, Cond, S, Result, Flag, New_Flag); //Result_1,2 are wires? Won't work as inputs
 
