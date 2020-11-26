@@ -1,6 +1,5 @@
 // Mux for register bank: 32 bits 16 X 1 mux 
-module mux( out_mux, sel,r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15);
-
+module mux(out_mux, sel,r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15);
 input [3:0] sel;
 input [31:0] r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15;
 output reg [31:0] out_mux;
