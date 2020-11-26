@@ -8,7 +8,7 @@ wire [3:0] New_Flag; //ALU Wires
 reg Clk;
 
 /* instruction ports */
-reg [31:0] instruction;
+wire [31:0] instruction;
 wire [3:0] Cond; //ALU
 wire [3:0] OpCode; //Memory, ALU
 wire S; //ALU
