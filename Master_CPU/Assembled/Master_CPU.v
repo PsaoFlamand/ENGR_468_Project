@@ -115,9 +115,9 @@ end
 initial
 begin
 
-$monitor($time, "instruction: %b, R0=%d, R1=%d, R2=%d, R3=%d, R4=%d R5=%d, R6=%d, R7=%d, R8=%d, R9=%d, R10=%d, R11=%d, R12=%d, R13=%d, R14=%d,R15=%d data at address %h is %h \n",
+$monitor($time, "instruction: %b, R0=%d, R1=%d, R2=%d, R3=%d, R4=%d R5=%d, R6=%d, R7=%d, R8=%d, R9=%d, R10=%d, R11=%d, R12=%d, R13=%d, R14=%d,R15=%d \n",
 
- instruction,r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15, Address_in, Out);
+ r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15);
 
 //$monitor($time, "address_in:%b, address out:%b", Address_in, Address_out);
 
