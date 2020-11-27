@@ -36,8 +36,12 @@ always @*
 		sel_LDR=0;
 		RW=0;
 		Reset=0;
+<<<<<<< HEAD
 		str_enable=1'b1;
 
+=======
+		
+>>>>>>> parent of f1896c6... Update Memory_Control.v
 		RAM_in = SR2; 
 		address_out = SR1; 
 		//$monitor($time, "RAM_in:%b, address_out:%b ", RAM_in, address_out);
