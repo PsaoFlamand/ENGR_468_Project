@@ -27,7 +27,8 @@ always @*
 //		RAM_in=1'bx; 
 		RAM_in=out_ADR;
 		address_out= out_add; 
-		reg_data=out_ADR;	
+		//reg_data=out_ADR;	
+		reg_data=IV_Mov;
 	end 
 	
 	4'b1110: // STR
