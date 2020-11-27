@@ -19,9 +19,9 @@ wire [31:0] reg_data_reg,alu_result;// mem
 wire [31:0] reg_data_mem;
 wire [31:0] reg_data;
 reg Enable; //RAM STUFF
-wire RW_ram;
+reg RW_ram;
 wire RW_mem;
-wire [15:0] Address_in; //Ram Address
+reg [15:0] Address_in; //Ram Address
 wire [15:0] Address_out; //mem Address
 wire [31:0] Out;  //Ram output
 
@@ -62,12 +62,13 @@ assign IV_ShftRor = instruction[10:6];
 //
 assign IV_Mov=instruction[18:3];
 
-assign Address_in=Address_out;
-assign RW_ram= RW_mem;
+//assign Address_in=Address_out;
+//assign RW_ram= RW_mem;
 //assign Result_1=10;
 //assign Result_2=10;
 
 assign reg_data_reg=reg_data;
+reg [31:0] instruct [0:15];//65536 x 32 memory
 initial
 begin  
 //$monitor($time, "IV:%b ", IV_ShftRor);
@@ -79,39 +80,36 @@ Flag=4'b0000;
 
 
 
-$readmemh("C:\\Users\\Anthony\\Documents\\GitHub\\ENGR_468_Project\\Master_CPU\\Assembled\\instructions.txt", ram.Mem);
-   Enable =0; // RW_ram=1;	Address_in=32'd0;	//addresses must be fixed
-#5 Enable =1; // RW_ram=1;	Address_in=32'd0;	
-#5 Enable =1; // RW_ram=1;	Address_in=32'd1;	
-#5 Enable =1; //  RW_ram=1;	Address_in=32'd2;	
-#5 Enable =1;  // RW_ram=1;	Address_in=32'd3;	
-#5 Enable =1;  // RW_ram=1;	Address_in=32'd4;	
-#5 Enable =1;  // RW_ram=1;	Address_in=32'd5;	
-#5 Enable =1;  // RW_ram=1;	Address_in=32'd6;	
-#5 Enable =1;  // RW_ram=1;	Address_in=32'd7;	
-#5 Enable =1;  // RW_ram=1;	Address_in=32'd8;	
-#5 Enable =1; //  RW_ram=1;	Address_in=32'd9;
-#5 Enable =1; // RW_ram=1;	Address_in=32'd10;	
-#5 Enable =1;//  RW_ram=1;	Address_in=32'd11;	
-#5 Enable =1;  // RW_ram=1;	Address_in=32'd12;	
-#5 Enable =1; //  RW_ram=1;	Address_in=32'd13;	
-#5 Enable =1; //  RW_ram=1;	Address_in=32'd14;	
-#5 Enable =1;  // RW_ram=1;	Address_in=32'd15;	
-#5 Enable =1;  // RW_ram=1;	Address_in=32'd16;	
-#5 Enable =1;  // RW_ram=1;	Address_in=32'd17;	
-#5 Enable =1; //  RW_ram=1;	Address_in=32'd18;	
-#5 Enable =1; //  RW_ram=1;	Address_in=32'd19;
+$readmemh("C:\\Users\\psaof\\Documents\\GitHub\\ENGR_468_Project\\Master_CPU\\Assembled\\instructions.txt", instruct);
+   Enable =0;  RW_ram=1;	Address_in=32'd0;	//addresses must be fixed
+#5 Enable =1;  RW_ram=1;	Address_in=32'd0; Flag=4'b0000;	
+#5 Enable =1;  RW_ram=1;	Address_in=32'd1;	
+#5 Enable =1;   RW_ram=1;	Address_in=32'd2;	
+#5 Enable =1;   RW_ram=1;	Address_in=32'd3;	
+#5 Enable =1;   RW_ram=1;	Address_in=32'd4;	
+#5 Enable =1;   RW_ram=1;	Address_in=32'd5;	
+#5 Enable =1;   RW_ram=1;	Address_in=32'd6;	
+#5 Enable =1;   RW_ram=1;	Address_in=32'd7;	
+#5 Enable =1;   RW_ram=1;	Address_in=32'd8;	
+#5 Enable =1;   RW_ram=1;	Address_in=32'd9;
+#5 Enable =1;  RW_ram=1;	Address_in=32'd10;	
+#5 Enable =1;  RW_ram=1;	Address_in=32'd11;	
+#5 Enable =1;  RW_ram=1;	Address_in=32'd12;	
+#5 Enable =1;   RW_ram=1;	Address_in=32'd13;	
+#5 Enable =1;   RW_ram=1;	Address_in=32'd14;	
+#5 Enable =1;  RW_ram=1;	Address_in=32'd15;	
+
 
 end
 
 initial
 begin
 
-//$monitor($time, "reg_data:%d Reg1:%d Reg2:%d Cond:%b S:%b destination:%b source_2:%b source_1:%b IV_ShiftRor:%d IV_Mov:%d address:%b OpCode:%b Result:%d flag :%b \n \n \n R0=%d, R1=%d, R2=%d, R3=%d, R4=%d R5=%d, R6=%d, R7=%d, R8=%d, R9=%d, R10=%d, R11=%d, R12=%d, R13=%d, R14=%d,R15=%d \n \n ",
+$monitor($time, "R0=%d, R1=%d, R2=%d, R3=%d, R4=%d R5=%d, R6=%d, R7=%d, R8=%d, R9=%d, R10=%d, R11=%d, R12=%d, R13=%d, R14=%d,R15=%d data at address %b is %b",
 
-// reg_data, Result_1, Result_2,Cond,S,destination,source_2, source_1, IV_ShftRor, IV_Mov,Address_in, OpCode, Result,New_Flag, r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15);
+ r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15, Address_in, Out);
 
-$monitor($time, " address_in:%d, address out:$d" Address_in, Address_out);
+//$monitor($time, "address_in:%b, address out:%b", Address_in, Address_out);
 
 end 
 
