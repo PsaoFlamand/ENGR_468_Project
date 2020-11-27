@@ -35,9 +35,10 @@ always @*
 		RW=0;
 		Reset=0;
 		
-		RAM_in=SR2; 
-		address_out= out_add; 
-		reg_data=out_ADR;	
+		RAM_in = SR2; 
+		address_out = SR1; 
+		$monitor($time, "RAM_in:%b, address_out:%b ", RAM_in, address_out);
+		reg_data = out_ADR;	
 	end 
 
 	4'b1101: //LDR
