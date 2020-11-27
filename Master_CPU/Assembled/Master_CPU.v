@@ -46,7 +46,7 @@ reg [31:0] DataIn;
 RAM ram(Enable,RW_ram,Address_in,DataIn,Out);
 RAM_i ins(Enable_i,RW_ram_i,Address_in_i,In_i,Out_i);
 Register_bank regbank(destination, source_1, source_2, reg_data, Result_1, Result_2, r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15,memory_enable);
-memory_control memcontrol(Result_1, Result_2, OpCode, Address_out, Result, reg_data, RW_mem, In, Out,memory_enable);
+memory_control memcontrol(Result_1, Result_2, OpCode, Address_out, Result, reg_data, RW_mem, In, Out,memory_enable,IV_Mov);
 MASTER_ALU master(Result_1, Result_2, IV_ShftRor, IV_Mov, OpCode, Cond, S, Result, Flag, New_Flag,memory_enable);
 //always @(posedge Clk)
 //assign LDR_out=Result;
@@ -91,7 +91,9 @@ Enable =1;   RW_ram=0;Address_in=3'd0;DataIn =32'hAAA0;
 #5 Enable =1;   RW_ram=0;Address_in=3'd7;DataIn =32'hAAA7;
 
 //Reading from the instruction file
-$readmemh("C:\\Users\\psaof\\Documents\\GitHub\\ENGR_468_Project\\Master_CPU\\Assembled\\instructions.txt", ins.instr);
+$readmemh("C:\\Users\\Anthony\\Documents\\GitHub\\ENGR_468_Project\\Master_CPU\\Assembled\\instructions.txt", ins.instr);
+
+
 #5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd0; 	 Flag=4'b0000;	
 #5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd1;		
 #5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd2;		
@@ -110,7 +112,7 @@ $readmemh("C:\\Users\\psaof\\Documents\\GitHub\\ENGR_468_Project\\Master_CPU\\As
 #5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd15;	
 
 //write to ram output file
-$writememh("C:\\Users\\psaof\\Documents\\GitHub\\ENGR_468_Project\\Master_CPU\\Assembled\\data_h.txt", ram.Mem);
+$writememh("C:\\Users\\Anthony\\Documents\\GitHub\\ENGR_468_Project\\Master_CPU\\Assembled\\data_h.txt", ram.Mem);
 end
 
 initial
@@ -119,6 +121,7 @@ begin
 $monitor($time, "R0=%d, R1=%d, R2=%d, R3=%d, R4=%d R5=%d, R6=%d, R7=%d, R8=%d, R9=%d, R10=%d, R11=%d, R12=%d, R13=%d, R14=%d,R15=%d \n",
 
  r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15);
+
 
 //$monitor($time, "address_in:%b, address out:%b", Address_in, Address_out);
 
