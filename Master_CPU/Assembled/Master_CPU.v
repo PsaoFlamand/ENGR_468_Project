@@ -34,6 +34,7 @@ wire [31:0] LDR_out; //Register Bank
 wire [31:0] Result_1,  Result_2; //Memory
 
 wire [31:0] r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15;
+reg [31:0] DataIn;
 //split the instruction part
 
 //reg Reset;
@@ -42,7 +43,7 @@ wire [31:0] r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15
 //memory_control memcontrol(Result_1, Result_2, OpCode, RW_mem, Address_out, reg_data_mem, LDR, STR ,LDR_out, STR_in, Counter, Reset, Clk, pc, alu_result); //Result_mem is input?
 //MASTER_ALU master(Reg1, Reg2, IV_Shiftror, IV_Mov, OpCode, Cond, S, Result, Flag, New_Flag); //Result_1,2 are wires? Won't work as inputs
 
-RAM ram(Enable,RW_ram,Address_in,In,Out);
+RAM ram(Enable,RW_ram,Address_in,DataIn,Out);
 RAM_i ins(Enable_i,RW_ram_i,Address_in_i,In_i,Out_i);
 Register_bank regbank(destination, source_1, source_2, reg_data, Result_1, Result_2, r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15,memory_enable);
 memory_control memcontrol(Result_1, Result_2, OpCode, Address_out, Result, reg_data, RW_mem, In, Out,memory_enable);
@@ -79,26 +80,34 @@ begin
 
 Flag=4'b0000;
 
-
-
+//Writing Ram contents
+Enable =1;   RW_ram=0;Address_in=3'd0;DataIn =32'hAAA0;
+#5 Enable =1;   RW_ram=0;Address_in=3'd1;DataIn =32'hAAA1;
+#5 Enable =1;   RW_ram=0;Address_in=3'd2;DataIn =32'hAAA2;
+#5 Enable =1;   RW_ram=0;Address_in=3'd3;DataIn =32'hAAA3;
+#5 Enable =1;   RW_ram=0;Address_in=3'd4;DataIn =32'hAAA4;
+#5 Enable =1;   RW_ram=0;Address_in=3'd5;DataIn =32'hAAA5;
+#5 Enable =1;   RW_ram=0;Address_in=3'd6;DataIn =32'hAAA6;
+#5 Enable =1;   RW_ram=0;Address_in=3'd7;DataIn =32'hAAA7;
+$writememh("data_h.txt", ram.Mem);
+//Reading from the instruction file
 $readmemh("C:\\Users\\psaof\\Documents\\GitHub\\ENGR_468_Project\\Master_CPU\\Assembled\\instructions.txt", ins.instr);
-   Enable_i =0;  RW_ram_i=1;	Address_in_i=32'd0;	//addresses must be fixed
-#5 Enable_i =1;  RW_ram_i=1;	Address_in_i=32'd0; Flag=4'b0000;	
-#5 Enable_i =1;  RW_ram_i=1;	Address_in_i=32'd1;	
-#5 Enable_i =1;   RW_ram_i=1;	Address_in_i=32'd2;	
-#5 Enable_i =1;   RW_ram_i=1;	Address_in_i=32'd3;	
-#5 Enable_i =1;   RW_ram_i=1;	Address_in_i=32'd4;	
-#5 Enable_i =1;   RW_ram_i=1;	Address_in_i=32'd5;	
-#5 Enable_i =1;   RW_ram_i=1;	Address_in_i=32'd6;	
-#5 Enable_i =1;   RW_ram_i=1;	Address_in_i=32'd7;	
-#5 Enable_i =1;   RW_ram_i=1;	Address_in_i=32'd8;	
-#5 Enable_i =1;   RW_ram_i=1;	Address_in_i=32'd9;
-#5 Enable_i =1;  RW_ram_i=1;	Address_in_i=32'd10;	
-#5 Enable_i =1;  RW_ram_i=1;	Address_in_i=32'd11;	
-#5 Enable_i =1;  RW_ram_i=1;	Address_in_i=32'd12;	
-#5 Enable_i =1;   RW_ram_i=1;	Address_in_i=32'd13;	
-#5 Enable_i =1;   RW_ram_i=1;	Address_in_i=32'd14;	
-#5 Enable_i =1;  RW_ram_i=1;	Address_in_i=32'd15;	
+#5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd0; 	Enable =1;   RW_ram=1;	Address_in=32'd0; Flag=4'b0000;	
+#5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd1;		Enable =1;   RW_ram=1;	Address_in=32'd1;
+#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd2;		Enable =1;   RW_ram=1;	Address_in=32'd2;
+#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd3;		Enable =1;   RW_ram=1;	Address_in=32'd3;
+#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd4;		Enable =1;   RW_ram=1;	Address_in=32'd4;
+#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd5;		Enable =1;   RW_ram=1;	Address_in=32'd5;
+#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd6;		Enable =1;   RW_ram=1;	Address_in=32'd6;
+#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd7;		Enable =1;   RW_ram=1;	Address_in=32'd7;
+#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd8;		Enable =1;   RW_ram=1;	Address_in=32'd8;
+#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd9;		Enable =1;   RW_ram=1;	Address_in=32'd9;
+#5 Enable_i =1; 	RW_ram_i=1;	Address_in_i=32'd10;	Enable =1;   RW_ram=1;	Address_in=32'd10;
+#5 Enable_i =1; 	RW_ram_i=1;	Address_in_i=32'd11;	Enable =1;   RW_ram=1;	Address_in=32'd11;
+#5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd12;	Enable =1;   RW_ram=1;	Address_in=32'd12;
+#5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd13;	Enable =1;   RW_ram=1;	Address_in=32'd13;
+#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd14;	Enable =1;   RW_ram=1;	Address_in=32'd14;
+#5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd15;	Enable =1;   RW_ram=1;	Address_in=32'd15;
 
 
 end
@@ -106,13 +115,14 @@ end
 initial
 begin
 
-$monitor($time, "instruction: %b, R0=%d, R1=%d, R2=%d, R3=%d, R4=%d R5=%d, R6=%d, R7=%d, R8=%d, R9=%d, R10=%d, R11=%d, R12=%d, R13=%d, R14=%d,R15=%d data at address %b is %b",
+$monitor($time, "instruction: %b, R0=%d, R1=%d, R2=%d, R3=%d, R4=%d R5=%d, R6=%d, R7=%d, R8=%d, R9=%d, R10=%d, R11=%d, R12=%d, R13=%d, R14=%d,R15=%d data at address %h is %h \n",
 
  instruction,r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15, Address_in, Out);
 
 //$monitor($time, "address_in:%b, address out:%b", Address_in, Address_out);
 
 end 
+
 
 endmodule
 
