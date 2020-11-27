@@ -89,25 +89,25 @@ Enable =1;   RW_ram=0;Address_in=3'd0;DataIn =32'hAAA0;
 #5 Enable =1;   RW_ram=0;Address_in=3'd5;DataIn =32'hAAA5;
 #5 Enable =1;   RW_ram=0;Address_in=3'd6;DataIn =32'hAAA6;
 #5 Enable =1;   RW_ram=0;Address_in=3'd7;DataIn =32'hAAA7;
-$writememh("data_h.txt", ram.Mem);
+$writememh("C:\\Users\\psaof\\Documents\\GitHub\\ENGR_468_Project\\Master_CPU\\Assembled\\data_h.txt", ram.Mem);
 //Reading from the instruction file
 $readmemh("C:\\Users\\psaof\\Documents\\GitHub\\ENGR_468_Project\\Master_CPU\\Assembled\\instructions.txt", ins.instr);
-#5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd0; 	Enable =1;   RW_ram=1;	Address_in=32'd0; Flag=4'b0000;	
-#5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd1;		Enable =1;   RW_ram=1;	Address_in=32'd1;
-#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd2;		Enable =1;   RW_ram=1;	Address_in=32'd2;
-#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd3;		Enable =1;   RW_ram=1;	Address_in=32'd3;
-#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd4;		Enable =1;   RW_ram=1;	Address_in=32'd4;
-#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd5;		Enable =1;   RW_ram=1;	Address_in=32'd5;
-#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd6;		Enable =1;   RW_ram=1;	Address_in=32'd6;
-#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd7;		Enable =1;   RW_ram=1;	Address_in=32'd7;
-#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd8;		Enable =1;   RW_ram=1;	Address_in=32'd8;
-#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd9;		Enable =1;   RW_ram=1;	Address_in=32'd9;
-#5 Enable_i =1; 	RW_ram_i=1;	Address_in_i=32'd10;	Enable =1;   RW_ram=1;	Address_in=32'd10;
-#5 Enable_i =1; 	RW_ram_i=1;	Address_in_i=32'd11;	Enable =1;   RW_ram=1;	Address_in=32'd11;
-#5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd12;	Enable =1;   RW_ram=1;	Address_in=32'd12;
-#5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd13;	Enable =1;   RW_ram=1;	Address_in=32'd13;
-#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd14;	Enable =1;   RW_ram=1;	Address_in=32'd14;
-#5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd15;	Enable =1;   RW_ram=1;	Address_in=32'd15;
+#5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd0; 	 Flag=4'b0000;	
+#5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd1;		
+#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd2;		
+#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd3;		
+#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd4;		
+#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd5;		
+#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd6;		
+#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd7;		
+#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd8;		
+#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd9;		
+#5 Enable_i =1; 	RW_ram_i=1;	Address_in_i=32'd10;	
+#5 Enable_i =1; 	RW_ram_i=1;	Address_in_i=32'd11;	
+#5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd12;	
+#5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd13;	
+#5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd14;	
+#5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd15;	
 
 
 end

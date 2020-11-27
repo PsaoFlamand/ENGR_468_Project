@@ -1,17 +1,3 @@
-//`include "../ADD/ADD.v"
-//`include "../AND/AND.v"
-//`include "../COUNTER/COUNTER.v"
-//`include "../LSL/LSL.v"
-//`include "../LSR/LSR.v"
-//`include "../MOV/MOV.v"
-//`include "../MUL/MUL.v"
-//`include "../MUX/MUX.v"
-//`include "../OR/OR.v"
-//`include "../ROR/ROR.v"
-//`include "../SET_FLAG/SET_FLAG.v"
-//`include "../SUB/SUB.v"
-//`include "../XOR/XOR.v"
-//`include "../CMP/CMP.v"
 
 module MASTER_ALU(Reg1, Reg2, IV_ShftRor,IV_Mov, OpCode, Cond, S, Result, Flag, New_Flag, memory_enable);
 input signed [31:0] Reg1, Reg2;
