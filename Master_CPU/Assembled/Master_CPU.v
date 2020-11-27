@@ -35,6 +35,7 @@ wire [31:0] Result_1,  Result_2; //Memory
 
 wire [31:0] r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15;
 reg [31:0] DataIn;
+wire [31:0] In;
 //split the instruction part
 
 //reg Reset;
@@ -115,11 +116,11 @@ end
 initial
 begin
 
-$monitor($time, "R0=%d, R1=%d, R2=%d, R3=%d, R4=%d R5=%d, R6=%d, R7=%b, R8=%d, R9=%d, R10=%d, R11=%d, R12=%d, R13=%d, R14=%d,R15=%d \n",
+//$monitor($time, "R0=%d, R1=%d, R2=%d, R3=%d, R4=%d R5=%d, R6=%d, R7=%b, R8=%d, R9=%d, R10=%d, R11=%d, R12=%d, R13=%d, R14=%d,R15=%d \n",
 
- r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15);
+// r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15);
 
-//$monitor($time, "source_1:%d, source_2:%d,DataIn:%d, Address_in:%d instruction:%b", source_1, source_2, DataIn, Address_in, OpCode);
+$monitor($time, "source_1:%d, source_2:%d,DataIn:%d, Address_in:%d instruction:%b", source_1, source_2, DataIn, Address_in, OpCode);
 
 end 
 
