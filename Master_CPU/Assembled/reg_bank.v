@@ -1,12 +1,15 @@
 // register bank 
-module reg_bank(enable, ldr_data, r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15 );
+module reg_bank(enable, ldr_data, r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15, memory_enable);
 input [15:0] enable;
 input [31:0] ldr_data;
+input memory_enable;
 output reg [31:0] r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15;
 
 
 
 always @*
+begin
+if (memory_enable==1'b1)
 begin
 	case (enable)
 	16'b0000000000000001 : r0=ldr_data;
@@ -27,5 +30,5 @@ begin
 	16'b1000000000000000 : r15=ldr_data;
 	endcase 
 end 
-
+end 
 endmodule 

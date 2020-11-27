@@ -53,13 +53,15 @@ always @*
 		sel_add=0;
 		sel_LDR=0;
 		RW=0;
-		
 		address_out=out_add;
 		
 		if (memory_enable==1'b1)
+		begin
 		reg_data=out_LDR;	
-		else 
-		reg_data=reg_data;  // check 
+		end
+
+		//else 
+		//reg_data=reg_data;  // check 
 	end 
 endcase
 
