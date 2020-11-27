@@ -1,7 +1,7 @@
 // memory data file (do not edit the following line - required for mem load use)
 // instance=/TEST_MASTER_CPU/ram/Mem
 // format=hex addressradix=h dataradix=h version=1.0 wordsperline=1 noaddress
-00000000
+0000aaa0
 0000000e
 0000aaa2
 0000aaa3
@@ -25,7 +25,7 @@ xxxxxxxx
 xxxxxxxx
 xxxxxxxx
 xxxxxxxx
-xxxxxxxx
+00000000
 xxxxxxxx
 xxxxxxxx
 xxxxxxxx

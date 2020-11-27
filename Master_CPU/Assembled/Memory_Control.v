@@ -1,4 +1,4 @@
-module memory_control (SR1, SR2, op_code, address_out ,ALU_result, reg_data, RW, RAM_in, RAM_out, memory_enable,IV_Mov,str_enable);
+module memory_control (SR1, SR2, op_code, address_out ,ALU_result, reg_data, RW, RAM_in, RAM_out, memory_enable,IV_Mov);
 
 input [31:0] ALU_result, RAM_out;
 input [31:0] SR1, SR2;
@@ -6,7 +6,6 @@ input [3:0] op_code;
 input memory_enable;
 input [15:0] IV_Mov;
 
-output reg str_enable;
 output reg RW;
 output reg [31:0] address_out, reg_data, RAM_in;
 wire [31:0]out_add, out_LDR,out_ADR;
@@ -21,8 +20,7 @@ always @*
 		sel_LDR=0;
 		RW=1;
 		Reset=0;
-		str_enable=1'b0;
-
+		
 //		RAM_in=1'bx; 
 		RAM_in=out_ADR;
 		address_out= out_add; 
@@ -36,17 +34,9 @@ always @*
 		sel_LDR=0;
 		RW=0;
 		Reset=0;
-<<<<<<< HEAD
-		str_enable=1'b1;
-
-=======
 		
-<<<<<<< HEAD
->>>>>>> parent of f1896c6... Update Memory_Control.v
-=======
->>>>>>> parent of f1896c6... Update Memory_Control.v
-		RAM_in = SR2; 
-		address_out = SR1; 
+		RAM_in = SR1; 
+		address_out = SR2; 
 		//$monitor($time, "RAM_in:%b, address_out:%b ", RAM_in, address_out);
 		reg_data = out_ADR;	
 	end 
@@ -59,8 +49,7 @@ always @*
 		sel_LDR=0;
 		RW=1;
 		Reset=0;
-		str_enable=1'b0;
-
+		
 		address_out= out_add; 
 		reg_data=out_LDR;	
 	end 
@@ -70,7 +59,6 @@ always @*
 		sel_add=0;
 		sel_LDR=0;
 		RW=0;
-		str_enable=1'b0;
 		address_out=out_add;
 		
 		if (memory_enable==1'b1)
