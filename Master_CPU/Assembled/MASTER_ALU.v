@@ -13,7 +13,7 @@
 //`include "../XOR/XOR.v"
 //`include "../CMP/CMP.v"
 
-module MASTER_ALU(Reg1, Reg2, IV_ShftRor,IV_Mov, OpCode, Cond, S, Result, Flag, New_Flag);
+module MASTER_ALU(Reg1, Reg2, IV_ShftRor,IV_Mov, OpCode, Cond, S, Result, Flag, New_Flag, memory_enable);
 input signed [31:0] Reg1, Reg2;
 input [15:0] IV_Mov;
 input [4:0] IV_ShftRor;
@@ -23,7 +23,7 @@ input S;
 input [3:0] Flag;
 output reg signed [31:0] Result;
 output reg [3:0] New_Flag;
-output reg memory_control;
+output reg memory_enable;
 //Wires for in1 and in2
 reg [31:0] in1_ADD, in2_ADD, 
 in1_SUB, in2_SUB, 
@@ -72,7 +72,7 @@ reg Execute_con=1'b1;
 always @*
 
 begin
-	
+	memory_enable=1'b0;
 	Execute_con = ( (Cond == 4'b0000) ) || ( (Cond == 4'b0001) && (New_Flag[2]) ) || ( (Cond == 4'b0010)&&(New_Flag[2]==0)&&(New_Flag[3] == New_Flag[0]) )
 	|| ( (Cond == 4'b0011)&&(New_Flag[3]!=New_Flag[0]) ) || ( (Cond == 4'b0100)&&(New_Flag[3]==New_Flag[0]) )
 	|| ( (Cond == 4'b0101)&&(New_Flag[2] || (New_Flag[3]!=New_Flag[0])) )|| ( (Cond == 4'b0110)&&(New_Flag[1])&&(New_Flag[2]==0) )
@@ -101,7 +101,7 @@ begin
 	
 	if (OpCode==4'b0000 && Execute_con==1'b1) //0000 ADD
         begin
-			memory_control=1'b1
+			memory_enable=1'b1;
             in1_ADD = Reg1;
             in2_ADD = Reg2;
             
@@ -112,7 +112,7 @@ begin
         end
 	else if (OpCode==4'b0001 && Execute_con==1'b1) // 0001 SUB
         begin
-			memory_control=1'b1
+			memory_enable=1'b1;
             in1_SUB = Reg1;
             in2_SUB = Reg2;
             
@@ -123,7 +123,7 @@ begin
         end
     else if (OpCode==4'b0010 && Execute_con==1'b1)// 0010 MUL
         begin
-			memory_control=1'b1
+			memory_enable=1'b1;
             in1_MUL = Reg1;
             in2_MUL = Reg2;
             
@@ -134,7 +134,7 @@ begin
         end
     else if (OpCode==4'b0011 && Execute_con==1'b1) //0011 OR
         begin
-			memory_control=1'b1
+			memory_enable=1'b1;
             in1_OR = Reg1;
             in2_OR = Reg2;
             
@@ -145,7 +145,7 @@ begin
         end
     else if (OpCode==4'b0100 && Execute_con==1'b1) // 0100 AND
         begin
-			memory_control=1'b1
+			memory_enable=1'b1;
             in1_AND = Reg1;
             in2_AND = Reg2;
             
@@ -156,7 +156,7 @@ begin
         end
     else if (OpCode==4'b0101 && Execute_con==1'b1) //0101 XOR
         begin
-			memory_control=1'b1
+			memory_enable=1'b1;
             in1_XOR = Reg1;
             in2_XOR = Reg2;
             
@@ -167,20 +167,20 @@ begin
         end
     else if (OpCode==4'b0110 && Execute_con==1'b1)  //0110 MOVn
         begin
-			memory_control=1'b1
+			memory_enable=1'b1;
             Result=out1_MOV;
             in1_MOV = IV_Mov;
 			
         end
     else if (OpCode==4'b0111 && Execute_con==1'b1) //0111 MOV
         begin
-			memory_control=1'b1
+			memory_enable=1'b1;
             Result=out1_MOV;
             in1_MOV = Reg2;
         end
     else if (OpCode==4'b1000 && Execute_con==1'b1) //1000 LSR
         begin
-			memory_control=1'b1
+			memory_enable=1'b1;
             in1_LSR = Reg2;
             in2_LSR = IV_ShftRor;
             
@@ -192,7 +192,7 @@ begin
         end
     else if (OpCode==4'b1001 && Execute_con==1'b1) //1001 LSL
         begin
-			memory_control=1'b1
+			memory_enable=1'b1;
             in1_LSL = Reg2;
             in2_LSL = IV_ShftRor;//Must be IV
             
@@ -204,7 +204,7 @@ begin
         end
     else if (OpCode==4'b1010 && Execute_con==1'b1) //1010 ROR
         begin
-			memory_control=1'b1
+			memory_enable=1'b1;
             in1_ROR = Reg2;
             in2_ROR = IV_ShftRor;
             
@@ -216,7 +216,7 @@ begin
         end
     else if (OpCode==4'b1011 && Execute_con==1'b1) //1011 CMP
         begin
-			memory_control=1'b0
+			memory_enable=1'b0;
             in1_CMP = Reg1;
             in2_CMP = Reg2;
       
@@ -224,9 +224,9 @@ begin
             s_CMP = 1'b1;
             New_Flag=newflag_CMP;
         end
-        //4'b1100:		//Part of memory control ADR
-        //4'b1101:		//Part of memory control LDR
-        //4'b1110:		//Part of memory control STR
+        else if (OpCode==4'b1100 && Execute_con==1'b1) memory_enable=1'b1;		//Part of memory control ADR
+        else if (OpCode==4'b1101 && Execute_con==1'b1) memory_enable=1'b1;		//Part of memory control LDR
+        else if (OpCode==4'b1110 && Execute_con==1'b1) memory_enable=1'b1;	//Part of memory control STR
         //4'b1111:
     else #0;
     

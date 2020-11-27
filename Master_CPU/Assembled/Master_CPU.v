@@ -26,6 +26,7 @@ wire [31:0] Out;  //Ram output
 
 wire signed [31:0] Result; // ALU wires
 wire [3:0] New_Flag; //ALU Wires
+wire memory_enable;
 
 //Register bank part 
 wire [31:0] LDR_out; //Register Bank
@@ -42,8 +43,8 @@ reg Reset;
 
 RAM ram(Enable,RW_ram,Address_in,In,Out);
 Register_bank regbank(destination, source_1, source_2, reg_data, Result_1, Result_2, r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15);
-memory_control memcontrol(Result_1, Result_2, OpCode, Address_out, Result, reg_data, RW_mem, In, Out,Clk);
-MASTER_ALU master(Result_1, Result_2, IV_ShftRor, IV_Mov, OpCode, Cond, S, Result, Flag, New_Flag);
+memory_control memcontrol(Result_1, Result_2, OpCode, Address_out, Result, reg_data, RW_mem, In, Out,Clk,memory_enable);
+MASTER_ALU master(Result_1, Result_2, IV_ShftRor, IV_Mov, OpCode, Cond, S, Result, Flag, New_Flag,memory_enable);
 //always @(posedge Clk)
 //assign LDR_out=Result;
 //assign Result_mem=10;
