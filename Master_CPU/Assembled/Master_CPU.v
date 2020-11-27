@@ -51,7 +51,6 @@ MASTER_ALU master(Result_1, Result_2, IV_ShftRor, IV_Mov, OpCode, Cond, S, Resul
 //always @(posedge Clk)
 //assign LDR_out=Result;
 //assign Result_mem=10;
-
 assign instruction = Out_i;
 assign Cond = instruction[31:28]; 
 assign OpCode =  instruction[27:24];
@@ -102,7 +101,7 @@ $readmemh("C:\\Users\\psaof\\Documents\\GitHub\\ENGR_468_Project\\Master_CPU\\As
 #5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd7;		DataIn=In;	Address_in=Address_out;RW_ram=RW_mem;
 #5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd8;		DataIn=In;	Address_in=Address_out;RW_ram=RW_mem;
 #5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd9;		DataIn=In;	Address_in=Address_out;RW_ram=RW_mem;
-#5 Enable_i =1; 	RW_ram_i=1;	Address_in_i=32'd10;	DataIn=In;	Address_in=Address_out;RW_ram=RW_mem;
+#5 Enable_i =1; 	RW_ram_i=1;	Address_in_i=32'd10;	DataIn=14;	Address_in=1;RW_ram=0; //STR
 #5 Enable_i =1; 	RW_ram_i=1;	Address_in_i=32'd11;	DataIn=In;	Address_in=Address_out;RW_ram=RW_mem;
 #5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd12;	DataIn=In;	Address_in=Address_out;RW_ram=RW_mem;
 #5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd13;	DataIn=In;	Address_in=Address_out;RW_ram=RW_mem;
@@ -120,7 +119,7 @@ begin
 
  //r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15);
 
-//$monitor($time, "address_in:%b, address out:%b instruction:%b", Address_in, DataIn, OpCode);
+$monitor($time, "address_in:%b, DataIn:%b instruction:%b", Address_in, DataIn, OpCode);
 
 end 
 

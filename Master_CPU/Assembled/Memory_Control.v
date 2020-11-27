@@ -37,7 +37,7 @@ always @*
 		
 		RAM_in = SR2; 
 		address_out = SR1; 
-		$monitor($time, "RAM_in:%b, address_out:%b ", RAM_in, address_out);
+		//$monitor($time, "RAM_in:%b, address_out:%b ", RAM_in, address_out);
 		reg_data = out_ADR;	
 	end 
 
