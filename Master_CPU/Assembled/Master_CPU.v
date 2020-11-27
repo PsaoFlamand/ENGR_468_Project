@@ -109,6 +109,7 @@ $readmemh("C:\\Users\\psaof\\Documents\\GitHub\\ENGR_468_Project\\Master_CPU\\As
 #5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd14;	
 #5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd15;	
 
+//write to ram output file
 $writememh("C:\\Users\\psaof\\Documents\\GitHub\\ENGR_468_Project\\Master_CPU\\Assembled\\data_h.txt", ram.Mem);
 end
 
