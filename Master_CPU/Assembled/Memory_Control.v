@@ -37,7 +37,7 @@ always @*
 		
 		RAM_in = SR1; 
 		address_out = SR2; 
-		//$monitor($time, "RAM_in:%b, address_out:%b ", RAM_in, address_out);
+		
 		reg_data = out_ADR;	
 	end 
 
@@ -46,12 +46,13 @@ always @*
 		//sel_add=1;
 		sel_add=0;
 		//sel_LDR=1;
-		sel_LDR=0;
+		sel_LDR=1;
 		RW=1;
 		Reset=0;
 		
-		address_out= out_add; 
-		reg_data=out_LDR;	
+		address_out= SR2; 
+		reg_data=out_LDR;
+		$monitor($time, "address_out:%b, reg_data:%h ", address_out, reg_data);		
 	end 
 
 	default: // ALU instructions
