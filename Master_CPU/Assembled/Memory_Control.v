@@ -29,7 +29,8 @@ always @*
 	
 	4'b1110: // STR
 	begin
-		sel_add=1;
+		//sel_add=1;
+		sel_add=0;
 		sel_LDR=0;
 		RW=0;
 		Reset=0;
@@ -41,8 +42,10 @@ always @*
 
 	4'b1101: //LDR
 	begin
-		sel_add=1;
-		sel_LDR=1;
+		//sel_add=1;
+		sel_add=0;
+		//sel_LDR=1;
+		sel_LDR=0;
 		RW=1;
 		Reset=0;
 		
