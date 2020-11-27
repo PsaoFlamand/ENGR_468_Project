@@ -89,7 +89,7 @@ Enable =1;   RW_ram=0;Address_in=3'd0;DataIn =32'hAAA0;
 #5 Enable =1;   RW_ram=0;Address_in=3'd5;DataIn =32'hAAA5;
 #5 Enable =1;   RW_ram=0;Address_in=3'd6;DataIn =32'hAAA6;
 #5 Enable =1;   RW_ram=0;Address_in=3'd7;DataIn =32'hAAA7;
-$writememh("C:\\Users\\psaof\\Documents\\GitHub\\ENGR_468_Project\\Master_CPU\\Assembled\\data_h.txt", ram.Mem);
+
 //Reading from the instruction file
 $readmemh("C:\\Users\\psaof\\Documents\\GitHub\\ENGR_468_Project\\Master_CPU\\Assembled\\instructions.txt", ins.instr);
 #5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd0; 	 Flag=4'b0000;	
@@ -109,13 +109,13 @@ $readmemh("C:\\Users\\psaof\\Documents\\GitHub\\ENGR_468_Project\\Master_CPU\\As
 #5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd14;	
 #5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd15;	
 
-
+$writememh("C:\\Users\\psaof\\Documents\\GitHub\\ENGR_468_Project\\Master_CPU\\Assembled\\data_h.txt", ram.Mem);
 end
 
 initial
 begin
 
-$monitor($time, "instruction: %b, R0=%d, R1=%d, R2=%d, R3=%d, R4=%d R5=%d, R6=%d, R7=%d, R8=%d, R9=%d, R10=%d, R11=%d, R12=%d, R13=%d, R14=%d,R15=%d \n",
+$monitor($time, "R0=%d, R1=%d, R2=%d, R3=%d, R4=%d R5=%d, R6=%d, R7=%d, R8=%d, R9=%d, R10=%d, R11=%d, R12=%d, R13=%d, R14=%d,R15=%d \n",
 
  r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15);
 
