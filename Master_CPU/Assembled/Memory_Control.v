@@ -41,6 +41,9 @@ always @*
 
 =======
 		
+<<<<<<< HEAD
+>>>>>>> parent of f1896c6... Update Memory_Control.v
+=======
 >>>>>>> parent of f1896c6... Update Memory_Control.v
 		RAM_in = SR2; 
 		address_out = SR1; 
