@@ -46,7 +46,7 @@ reg [31:0] DataIn;
 RAM ram(Enable,RW_ram,Address_in,DataIn,Out);
 RAM_i ins(Enable_i,RW_ram_i,Address_in_i,In_i,Out_i);
 Register_bank regbank(destination, source_1, source_2, reg_data, Result_1, Result_2, r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15,memory_enable);
-memory_control memcontrol(Result_1, Result_2, OpCode, Address_out, Result, reg_data, RW_mem, In, Out,memory_enable);
+memory_control memcontrol(Result_1, Result_2, OpCode, Address_out, Result, reg_data, RW_mem, In, Out,memory_enable,IV_Mov);
 MASTER_ALU master(Result_1, Result_2, IV_ShftRor, IV_Mov, OpCode, Cond, S, Result, Flag, New_Flag,memory_enable);
 //always @(posedge Clk)
 //assign LDR_out=Result;
@@ -101,7 +101,7 @@ $readmemh("C:\\Users\\psaof\\Documents\\GitHub\\ENGR_468_Project\\Master_CPU\\As
 #5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd7;		DataIn=In;	Address_in=Address_out;RW_ram=RW_mem;
 #5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd8;		DataIn=In;	Address_in=Address_out;RW_ram=RW_mem;
 #5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd9;		DataIn=In;	Address_in=Address_out;RW_ram=RW_mem;
-#5 Enable_i =1; 	RW_ram_i=1;	Address_in_i=32'd10;	DataIn=14;	Address_in=1;RW_ram=0; //STR
+#5 Enable_i =1; 	RW_ram_i=1;	Address_in_i=32'd10;	DataIn=In;	Address_in=Address_out;RW_ram=0; //STR
 #5 Enable_i =1; 	RW_ram_i=1;	Address_in_i=32'd11;	DataIn=In;	Address_in=Address_out;RW_ram=RW_mem;
 #5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd12;	DataIn=In;	Address_in=Address_out;RW_ram=RW_mem;
 #5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd13;	DataIn=In;	Address_in=Address_out;RW_ram=RW_mem;
@@ -115,11 +115,11 @@ end
 initial
 begin
 
-//$monitor($time, "R0=%d, R1=%d, R2=%d, R3=%d, R4=%d R5=%d, R6=%d, R7=%b, R8=%d, R9=%d, R10=%d, R11=%d, R12=%d, R13=%d, R14=%d,R15=%d \n",
+$monitor($time, "R0=%d, R1=%d, R2=%d, R3=%d, R4=%d R5=%d, R6=%d, R7=%b, R8=%d, R9=%d, R10=%d, R11=%d, R12=%d, R13=%d, R14=%d,R15=%d \n",
 
- //r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15);
+ r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15);
 
-$monitor($time, "address_in:%b, DataIn:%b instruction:%b", Address_in, DataIn, OpCode);
+//$monitor($time, "source_1:%d, source_2:%d,DataIn:%d, Address_in:%d instruction:%b", source_1, source_2, DataIn, Address_in, OpCode);
 
 end 
 
