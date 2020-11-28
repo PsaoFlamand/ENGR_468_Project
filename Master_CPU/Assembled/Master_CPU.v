@@ -103,7 +103,7 @@ $readmemh("C:\\Users\\psaof\\Documents\\GitHub\\ENGR_468_Project\\Master_CPU\\As
 #5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd8;		DataIn=In;	Address_in=Address_out;RW_ram=RW_mem;
 #5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd9;		DataIn=In;	Address_in=Address_out;RW_ram=RW_mem;
 #5 Enable_i =1; 	RW_ram_i=1;	Address_in_i=32'd10;	DataIn=In;	Address_in=Address_out;RW_ram=RW_mem; //STR
-#5 Enable_i =1; 	RW_ram_i=1;	Address_in_i=32'd11;	DataIn=In;	Address_in=Address_out;RW_ram=RW_mem;//LDR
+#5 Enable_i =1; 	RW_ram_i=1;	Address_in_i=32'd11;	DataIn=In;	Address_in=Address_out;RW_ram=1;//LDR
 #5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd12;	DataIn=In;	Address_in=Address_out;RW_ram=RW_mem;
 #5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd13;	DataIn=In;	Address_in=Address_out;RW_ram=RW_mem;
 #5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd14;	DataIn=In;	Address_in=Address_out;RW_ram=RW_mem;
