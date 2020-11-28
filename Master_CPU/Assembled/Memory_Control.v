@@ -42,7 +42,6 @@ always @*
 		RAM_in = SR1; 
 		address_out = SR2; 
 		
-		reg_data = out_ADR;	
 	end 
 
 	4'b1101: //LDR
