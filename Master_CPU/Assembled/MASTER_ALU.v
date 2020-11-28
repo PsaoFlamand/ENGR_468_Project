@@ -45,12 +45,6 @@ reg [3:0] COND_con;
 
 reg Execute_con=1'b1;
 
-//Register Display
-//wire [31:0] r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15;
-//Instantiating modules depending on OpCodes
-
-
-
 
 
 
@@ -64,26 +58,6 @@ begin
 	|| ( (Cond == 4'b0101)&&(New_Flag[2] || (New_Flag[3]!=New_Flag[0])) )|| ( (Cond == 4'b0110)&&(New_Flag[1])&&(New_Flag[2]==0) )
 	|| ( (Cond == 4'b0111)&&(New_Flag[1]==0) )|| ( (Cond == 4'b1000)&&(New_Flag[1]) ) ?  1'b1 : 0;
 	
-	
-	
-	
-	/*
-	Execute_con = ( (Cond == 4'b0001) && (New_Flag[2]) ) ? 1'b1 : 0;
-	
-	Execute_con = ( (Cond == 4'b0010)&&(New_Flag[2]==0)&&(New_Flag[3] == New_Flag[0]) ) ? 1'b1 : 0;
-	Execute_con = ( (Cond == 4'b0011)&&(New_Flag[3]!=New_Flag[0]) ) ? 1'b1 : 0;
-	Execute_con = ( (Cond == 4'b0100)&&(New_Flag[3]==New_Flag[0]) )  ? 1'b1 : 0;
-	Execute_con = ( (Cond == 4'b0101)&&(New_Flag[2] || (New_Flag[3]!=New_Flag[0])) ) ? 1'b1 : 0;
-	Execute_con = ( (Cond == 4'b0110)&&(New_Flag[1])&&(New_Flag[2]==0) ) ? 1'b1 : 0;
-	Execute_con = ( (Cond == 4'b0111)&&(New_Flag[1]==0) ) ? 1'b1 : 0;
-	Execute_con = ( (Cond == 4'b1000)&&(New_Flag[1]) ) ? 1'b1 : 0;
-	*/
-	
-	//in1_CON=Reg1;
-	//in2_CON=Reg2;
-	//COND_con=Cond;
-	//Flag_con=Flag;
-	//Execute_con=1'b1;
 	
 	if (OpCode==4'b0000 && Execute_con==1'b1) //0000 ADD
         begin
@@ -182,7 +156,7 @@ begin
             in1_LSL = Reg2;
             in2_LSL = IV_ShftRor;//Must be IV
             
-            //$monitor($time, "IV:%b ", IV_ShftRor);
+    
             flag_LSL = Flag;
             s_LSL = S;
 			Result=result_LSL;
@@ -213,12 +187,10 @@ begin
         else if (OpCode==4'b1100 && Execute_con==1'b1) memory_enable=1'b1;		//Part of memory control ADR
         else if (OpCode==4'b1101 && Execute_con==1'b1) memory_enable=1'b1;		//Part of memory control LDR
         else if (OpCode==4'b1110 && Execute_con==1'b1) memory_enable=1'b1;	//Part of memory control STR
-        //4'b1111:
+   
     else #0;
     
 end
-
-//CONDITIONAL con(in1_CON, in2_CON, COND_con, Flag_con, Execute_con);
 
 ADD Add(in1_ADD, in2_ADD, result_ADD, flag_ADD, s_ADD, newflag_ADD);
 SUB Sub(in1_SUB, in2_SUB, result_SUB, flag_SUB, s_SUB, newflag_SUB);

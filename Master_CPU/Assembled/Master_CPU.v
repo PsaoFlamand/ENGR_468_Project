@@ -15,7 +15,7 @@ reg [3:0] Flag; //ALU
 wire [15:0] IV_Mov;
 
 wire [7:0] pc; // mem
-wire [31:0] reg_data_reg,alu_result;// mem
+wire [31:0] alu_result;// mem
 wire [31:0] reg_data_mem;
 wire [31:0] reg_data;
 reg Enable,Enable_i; //RAM STUFF
@@ -36,22 +36,13 @@ wire [31:0] Result_1,  Result_2; //Memory
 wire [31:0] r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15;
 reg [31:0] DataIn;
 wire [31:0] In;
-//split the instruction part
-
-//reg Reset;
-//RAM ram(Enable,RW_ram,Address_in,In,Out);
-//Register_bank regbank(destination, source_1, source_2, reg_data_reg, Clk, Result_1, Result_2);
-//memory_control memcontrol(Result_1, Result_2, OpCode, RW_mem, Address_out, reg_data_mem, LDR, STR ,LDR_out, STR_in, Counter, Reset, Clk, pc, alu_result); //Result_mem is input?
-//MASTER_ALU master(Reg1, Reg2, IV_Shiftror, IV_Mov, OpCode, Cond, S, Result, Flag, New_Flag); //Result_1,2 are wires? Won't work as inputs
 
 RAM ram(Enable,RW_ram,Address_in,DataIn,Out);
 RAM_i ins(Enable_i,RW_ram_i,Address_in_i,In_i,Out_i);
 Register_bank regbank(destination, source_1, source_2, reg_data, Result_1, Result_2, r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15,memory_enable);
 memory_control memcontrol(Result_1, Result_2, OpCode, Address_out, Result, reg_data, RW_mem, In, Out,memory_enable,IV_Mov);
 MASTER_ALU master(Result_1, Result_2, IV_ShftRor, IV_Mov, OpCode, Cond, S, Result, Flag, New_Flag,memory_enable);
-//always @(posedge Clk)
-//assign LDR_out=Result;
-//assign Result_mem=10;
+
 assign instruction = Out_i;
 assign Cond = instruction[31:28]; 
 assign OpCode =  instruction[27:24];
@@ -64,12 +55,7 @@ assign IV_ShftRor = instruction[10:6];
 //
 assign IV_Mov=instruction[18:3];
 
-//assign Address_in=Address_out;
-//assign RW_ram= RW_mem;
-//assign Result_1=10;
-//assign Result_2=10;
 
-assign reg_data_reg=reg_data;
 
 initial
 begin  
@@ -103,7 +89,7 @@ $readmemh("C:\\Users\\psaof\\Documents\\GitHub\\ENGR_468_Project\\Master_CPU\\As
 #5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd8;		DataIn=In;	Address_in=Address_out;RW_ram=RW_mem;
 #5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd9;		DataIn=In;	Address_in=Address_out;RW_ram=RW_mem;
 #5 Enable_i =1; 	RW_ram_i=1;	Address_in_i=32'd10;	DataIn=In;	Address_in=Address_out;RW_ram=RW_mem; //STR
-#5 Enable_i =1; 	RW_ram_i=1;	Address_in_i=32'd11;	DataIn=In;	Address_in=Address_out;RW_ram=1;//LDR
+#5 Enable_i =1; 	RW_ram_i=1;	Address_in_i=32'd11;	DataIn=In;	Address_in=Address_out;RW_ram=RW_mem;//LDR
 #5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd12;	DataIn=In;	Address_in=Address_out;RW_ram=RW_mem;
 #5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd13;	DataIn=In;	Address_in=Address_out;RW_ram=RW_mem;
 #5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd14;	DataIn=In;	Address_in=Address_out;RW_ram=RW_mem;
@@ -126,12 +112,3 @@ end
 
 
 endmodule
-
-//$monitor($time, "reg_data:%d Reg1:%d Reg2:%d destination:%b source_2:%b source_1:%b address:%b Result:%d flag :%b \n \n \n  R5=%d",
-
- //reg_data, Result_1, Result_2,destination,source_2, source_1,Address_out, Result, New_Flag,r5);
-
-
-//$monitor($time, "reg_data:%d Reg1:%d Reg2:%d Cond:%b S:%b destination:%b source_2:%b source_1:%b IV_ShiftRor:%d IV_Mov:%d address:%b OpCode:%b Result:%d flag :%b \n \n \n R0=%d, R1=%d, R2=%d, R3=%d, R4=%d R5=%d, R6=%d, R7=%d, R8=%d, R9=%d, R10=%d, R11=%d, R12=%d, R13=%d, R14=%d,R15=%d \n \n ",
-
-// reg_data_mem, Result_1, Result_2,Cond,S,destination,source_2, source_1, IV_ShiftRor, IV_Mov,Address_in, OpCode, Result,New_Flag, r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15);
