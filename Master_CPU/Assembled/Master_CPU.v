@@ -67,17 +67,19 @@ begin
 Flag=4'b0000;
 
 //Writing Ram contents
-Enable =1;   RW_ram=0;Address_in=3'd0;DataIn =32'hAAA0; 
-#5 Enable =1;   RW_ram=0;Address_in=3'd1;DataIn =32'hAAA1;
-#5 Enable =1;   RW_ram=0;Address_in=3'd2;DataIn =32'hAAA2;
-#5 Enable =1;   RW_ram=0;Address_in=3'd3;DataIn =32'hAAA3;
-#5 Enable =1;   RW_ram=0;Address_in=3'd4;DataIn =32'hAAA4;
-#5 Enable =1;   RW_ram=0;Address_in=3'd5;DataIn =32'hAAA5;
-#5 Enable =1;   RW_ram=0;Address_in=3'd6;DataIn =32'hAAA6;
-#5 Enable =1;   RW_ram=0;Address_in=3'd7;DataIn =32'hAAA7;
+//Enable =1;   RW_ram=0;Address_in=3'd0;DataIn =32'hAAA0; 
+//#5 Enable =1;   RW_ram=0;Address_in=3'd1;DataIn =32'hAAA1;
+//#5 Enable =1;   RW_ram=0;Address_in=3'd2;DataIn =32'hAAA2;
+//#5 Enable =1;   RW_ram=0;Address_in=3'd3;DataIn =32'hAAA3;
+//#5 Enable =1;   RW_ram=0;Address_in=3'd4;DataIn =32'hAAA4;
+//#5 Enable =1;   RW_ram=0;Address_in=3'd5;DataIn =32'hAAA5;
+//#5 Enable =1;   RW_ram=0;Address_in=3'd6;DataIn =32'hAAA6;
+//#5 Enable =1;   RW_ram=0;Address_in=3'd7;DataIn =32'hAAA7;
 
 //Reading from the instruction file
-$readmemh("C:\\Users\\psaof\\Documents\\GitHub\\ENGR_468_Project\\Master_CPU\\Assembled\\instructions.txt", ins.instr);
+
+Enable=1;
+$readmemb("C:\\Users\\psaof\\Documents\\GitHub\\ENGR_468_Project\\Master_CPU\\Assembled\\instructions.txt", ins.instr);
 #5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd0; 	 Flag=4'b0000;	DataIn=In; 	Address_in=Address_out; RW_ram=RW_mem;
 #5 Enable_i =1;  	RW_ram_i=1;	Address_in_i=32'd1;		DataIn=In; 	Address_in=Address_out; RW_ram=RW_mem;
 #5 Enable_i =1;   	RW_ram_i=1;	Address_in_i=32'd2;		DataIn=In;	Address_in=Address_out;RW_ram=RW_mem;
@@ -102,9 +104,9 @@ end
 initial
 begin
 
-$monitor($time, "R0=%h, R1=%d, R2=%d, R3=%d, R4=%d R5=%d, R6=%d, R7=%b, R8=%d, R9=%d, R10=%d, R11=%d, R12=%d, R13=%d, R14=%d,R15=%d \n",
+$monitor($time, "R0=%d, R1=%d, R2=%d, R3=%d, R4=%d R5=%d, R6=%d, R7=%d, R8=%d, R9=%d, R10=%d, R11=%d, R12=%d, R13=%d, R14=%d,R15=%d, flag=:%b \n",
 
- r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15);
+ r0, r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10, r11, r12, r13, r14, r15, New_Flag);
 
 //$monitor($time, "source_1:%d, source_2:%d,DataIn:%d, Address_in:%d instruction:%b", source_1, source_2, DataIn, Address_in, OpCode);
 
